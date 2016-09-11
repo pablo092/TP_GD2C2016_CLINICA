@@ -1,0 +1,11 @@
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+C:\Users\Pablo Daniel Hervida\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
+C:\Users\Pablo Daniel Hervida\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+C:\Users\Pablo Daniel Hervida\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
