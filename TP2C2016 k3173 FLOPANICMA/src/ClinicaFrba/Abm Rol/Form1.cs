@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinicaFrba.AbmRol
+namespace MercadoEnvio.ABM_Rol
 {
     public partial class Form1 : Form
     {

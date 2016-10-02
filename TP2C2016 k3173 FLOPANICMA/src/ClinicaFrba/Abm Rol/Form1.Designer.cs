@@ -1,4 +1,4 @@
-﻿namespace ClinicaFrba.AbmRol
+﻿namespace MercadoEnvio.ABM_Rol
 {
     partial class Form1
     {

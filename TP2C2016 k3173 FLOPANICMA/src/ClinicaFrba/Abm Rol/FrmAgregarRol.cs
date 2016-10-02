@@ -8,13 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinicaFrba
+namespace MercadoEnvio.ABM_Rol
 {
-    public partial class Form1 : Form
+    public partial class FrmAgregarRol : Form
     {
-        public Form1()
+        public FrmAgregarRol()
         {
             InitializeComponent();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }

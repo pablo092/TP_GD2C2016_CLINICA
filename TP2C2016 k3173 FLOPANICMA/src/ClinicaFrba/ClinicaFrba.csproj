@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,29 +69,65 @@
     <Compile Include="Abm Profesional\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmRol\Form1.cs">
+    <Compile Include="Abm Rol\FrmBuscarRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmRol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Rol\FrmBuscarRol.Designer.cs">
+      <DependentUpon>FrmBuscarRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Rol\FrmCrearRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\FrmCrearRol.Designer.cs">
+      <DependentUpon>FrmCrearRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministradorDao\AdministradorRol.cs" />
     <Compile Include="Cancelar Atencion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cancelar Atencion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\Conexion.cs" />
+    <Compile Include="Common\Estado.cs" />
+    <Compile Include="Common\Propiedades.cs" />
+    <Compile Include="Common\Respuesta.cs" />
+    <Compile Include="Common\UsuarioLogueado.cs" />
+    <Compile Include="Common\Validador.cs" />
     <Compile Include="Compra Bono\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Compra Bono\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="DAO\BaseDAO.cs" />
+    <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\FuncionalidadDAO.cs" />
+    <Compile Include="DAO\LoginDAO.cs" />
+    <Compile Include="DAO\RolDAO.cs" />
+    <Compile Include="DAO\TipoDocumentolDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="DTO\Administrador.cs" />
+    <Compile Include="DTO\Cliente.cs" />
+    <Compile Include="DTO\Direccion.cs" />
+    <Compile Include="DTO\Estado.cs" />
+    <Compile Include="DTO\Funcionalidad.cs" />
+    <Compile Include="DTO\IUsuario.cs" />
+    <Compile Include="DTO\Rol.cs" />
+    <Compile Include="DTO\TipoDocumento.cs" />
+    <Compile Include="DTO\TipoRol.cs" />
+    <Compile Include="DTO\Usuario.cs" />
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Listados\Form1.cs">
       <SubType>Form</SubType>
@@ -124,6 +161,18 @@
     <Compile Include="Registro Resultado\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abm Rol\FrmBuscarRol.resx">
+      <DependentUpon>FrmBuscarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\FrmCrearRol.resx">
+      <DependentUpon>FrmCrearRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
