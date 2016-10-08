@@ -138,8 +138,8 @@ namespace ClinicaFrba
         }
 
         /// <summary>
-        /// Se toma el perfil seleccionado, y se le pregunta al usuario si quiere que ese pase a ser su único perfil. 
-        /// En caso de que acepte, se eliminan los otros perfiles asociados.
+        /// Se toma el rol seleccionado, y se le pregunta al usuario si quiere que ese pase a ser su único rol. 
+        /// En caso de que acepte, se eliminan los otros rol asociados.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -174,7 +174,7 @@ namespace ClinicaFrba
         }
 
         /// <summary>
-        /// Abre el form principal, que contiene los menúes
+        /// Abre el form menu, que contiene los menúes
         /// </summary>
         /// <param name="usuario"></param>
         private void abrirFormularioMenu(Usuario usuario)
