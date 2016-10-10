@@ -29,15 +29,15 @@ namespace ClinicaFrba.DAO
             {
                 comando.CommandType = CommandType.StoredProcedure;
 
-                comando.Parameters.AddWithValue("@LOGIN", usuario.Username);
-                comando.Parameters.AddWithValue("@PASS", usuario.Clave);
+                comando.Parameters.AddWithValue("@USERNAME", usuario.Username);
+                comando.Parameters.AddWithValue("@PASSWORD", usuario.Clave);
 
                 SqlParameter idUsuario = new SqlParameter("@ID_USUARIO", SqlDbType.Int);
                 idUsuario.Size = sizeof(int);
                 idUsuario.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(idUsuario);
 
-                SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
+                SqlParameter valorRetorno1 = new SqlParameter("@ID_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
                 valorRetorno1.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno1);
