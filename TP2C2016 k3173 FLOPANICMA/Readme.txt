@@ -1,7 +1,7 @@
 ******CURSO******
 	K3173
 ******NÚMERO DE GRUPO:******
-
+	17
 ******NOMBRES Y LEGAJOS******
 	Hervida Pablo	  147.394-3
 	Giangardela Nicolas		119.822-1

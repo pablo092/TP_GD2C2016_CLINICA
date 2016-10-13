@@ -243,7 +243,7 @@ namespace ClinicaFrba.DAO
         {
             Respuesta respuesta = new Respuesta();
             
-            SqlCommand comando = new SqlCommand("RAT.GET_ROLES_POR_USUARIO", conexion);
+            SqlCommand comando = new SqlCommand("FLOPANICMA.GET_ROLES_POR_USUARIO", conexion);
             comando.Transaction = tran;
             
             try

@@ -50,7 +50,7 @@ namespace ClinicaFrba
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                new LoginDAO().actualizarPublicacionesFinalizadas();
+                //new LoginDAO().actualizarPublicacionesFinalizadas();
             }
             finally
             {
