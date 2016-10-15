@@ -15,7 +15,7 @@ namespace ClinicaFrba.DAO
     {
         /// <summary>
         /// Recupera una lista de todas las funcionalidades. 
-        /// invoca a RAT.GET_ALL_FUNCIONALIDADES
+        /// invoca a FLOPANICMA.GET_ALL_FUNCIONALIDADES
         /// </summary>
         /// <returns></returns>
         public DataTable getFuncionalidades()
@@ -24,7 +24,7 @@ namespace ClinicaFrba.DAO
 
             try
             {
-                SqlCommand comando = new SqlCommand("RAT.GET_ALL_FUNCIONALIDADES", conexion);
+                SqlCommand comando = new SqlCommand("FLOPANICMA.GET_ALL_FUNCIONALIDADES", conexion);
 
                 comando.CommandType = CommandType.StoredProcedure;
 
@@ -43,7 +43,7 @@ namespace ClinicaFrba.DAO
 
         /// <summary>
         /// Recupera una lista de todas las funcionalidades asignadas a un rol. 
-        /// invoca a RAT.GET_FUNCIONALIDADES_POR_ROL
+        /// invoca a FLOPANICMA.GET_FUNCIONALIDADES_POR_ROL
         /// </summary>
         /// <param name="descripcionRol"></param>
         /// <returns></returns>
@@ -55,14 +55,14 @@ namespace ClinicaFrba.DAO
 
             try
             {
-                SqlCommand comando = new SqlCommand("RAT.GET_FUNCIONALIDADES_POR_ROL", conexion);
+                SqlCommand comando = new SqlCommand("FLOPANICMA.GET_FUNCIONALIDADES_POR_ROL", conexion);
 
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.Clear();
-                comando.Parameters.AddWithValue("@DESCRIPCION_ROL", descripcionRol.ToUpper().Trim());
+                comando.Parameters.AddWithValue("@DESCRIPCION", descripcionRol.ToUpper().Trim());
 
-                SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
+                SqlParameter valorRetorno1 = new SqlParameter("@ID_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
                 valorRetorno1.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno1);

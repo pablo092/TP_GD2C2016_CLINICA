@@ -40,7 +40,7 @@ namespace ClinicaFrba.DTO
         {
             this.id =(int) unRol[0];
             this.descripcion =(string) unRol[1];
-            this.estaHabilitado = (int)unRol[2] == 1;
+            this.estaHabilitado = (bool)unRol[2];
         }
 
         public Rol( int id, string descripcion, bool habilitado)
