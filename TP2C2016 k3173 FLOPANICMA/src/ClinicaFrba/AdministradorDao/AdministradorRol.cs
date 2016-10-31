@@ -50,6 +50,25 @@ namespace ClinicaFrba.AdministradorDao
             }
         }
 
+        public Respuesta modificarRol(Rol rol)
+        {
+            Respuesta resp = new Respuesta();
+            SqlConnection conn = null;
+
+            try
+            {
+                conn = Conexion.getConexion();
+                return new RolDAO(conn).modificarEstadoRol(rol);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
         public Respuesta limpiarFuncionalidades(Rol rol)
         {
             Respuesta resp = new Respuesta();

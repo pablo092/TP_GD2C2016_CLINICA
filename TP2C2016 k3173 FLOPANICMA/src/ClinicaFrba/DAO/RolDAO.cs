@@ -29,7 +29,7 @@ namespace ClinicaFrba.DAO
 
         /// <summary>
         /// Inserta un rol nuevo
-        /// invoca a RAT.ABM_ROL_ALTA
+        /// invoca a FLOPANICMA.SP_ABM_ROL_ALTA
         /// </summary>
         /// <param name="rol"></param>
         /// <param name="tran"></param>
@@ -40,7 +40,7 @@ namespace ClinicaFrba.DAO
 
             try
             {
-                SqlCommand comando = new SqlCommand("RAT.ABM_ROL_ALTA", conexion);
+                SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_ALTA", conexion);
                 if (tran != null)
                 {
                     comando.Transaction = tran;
@@ -49,14 +49,64 @@ namespace ClinicaFrba.DAO
 
                 comando.Parameters.Clear();
 
-                comando.Parameters.AddWithValue("@DESCRIPCION_ROL", rol.Descripcion);
+                comando.Parameters.AddWithValue("@DESC_ROL", rol.Descripcion);
 
                 SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
                 valorRetorno1.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno1);
 
-                SqlParameter valorRetorno2 = new SqlParameter("@DESC_ERROR", SqlDbType.VarChar);
+                SqlParameter valorRetorno2 = new SqlParameter("@MENSAJE", SqlDbType.VarChar);
+                valorRetorno2.Size = 255 * sizeof(char);
+                valorRetorno2.Direction = ParameterDirection.Output;
+                comando.Parameters.Add(valorRetorno2);
+
+                comando.ExecuteNonQuery();  // Ejecuta el sp
+
+                resultadoSP.CodigoError = (int)valorRetorno1.Value;
+                resultadoSP.DescripcionError = valorRetorno2.Value.ToString();
+
+                return resultadoSP;
+            }
+            catch (Exception ex)
+            {
+                resultadoSP.CodigoError = 99;
+                resultadoSP.DescripcionError = "Error Fatal: " + ex.Message;
+                return resultadoSP;
+            }
+        }
+
+        /// <summary>
+        /// Habilita/Inhabilita un rol
+        /// invoca a FLOPANICMA.SP_ABM_ROL_ACTIVAR_DESACTIVAR
+        /// </summary>
+        /// <param name="rol"></param>
+        /// <param name="tran"></param>
+        /// <returns></returns>
+        public Respuesta modificarEstadoRol(Rol rol, SqlTransaction tran = null)
+        {
+            Respuesta resultadoSP = new Respuesta();
+
+            try
+            {
+                SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_ACTIVAR_DESACTIVAR", conexion);
+                if (tran != null)
+                {
+                    comando.Transaction = tran;
+                }
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Clear();
+
+                comando.Parameters.AddWithValue("@ID_ROL", rol.Id);
+                comando.Parameters.AddWithValue("@ACTIVO", rol.EstaHabilitado? 1:0);
+
+                SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
+                valorRetorno1.Size = sizeof(int);
+                valorRetorno1.Direction = ParameterDirection.Output;
+                comando.Parameters.Add(valorRetorno1);
+
+                SqlParameter valorRetorno2 = new SqlParameter("@MENSAJE", SqlDbType.VarChar);
                 valorRetorno2.Size = 255 * sizeof(char);
                 valorRetorno2.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno2);
@@ -78,7 +128,7 @@ namespace ClinicaFrba.DAO
 
         /// <summary>
         /// Desasocia tods las funcionalidades de un rol. 
-        /// invoca a RAT.ABM_ROL_QUITAR_TODAS_LAS_FUNCIONALIDADES
+        /// invoca a FLOPANICMA.SP_ABM_ROL_QUITAR_FUNCIONALIDAD
         /// </summary>
         /// <param name="rol"></param>
         /// <param name="tran"></param>
@@ -89,20 +139,21 @@ namespace ClinicaFrba.DAO
 
             try
             {
-                SqlCommand comando = new SqlCommand("RAT.ABM_ROL_QUITAR_TODAS_LAS_FUNCIONALIDADES", conexion);
+                SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_QUITAR_FUNCIONALIDAD", conexion);
                 comando.Transaction = tran;
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.Clear();
 
-                comando.Parameters.AddWithValue("@DESCRIPCION_ROL", rol.Descripcion);
+                comando.Parameters.AddWithValue("@DESC_ROL", rol.Descripcion);
+                comando.Parameters.AddWithValue("@DESC_FUNCIOANLIDAD", rol.Funcionalidad.Descripcion);
 
                 SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
                 valorRetorno1.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno1);
 
-                SqlParameter valorRetorno2 = new SqlParameter("@DESC_ERROR", SqlDbType.VarChar);
+                SqlParameter valorRetorno2 = new SqlParameter("@MENSAJE", SqlDbType.VarChar);
                 valorRetorno2.Size = 255 * sizeof(char);
                 valorRetorno2.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno2);
@@ -125,7 +176,7 @@ namespace ClinicaFrba.DAO
 
         /// <summary>
         /// Desasocia un rol de un usuario. 
-        /// invoca a RAT.ABM_USUARIO_ELIMINAR_ROL
+        /// invoca a FLOPANICMA.SP_ABM_ROL_ELIMINAR_IN_USER
         /// </summary>
         /// <param name="username"></param>
         /// <param name="rol"></param>
@@ -137,7 +188,7 @@ namespace ClinicaFrba.DAO
 
             try
             {
-                SqlCommand comando = new SqlCommand("RAT.ABM_USUARIO_ELIMINAR_ROL", conexion);
+                SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_ELIMINAR_IN_USER", conexion);
                 if (tran != null)
                 {
                     comando.Transaction = tran;
@@ -146,15 +197,15 @@ namespace ClinicaFrba.DAO
 
                 comando.Parameters.Clear();
 
-                comando.Parameters.AddWithValue("@LOGIN", username);
-                comando.Parameters.AddWithValue("@DESCRIPCION_ROL", rol);
+                comando.Parameters.AddWithValue("@USERNAME", username);
+                comando.Parameters.AddWithValue("@DESC_ROL", rol);
 
                 SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
                 valorRetorno1.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno1);
 
-                SqlParameter valorRetorno2 = new SqlParameter("@DESC_ERROR", SqlDbType.VarChar);
+                SqlParameter valorRetorno2 = new SqlParameter("@MENSAJE", SqlDbType.VarChar);
                 valorRetorno2.Size = 255 * sizeof(char);
                 valorRetorno2.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno2);
@@ -185,7 +236,7 @@ namespace ClinicaFrba.DAO
         }
 
         /// <summary>
-        /// Asocia una funcionalidad a un rol. invoca a RAT.ABM_ROL_AGREGAR_FUNCIONALIDAD
+        /// Asocia una funcionalidad a un rol. invoca a FLOPANICMA.SP_ABM_ROL_AGREGAR_FUNCIONALIDAD
         /// </summary>
         /// <param name="rol"></param>
         /// <param name="funcionalidad"></param>
@@ -197,21 +248,21 @@ namespace ClinicaFrba.DAO
             
             try
             {
-                SqlCommand comando = new SqlCommand("RAT.ABM_ROL_AGREGAR_FUNCIONALIDAD", conexion);
+                SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_AGREGAR_FUNCIONALIDAD", conexion);
                 comando.Transaction = tran;
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.Clear();
 
-                comando.Parameters.AddWithValue("@DESCRIPCION_ROL", rol.Descripcion);
-                comando.Parameters.AddWithValue("@DESCRIPCION_FUNCIONALIDAD", funcionalidad.Descripcion);
+                comando.Parameters.AddWithValue("@DESC_ROL", rol.Descripcion);
+                comando.Parameters.AddWithValue("@DESC_FUNCIONALIDAD", funcionalidad.Descripcion);
 
                 SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
                 valorRetorno1.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno1);
 
-                SqlParameter valorRetorno2 = new SqlParameter("@DESC_ERROR", SqlDbType.VarChar);
+                SqlParameter valorRetorno2 = new SqlParameter("@MENSAJE", SqlDbType.VarChar);
                 valorRetorno2.Size = 255 * sizeof(char);
                 valorRetorno2.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno2);
@@ -305,7 +356,7 @@ namespace ClinicaFrba.DAO
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Clear();
 
-                comando.Parameters.AddWithValue("@DESCRIPCION", descripcionRol.ToUpper().Trim());
+                comando.Parameters.AddWithValue("@DESCRIPCION_ROL", descripcionRol.ToUpper().Trim());
 
                 SqlDataReader reader = comando.ExecuteReader();
                 respuesta.Resultado = new DataTable();
@@ -327,7 +378,7 @@ namespace ClinicaFrba.DAO
         }
 
         /// <summary>
-        /// Permite modificar un rol existente. invoca a FLOPANICMA.ABM_ROL_MODIFICAR
+        /// Permite modificar un rol existente. invoca a FLOPANICMA.SP_ABM_ROL_MODIFICAR_NOMBRE
         /// </summary>
         /// <param name="rol"></param>
         /// <param name="tran"></param>
@@ -338,22 +389,21 @@ namespace ClinicaFrba.DAO
 
             try
             {
-                SqlCommand comando = new SqlCommand("FLOPANICMA.ABM_ROL_MODIFICAR", conexion);
+                SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_MODIFICAR_NOMBRE", conexion);
                 comando.Transaction = tran;
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.Clear();
 
                 comando.Parameters.AddWithValue("@ID_ROL", rol.Id);
-                comando.Parameters.AddWithValue("@DESCRIPCION", rol.Descripcion);
-                comando.Parameters.AddWithValue("@ACTIVO", rol.EstaHabilitado ? 1 : 2);
+                comando.Parameters.AddWithValue("@DESC_ROL", rol.Descripcion);
 
-                SqlParameter valorRetorno1 = new SqlParameter("@ID_ERROR", SqlDbType.Int);
+                SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
                 valorRetorno1.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno1);
 
-                SqlParameter valorRetorno2 = new SqlParameter("@DESC_ERROR", SqlDbType.VarChar);
+                SqlParameter valorRetorno2 = new SqlParameter("@MENSAJE", SqlDbType.VarChar);
                 valorRetorno2.Size = 255 * sizeof(char);
                 valorRetorno2.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(valorRetorno2);

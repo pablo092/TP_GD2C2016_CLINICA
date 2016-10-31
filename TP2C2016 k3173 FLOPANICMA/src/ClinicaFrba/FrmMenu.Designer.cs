@@ -32,46 +32,57 @@
             this.btnMenuRol = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuRolBusqueda = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuRolAlta = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuUsuarioBusqueda = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuUsuarioAlta = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuRubro = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuRubroBusqueda = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuVisibilidad = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuVisibilidadBusqueda = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuVisibilidadAlta = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuPublicaciones = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuPublicacionesGenerar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuPublicacionesMisPublicaciones = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuOfertar = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuHistorialCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.vERHISTORIALToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuCalificarVendedor = new System.Windows.Forms.ToolStripMenuItem();
             this.cALIFICARCOMPRAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuFacturasVendedor = new System.Windows.Forms.ToolStripMenuItem();
             this.bUSCARFACTURASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuListadoEstadistico = new System.Windows.Forms.ToolStripMenuItem();
             this.vERESTADISTICASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuCliente = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnMenuEmpresa = new System.Windows.Forms.ToolStripMenuItem();
+
             this.btnCambiarPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.mnPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnPrincipal
             // 
-            this.mnPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnMenuRol,
-            this.btnMenuUsuario,
-            this.btnMenuRubro,
-            this.btnMenuVisibilidad,
-            this.btnMenuPublicaciones,
-            this.btnMenuOfertar,
-            this.btnMenuHistorialCliente,
-            this.btnMenuCalificarVendedor,
-            this.btnMenuFacturasVendedor,
-            this.btnMenuListadoEstadistico,
-            this.btnCambiarPassword});
+            this.mnPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.btnMenuRol,
+                                                                                    this.btnMenuUsuario,
+                                                                                    this.btnMenuRubro,
+                                                                                    this.btnMenuVisibilidad,
+                                                                                    this.btnMenuPublicaciones,
+                                                                                    this.btnMenuOfertar,
+                                                                                    this.btnMenuHistorialCliente,
+                                                                                    this.btnMenuCalificarVendedor,
+                                                                                    this.btnMenuFacturasVendedor,
+                                                                                    this.btnMenuListadoEstadistico,
+                                                                                    this.btnCambiarPassword});
             this.mnPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnPrincipal.Name = "mnPrincipal";
             this.mnPrincipal.Size = new System.Drawing.Size(1208, 24);
@@ -80,9 +91,7 @@
             // 
             // btnMenuRol
             // 
-            this.btnMenuRol.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnMenuRolBusqueda,
-            this.btnMenuRolAlta});
+            this.btnMenuRol.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.btnMenuRolBusqueda, this.btnMenuRolAlta});
             this.btnMenuRol.Name = "btnMenuRol";
             this.btnMenuRol.Size = new System.Drawing.Size(41, 20);
             this.btnMenuRol.Text = "ROL";

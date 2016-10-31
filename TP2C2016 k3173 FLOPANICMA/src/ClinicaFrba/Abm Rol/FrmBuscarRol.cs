@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ClinicaFrba.AdministradorDao;
 
 namespace ClinicaFrba.ABM_Rol
 {
@@ -20,7 +21,6 @@ namespace ClinicaFrba.ABM_Rol
         public FrmBuscarRol()
         {
             InitializeComponent();
-            buscarRol();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -30,15 +30,17 @@ namespace ClinicaFrba.ABM_Rol
 
         private void buscarRol()
         {
+            Respuesta respuesta = null;
             listadoRoles.DataSource = null;
+
             if (listadoRoles.Columns.Count != 0)
             {
                 listadoRoles.Columns.RemoveAt(0);
             }
 
             RolDAO rolDao = new RolDAO();
+            respuesta = rolDao.getRolByDescripcion(txtRolNombre.Text);
 
-            Respuesta respuesta = rolDao.getRolByDescripcion(txtRolNombre.Text);
             if (respuesta.CodigoError != 0)
             {
                 msgBusqueda.Text = respuesta.DescripcionError;
@@ -49,18 +51,39 @@ namespace ClinicaFrba.ABM_Rol
             {
                 listadoRoles.DataSource = respuesta.Resultado;
                 listadoRoles.Columns["ID_ROL"].Visible = false;
-                listadoRoles.Columns["ID_ESTADO"].Visible = false;
-                DataGridViewButtonColumn buttons = new DataGridViewButtonColumn();
+                listadoRoles.Columns["ACTIVO"].Visible = false;
+                DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
                 {
-                    buttons.HeaderText = "Acción";
-                    buttons.Text = "Editar";
-                    buttons.UseColumnTextForButtonValue = true;
-                    buttons.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    buttons.FlatStyle = FlatStyle.Standard;
-                    buttons.CellTemplate.Style.BackColor = Color.Honeydew;
-                    buttons.DisplayIndex = 4;
+                    editar.HeaderText = "Acción";
+                    editar.Text = "Editar";
+                    editar.UseColumnTextForButtonValue = true;
+                    editar.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    editar.FlatStyle = FlatStyle.Standard;
+                    editar.CellTemplate.Style.BackColor = Color.Honeydew;
+                    editar.DisplayIndex = 4;
                 }
-                listadoRoles.Columns.Add(buttons);
+                listadoRoles.Columns.Add(editar);
+
+                DataGridViewButtonColumn modificar = new DataGridViewButtonColumn();
+                {
+                    modificar.HeaderText = "Opción";
+                    for(int i = 0; i < listadoRoles.Rows.Count; i++) {
+                        if (!(bool)listadoRoles.Rows[i].Cells["ACTIVO"].Value)
+                        {
+                            modificar.Text = "Habilitar";
+                        }
+                        else
+                        {
+                            modificar.Text = "Deshabilitar";
+                        }
+                    }
+                    modificar.UseColumnTextForButtonValue = true;
+                    modificar.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    modificar.FlatStyle = FlatStyle.Standard;
+                    modificar.CellTemplate.Style.BackColor = Color.Honeydew;
+                    modificar.DisplayIndex = 4;
+                }
+                listadoRoles.Columns.Add(modificar);
                 msgBusqueda.Text = "";
 
             }
@@ -88,26 +111,40 @@ namespace ClinicaFrba.ABM_Rol
 
         private void listadoRoles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Rol rol = new Rol();
             DataGridViewRow filaSeleccionada = listadoRoles.Rows[e.RowIndex];
-
+            Rol rol = new Rol();
+                
             rol.Id = (int)filaSeleccionada.Cells["ID_ROL"].Value;
             rol.Descripcion = (String)listadoRoles.Rows[e.RowIndex].Cells["DESCRIPCION"].Value;
-            rol.EstaHabilitado = (int)listadoRoles.Rows[e.RowIndex].Cells["ID_ESTADO"].Value == 1;
-            
-            if (devolveValor)
+            rol.EstaHabilitado = (bool)listadoRoles.Rows[e.RowIndex].Cells["ACTIVO"].Value;
+
+            if (e.ColumnIndex == 4)
             {
-                valorDevuelto = rol.Descripcion;
+                if (rol.Equals(UsuarioLogueado.usuario.Rol))
+                {
+                    MessageBox.Show("No se puede deshabilitar el Rol con el que se ingresó al sistema.");
+                    return;
+                }
+                else
+                {
+                    AdministradorRol admRol = new AdministradorRol();
+                    admRol.modificarRol(rol);
+                    listadoRoles.UpdateCellValue(e.ColumnIndex,e.RowIndex);
+                }    
             }
             else
             {
-                FrmCrearRol frmModificarRol = new FrmCrearRol(rol);
-                frmModificarRol.ShowDialog();
+                if (devolveValor)
+                {
+                    valorDevuelto = rol.Descripcion;
+                }
+                else
+                {
+                    FrmCrearRol frmModificarRol = new FrmCrearRol(rol);
+                    frmModificarRol.ShowDialog();
+                }
             }
-            buscarRol();
+            
         }
-        
-
-
     }
 }
