@@ -15,6 +15,7 @@ namespace ClinicaFrba.Common
         }
 
         /// <summary>
+        /// Retorna el valor correspondiente al estado
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
