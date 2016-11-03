@@ -12,6 +12,8 @@ using ClinicaFrba.DAO;
 using ClinicaFrba.DTO;
 using ClinicaFrba.ABM_Rol;
 using ClinicaFrba.Common;
+using ClinicaFrba.ABM_Afiliado;
+using ClinicaFrba.Listado_Estadistico;
 
 
 namespace ClinicaFrba
@@ -60,18 +62,18 @@ namespace ClinicaFrba
         /// </summary>
         private void inhabilitarTodo()
         {
-            btnMenuCalificarVendedor.Visible = false;
-            btnMenuCliente.Visible = false;
-            btnMenuEmpresa.Visible = false;
-            btnMenuFacturasVendedor.Visible = false;
-            btnMenuHistorialCliente.Visible = false;
+            btnMenuPedidoTurno.Visible = false;
+            btnMenuRegistrarLlegadaAM.Visible = false;
+            btnMenuRegistrarResultadoAM.Visible = false;
+            btnMenuRegistrarAgenda.Visible = false;
             btnMenuListadoEstadistico.Visible = false;
-            btnMenuOfertar.Visible = false;
-            btnMenuPublicaciones.Visible = false;
+            btnMenuComprarBono.Visible = false;
+            btnMenuEspecialidadesMedicas.Visible = false;
             btnMenuRol.Visible = false;
-            btnMenuRubro.Visible = false;
-            btnMenuUsuario.Visible = false;
-            btnMenuVisibilidad.Visible = false;
+            btnMenuPlan.Visible = false;
+            btnMenuAfiliado.Visible = false;
+            btnMenuProfesional.Visible = false;
+            btnMenuCancelarAtencion.Visible = false;
         }
 
         /// <summary>
@@ -83,49 +85,49 @@ namespace ClinicaFrba
             if (UsuarioLogueado.funcionalidades.Contains("ABM DE ROL")){
                 btnMenuRol.Visible = true;                
             }
-            if (UsuarioLogueado.funcionalidades.Contains("ABM DE USUARIO"))
+            if (UsuarioLogueado.funcionalidades.Contains("ABM DE AFILIADO"))
             {
-                btnMenuUsuario.Visible = true;
+                btnMenuAfiliado.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("ABM DE RUBRO"))
+            if (UsuarioLogueado.funcionalidades.Contains("ABM DE PLANES MEDICOS"))
             {
-                btnMenuRubro.Visible = true;
+                btnMenuPlan.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("ABM DE VISIBILIDAD"))
+            if (UsuarioLogueado.funcionalidades.Contains("ABM DE PROFESIONAL"))
             {
-                btnMenuVisibilidad.Visible = true;
+                btnMenuProfesional.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("BUSQUEDA CLIENTE"))
+            if (UsuarioLogueado.funcionalidades.Contains("ABM DE ESPECIALIDADES MEDICAS"))
             {
-                btnMenuCliente.Visible = true;
+                btnMenuEspecialidadesMedicas.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("BUSQUEDA EMPRESA"))
+            if (UsuarioLogueado.funcionalidades.Contains("COMPRA DE BONOS"))
             {
-                btnMenuEmpresa.Visible = true;           
+                btnMenuComprarBono.Visible = true;             
             }
-            if (UsuarioLogueado.funcionalidades.Contains("GENERAR PUBLICACION"))
+            if (UsuarioLogueado.funcionalidades.Contains("REGISTRAR AGENDA PROFESIONAL"))
             {
-                btnMenuPublicaciones.Visible = true;
+                btnMenuRegistrarAgenda.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("COMPRAR OFERTAR"))
+            if (UsuarioLogueado.funcionalidades.Contains("PEDIR TURNO"))
             {
-                btnMenuOfertar.Visible = true;             
+                btnMenuPedidoTurno.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("HISTORIAL"))
+            if (UsuarioLogueado.funcionalidades.Contains("REGISTRAR LLEGADA"))
             {
-                btnMenuHistorialCliente.Visible = true;
+                btnMenuRegistrarLlegadaAM.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("CALIFICAR"))
-            {
-                btnMenuCalificarVendedor.Visible = true;
-            }
-            if (UsuarioLogueado.funcionalidades.Contains("FACTURAS REALIZADAS"))
-            {
-                btnMenuFacturasVendedor.Visible = true;
-            }
-            if (UsuarioLogueado.funcionalidades.Contains("LISTADO ESTADISTICO"))
+            if (UsuarioLogueado.funcionalidades.Contains("LISTADOS"))
             {
                 btnMenuListadoEstadistico.Visible = true;
+            }
+            if (UsuarioLogueado.funcionalidades.Contains("REGISTRAR RESULTADO"))
+            {
+                btnMenuRegistrarResultadoAM.Visible = true;
+            }
+            if (UsuarioLogueado.funcionalidades.Contains("CANCELAR ATENCION"))
+            {
+                btnMenuCancelarAtencion.Visible = true;
             }
         }
 
@@ -141,43 +143,43 @@ namespace ClinicaFrba
             frmRolCrear.ShowDialog();
         }
 
-        //private void btnMenuUsuarioAlta_Click(object sender, EventArgs e)
+        //private void btnMenuAfiliadoAlta_Click(object sender, EventArgs e)
         //{
         //    FrmModificarUsuario frmUsuarioCrear = new FrmModificarUsuario();
         //    frmUsuarioCrear.ShowDialog();
         //}
 
-        //private void btnMenuRubroBusqueda_Click(object sender, EventArgs e)
+        //private void btnMenuPlanBusqueda_Click(object sender, EventArgs e)
         //{
         //    FrmBuscarRubro frmRubroBusqueda = new FrmBuscarRubro();
         //    frmRubroBusqueda.ShowDialog();
         //}
 
-        //private void btnMenuUsuarioBusqueda_Click(object sender, EventArgs e)
+        //private void btnMenuAfiliadoBusqueda_Click(object sender, EventArgs e)
         //{
         //    FrmBuscarUsuario frmBuscarUsuario = new FrmBuscarUsuario();
         //    frmBuscarUsuario.ShowDialog();
         //}
 
-        //private void btnMenuPublicacionesGenerar_Click(object sender, EventArgs e)
+        //private void btnMenuEspecialidadesMedicasGenerar_Click(object sender, EventArgs e)
         //{
         //    FrmPublicacion frmPublicacion = new FrmPublicacion( );
         //    frmPublicacion.ShowDialog();
         //}
 
-        //private void btnMenuVisibilidadAlta_Click(object sender, EventArgs e)
+        //private void btnMenuProfesionalAlta_Click(object sender, EventArgs e)
         //{
         //    FrmABMVisibilidad frmAbmVisibilidad  = new FrmABMVisibilidad();
         //    frmAbmVisibilidad.ShowDialog();
         //}
 
-        //private void btnMenuVisibilidadBusqueda_Click(object sender, EventArgs e)
+        //private void btnMenuProfesionalBusqueda_Click(object sender, EventArgs e)
         //{
         //    FrmBuscarVisibilidad frmBusquedaVisibilidad = new FrmBuscarVisibilidad();
         //    frmBusquedaVisibilidad.ShowDialog();
         //}
 
-        //private void btnMenuOfertar_Click(object sender, EventArgs e)
+        //private void btnMenuComprarBono_Click(object sender, EventArgs e)
         //{
         //    FrmComprarOfertar frmOfertar = new FrmComprarOfertar();
         //    frmOfertar.ShowDialog();
@@ -186,59 +188,33 @@ namespace ClinicaFrba
         //private void btnMenuDesconectar_Click(object sender, EventArgs e)
         //{
         //    new FrmAutentificacion(this).ShowDialog();
-        //}
+        //}       
 
-        //private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //    this.frmAutentificacion.Close();
-        //}
-
-        //private void btnMenuPublicacionesMisPublicaciones_Click(object sender, EventArgs e)
+        //private void btnMenuEspecialidadesMedicas_Click(object sender, EventArgs e)
         //{
         //    new FrmMisPublicaciones().ShowDialog();
         //}
 
-        //private void vERESTADISTICASToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    FrmListadoEstadistico frmListadoEstadistico = new FrmListadoEstadistico();
-        //    frmListadoEstadistico.ShowDialog();
-        //}
-
-        //private void bUSCARFACTURASToolStripMenuItem_Click(object sender, EventArgs e)
+        //private void btnMenuRegistrarResultadoAM_Click(object sender, EventArgs e)
         //{
         //    FrmFacturasVendedor frmFacturasVendedor = new FrmFacturasVendedor();
         //    frmFacturasVendedor.ShowDialog();
         //}
 
-        //private void cALIFICARCOMPRAToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    FrmCalificar frmCalificar = new FrmCalificar();
-        //    frmCalificar.ShowDialog();
-        //}
+        private void btnMenuVerListado_Click(object sender, EventArgs e)
+        {
+            FrmListadoEstadistico frmListadoEstadistico = new FrmListadoEstadistico();
+            frmListadoEstadistico.ShowDialog();
+        }
 
-        //private void vERHISTORIALToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    FrmHistorialCliente frmHistorialCliente = new FrmHistorialCliente();
-        //    frmHistorialCliente.ShowDialog();
-        //}
-
-        //private void bUSCAREDITARCLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    FrmBuscarCliente frmBuscarCliente = new FrmBuscarCliente();
-        //    frmBuscarCliente.ShowDialog();
-        //}
-
-        //private void bUSCAREDITAREMPRESAToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    FrmBuscarEmpresa frmBuscarEmpresa = new FrmBuscarEmpresa();
-        //    frmBuscarEmpresa.Show();
-        //}
-
-        //private void btnCambiarPassword_Click(object sender, EventArgs e)
-        //{
-        //    FrmModificarPassword frmModificarPassword = new FrmModificarPassword();
-        //    frmModificarPassword.Show();
-        //}
-
+        private void btnCambiarPassword_Click(object sender, EventArgs e)
+        {
+            FrmModificarPassword frmModificarPassword = new FrmModificarPassword();
+            frmModificarPassword.Show();
+        }
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.frmLogin.Close();
+        }
     }
 }

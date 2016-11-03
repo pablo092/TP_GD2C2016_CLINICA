@@ -15,7 +15,6 @@ namespace ClinicaFrba.Common
         }
 
         /// <summary>
-        /// Retorna el valor correspondiente a la tabla rat.estado
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>

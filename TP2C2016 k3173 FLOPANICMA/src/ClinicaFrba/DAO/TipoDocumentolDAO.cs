@@ -21,7 +21,7 @@ namespace ClinicaFrba.DAO
         {
             Respuesta respuesta = new Respuesta();
 
-            SqlCommand comando = new SqlCommand("RAT.GET_ALL_TIPOS_DOCUMENTO", conexion);
+            SqlCommand comando = new SqlCommand("FLOPANICMA.GET_ALL_TIPOS_DOCUMENTO", conexion);
             try
             {
                 comando.CommandType = CommandType.StoredProcedure;

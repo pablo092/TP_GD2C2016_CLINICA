@@ -10,3 +10,5 @@ C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\sr
 C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\bin\Release\ClinicaFrba.pdb
 C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\obj\Release\ClinicaFrba.exe
 C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\obj\Release\ClinicaFrba.pdb
+C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\obj\Release\ClinicaFrba.ABM_Afiliado.FrmModificarPassword.resources
+C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\obj\Release\ClinicaFrba.Listado_Estadistico.FrmListadoEstadistico.resources

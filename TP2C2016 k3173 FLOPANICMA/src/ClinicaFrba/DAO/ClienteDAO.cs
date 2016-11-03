@@ -16,7 +16,7 @@ namespace ClinicaFrba.DAO
 
         /// <summary>
         /// Modificar Usuario - Cliente. 
-        /// invoca a RAT.ABM_USUARIO_MODIFICAR_CLIENTE
+        /// invoca a FLOPANICMA.ABM_USUARIO_MODIFICAR_CLIENTE
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns></returns>
@@ -28,7 +28,7 @@ namespace ClinicaFrba.DAO
             {
                 if (cliente.Id > 0)
                 {
-                    comando = new SqlCommand("RAT.ABM_USUARIO_MODIFICAR_CLIENTE", conexion);
+                    comando = new SqlCommand("FLOPANICMA.ABM_USUARIO_MODIFICAR_CLIENTE", conexion);
 
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -38,7 +38,7 @@ namespace ClinicaFrba.DAO
                 }
                 else
                 {
-                    comando = new SqlCommand("RAT.ABM_USUARIO_ALTA_CLIENTE", conexion);
+                    comando = new SqlCommand("FLOPANICMA.ABM_USUARIO_ALTA_CLIENTE", conexion);
 
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.Clear();
@@ -118,7 +118,7 @@ namespace ClinicaFrba.DAO
 
         /// <summary>
         /// Filtra los Usuario - Cliente por nombre, apellido, mail, documento, tipo documento. 
-        /// invoca a RAT.GET_CLIENTES_POR_DESCRIPCION
+        /// invoca a FLOPANICMA.GET_CLIENTES_POR_DESCRIPCION
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns></returns>
@@ -127,7 +127,7 @@ namespace ClinicaFrba.DAO
             Respuesta respuesta = new Respuesta();
             try
             {
-                SqlCommand comando = new SqlCommand("RAT.GET_CLIENTES_POR_DESCRIPCION", conexion);
+                SqlCommand comando = new SqlCommand("FLOPANICMA.GET_CLIENTES_POR_DESCRIPCION", conexion);
 
                 comando.CommandType = CommandType.StoredProcedure;
 
