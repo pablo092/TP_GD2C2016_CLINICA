@@ -131,11 +131,11 @@ namespace ClinicaFrba.Listado_Estadistico
 
             if (metodo.Equals(ListadoEstadisticoDAO.Metodo.FacturasPorVendedor))
             {
-                respuesta = dao.getTop5FacturasPorVendedor(anio, trimestre);                
+                //respuesta = dao.getTop5FacturasPorVendedor(anio, trimestre);                
             }
             else if (metodo.Equals(ListadoEstadisticoDAO.Metodo.MontoPorVendedor))
             {
-                respuesta = dao.getTop5MontoFacturasPorVendedor(anio, trimestre);
+                //respuesta = dao.getTop5MontoFacturasPorVendedor(anio, trimestre);
             }
             else if (metodo.Equals(ListadoEstadisticoDAO.Metodo.ProductosCompradosPorRubro))
             {

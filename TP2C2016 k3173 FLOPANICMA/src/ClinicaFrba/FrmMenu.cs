@@ -201,7 +201,7 @@ namespace ClinicaFrba
         //    frmFacturasVendedor.ShowDialog();
         //}
 
-        private void btnMenuVerListado_Click(object sender, EventArgs e)
+        private void btnMenuListadoEstadistico_Click(object sender, EventArgs e)
         {
             FrmListadoEstadistico frmListadoEstadistico = new FrmListadoEstadistico();
             frmListadoEstadistico.ShowDialog();
