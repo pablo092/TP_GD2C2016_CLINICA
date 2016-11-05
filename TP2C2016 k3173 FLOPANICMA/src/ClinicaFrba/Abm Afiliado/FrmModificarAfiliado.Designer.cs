@@ -1,6 +1,6 @@
-﻿namespace ClinicaFrba.Pedir_Turno
+﻿namespace ClinicaFrba.Abm_Afiliado
 {
-    partial class Form1
+    partial class FrmModificarAfiliado
     {
         /// <summary>
         /// Required designer variable.

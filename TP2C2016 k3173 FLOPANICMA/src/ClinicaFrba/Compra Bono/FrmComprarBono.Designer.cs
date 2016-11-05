@@ -1,6 +1,6 @@
 ﻿namespace ClinicaFrba.Compra_Bono
 {
-    partial class Form1
+    partial class FrmComprarBono
     {
         /// <summary>
         /// Required designer variable.

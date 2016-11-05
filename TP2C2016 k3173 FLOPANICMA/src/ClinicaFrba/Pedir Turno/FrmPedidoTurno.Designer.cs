@@ -1,6 +1,6 @@
-﻿namespace ClinicaFrba.Registrar_Agenta_Medico
+﻿namespace ClinicaFrba.Pedir_Turno
 {
-    partial class Form1
+    partial class FrmPedidoTurno
     {
         /// <summary>
         /// Required designer variable.

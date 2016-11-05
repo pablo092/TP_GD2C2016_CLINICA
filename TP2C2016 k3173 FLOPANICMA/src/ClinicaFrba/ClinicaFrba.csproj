@@ -45,29 +45,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abm Afiliado\FrmBuscarAfiliado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\FrmBuscarAfiliado.Designer.cs">
+      <DependentUpon>FrmBuscarAfiliado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Afiliado\FrmModificarAfiliado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\FrmModificarAfiliado.Designer.cs">
+      <DependentUpon>FrmModificarAfiliado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Afiliado\FrmModificarPassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Afiliado\FrmModificarPassword.Designer.cs">
       <DependentUpon>FrmModificarPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Especialidades Medicas\Form1.cs">
+    <Compile Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Especialidades Medicas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.Designer.cs">
+      <DependentUpon>FrmBuscarEspecialidadesMedicas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Planes\Form1.cs">
+    <Compile Include="Abm Planes\FrmBuscarPlan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Planes\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Planes\FrmBuscarPlan.Designer.cs">
+      <DependentUpon>FrmBuscarPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Profesional\Form1.cs">
+    <Compile Include="Abm Profesional\FrmABMProfesional.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Profesional\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Profesional\FrmABMProfesional.Designer.cs">
+      <DependentUpon>FrmABMProfesional.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rol\FrmBuscarRol.cs">
       <SubType>Form</SubType>
@@ -82,11 +94,11 @@
       <DependentUpon>FrmCrearRol.cs</DependentUpon>
     </Compile>
     <Compile Include="AdministradorDao\AdministradorRol.cs" />
-    <Compile Include="Cancelar Atencion\Form1.cs">
+    <Compile Include="Cancelar Atencion\FrmCancelarAtencion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cancelar Atencion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Cancelar Atencion\FrmCancelarAtencion.Designer.cs">
+      <DependentUpon>FrmCancelarAtencion.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Conexion.cs" />
     <Compile Include="Common\Estado.cs" />
@@ -94,11 +106,11 @@
     <Compile Include="Common\Respuesta.cs" />
     <Compile Include="Common\UsuarioLogueado.cs" />
     <Compile Include="Common\Validador.cs" />
-    <Compile Include="Compra Bono\Form1.cs">
+    <Compile Include="Compra Bono\FrmComprarBono.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compra Bono\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Compra Bono\FrmComprarBono.Designer.cs">
+      <DependentUpon>FrmComprarBono.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
@@ -118,6 +130,7 @@
     <Compile Include="DTO\TipoDocumento.cs" />
     <Compile Include="DTO\TipoRol.cs" />
     <Compile Include="DTO\Usuario.cs" />
+    <Compile Include="FrmBuscarAfiliado.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,34 +149,37 @@
     <Compile Include="Listados\FrmListadoEstadistico.Designer.cs">
       <DependentUpon>FrmListadoEstadistico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pedir Turno\Form1.cs">
+    <Compile Include="Pedir Turno\FrmPedidoTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pedir Turno\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Pedir Turno\FrmPedidoTurno.Designer.cs">
+      <DependentUpon>FrmPedidoTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registrar Agenta Medico\Form1.cs">
+    <Compile Include="Registrar Agenta Medico\FrmRegistrarAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrar Agenta Medico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registrar Agenta Medico\FrmRegistrarAgenda.Designer.cs">
+      <DependentUpon>FrmRegistrarAgenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Llegada\Form1.cs">
+    <Compile Include="Registro Llegada\FrmRegistrarLlegada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Llegada\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Llegada\FrmRegistrarLlegada.Designer.cs">
+      <DependentUpon>FrmRegistrarLlegada.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Resultado\Form1.cs">
+    <Compile Include="Registro Resultado\FrmRegistrarResultado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Resultado\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Resultado\FrmRegistrarResultado.Designer.cs">
+      <DependentUpon>FrmRegistrarResultado.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Abm Afiliado\FrmModificarPassword.resx">
       <DependentUpon>FrmModificarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Profesional\FrmABMProfesional.resx">
+      <DependentUpon>FrmABMProfesional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\FrmBuscarRol.resx">
       <DependentUpon>FrmBuscarRol.cs</DependentUpon>

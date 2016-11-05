@@ -1,6 +1,6 @@
-﻿namespace ClinicaFrba.Registro_Resultado
+﻿namespace ClinicaFrba.Abm_Planes
 {
-    partial class Form1
+    partial class FrmBuscarPlan
     {
         /// <summary>
         /// Required designer variable.

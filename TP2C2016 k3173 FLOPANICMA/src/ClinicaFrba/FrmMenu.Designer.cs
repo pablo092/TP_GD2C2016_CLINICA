@@ -51,8 +51,6 @@
             this.btnMenuCancelarAtencion = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuListadoEstadistico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCambiarPassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMenuEspecialidadesMedicasAlta = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMenuPedidoTurnoGenerar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,12 +119,14 @@
             this.btnMenuAfiliadoBusqueda.Name = "btnMenuAfiliadoBusqueda";
             this.btnMenuAfiliadoBusqueda.Size = new System.Drawing.Size(222, 22);
             this.btnMenuAfiliadoBusqueda.Text = "BUSCAR / EDITAR AFILIADO";
+            this.btnMenuAfiliadoBusqueda.Click += new System.EventHandler(this.btnMenuAfiliadoBusqueda_Click);
             // 
             // btnMenuAfiliadoAlta
             // 
             this.btnMenuAfiliadoAlta.Name = "btnMenuAfiliadoAlta";
             this.btnMenuAfiliadoAlta.Size = new System.Drawing.Size(222, 22);
             this.btnMenuAfiliadoAlta.Text = "INGRESAR AFILIADO";
+            this.btnMenuAfiliadoAlta.Click += new System.EventHandler(this.btnMenuAfiliadoAlta_Click);
             // 
             // btnMenuProfesional
             // 
@@ -141,6 +141,7 @@
             this.btnMenuProfesionalAlta.Name = "btnMenuProfesionalAlta";
             this.btnMenuProfesionalAlta.Size = new System.Drawing.Size(207, 22);
             this.btnMenuProfesionalAlta.Text = "INGRESAR PROFESIONAL";
+            this.btnMenuProfesionalAlta.Click += new System.EventHandler(this.btnMenuProfesionalAlta_Click);
             // 
             // btnMenuEspecialidadesMedicas
             // 
@@ -155,6 +156,7 @@
             this.btnMenuEspecialidadesMedicasBusqueda.Name = "btnMenuEspecialidadesMedicasBusqueda";
             this.btnMenuEspecialidadesMedicasBusqueda.Size = new System.Drawing.Size(283, 22);
             this.btnMenuEspecialidadesMedicasBusqueda.Text = "LISTADO DE ESPECIALIDADES MÉDICAS";
+            this.btnMenuEspecialidadesMedicasBusqueda.Click += new System.EventHandler(this.btnMenuEspecialidadesMedicasBusqueda_Click);
             // 
             // btnMenuPlan
             // 
@@ -169,6 +171,7 @@
             this.btnMenuPlanBusqueda.Name = "btnMenuPlanBusqueda";
             this.btnMenuPlanBusqueda.Size = new System.Drawing.Size(237, 22);
             this.btnMenuPlanBusqueda.Text = "LISTADO DE PLANES MÉDICOS";
+            this.btnMenuPlanBusqueda.Click += new System.EventHandler(this.btnMenuPlanBusqueda_Click);
             // 
             // btnMenuRegistrar
             // 
@@ -185,35 +188,41 @@
             this.btnMenuRegistrarAgenda.Name = "btnMenuRegistrarAgenda";
             this.btnMenuRegistrarAgenda.Size = new System.Drawing.Size(263, 22);
             this.btnMenuRegistrarAgenda.Text = "AGENDA";
+            this.btnMenuRegistrarAgenda.Click += new System.EventHandler(this.btnMenuRegistrarAgenda_Click);
             // 
             // btnMenuRegistrarLlegadaAM
             // 
             this.btnMenuRegistrarLlegadaAM.Name = "btnMenuRegistrarLlegadaAM";
             this.btnMenuRegistrarLlegadaAM.Size = new System.Drawing.Size(263, 22);
             this.btnMenuRegistrarLlegadaAM.Text = "LLEGADA A ATENCIÓN MÉDICA";
+            this.btnMenuRegistrarLlegadaAM.Click += new System.EventHandler(this.btnMenuRegistrarLlegadaAM_Click);
             // 
             // btnMenuRegistrarResultadoAM
             // 
             this.btnMenuRegistrarResultadoAM.Name = "btnMenuRegistrarResultadoAM";
             this.btnMenuRegistrarResultadoAM.Size = new System.Drawing.Size(263, 22);
             this.btnMenuRegistrarResultadoAM.Text = "RESULTADO DE ATENCIÓN MÉDICA";
+            this.btnMenuRegistrarResultadoAM.Click += new System.EventHandler(this.btnMenuRegistrarResultadoAM_Click);
             // 
             // btnMenuComprarBono
             // 
             this.btnMenuComprarBono.Name = "btnMenuComprarBono";
             this.btnMenuComprarBono.Size = new System.Drawing.Size(119, 20);
             this.btnMenuComprarBono.Text = "COMPRAR BONOS";
+            this.btnMenuComprarBono.Click += new System.EventHandler(this.btnMenuComprarBono_Click);
             // 
             // btnMenuPedidoTurno
             // 
             this.btnMenuPedidoTurno.Name = "btnMenuPedidoTurno";
             this.btnMenuPedidoTurno.Size = new System.Drawing.Size(126, 20);
             this.btnMenuPedidoTurno.Text = "PEDIDO DE TURNOS";
+            this.btnMenuPedidoTurno.Click += new System.EventHandler(this.btnMenuPedidoTurno_Click);
             // 
             // btnMenuCancelarAtencion
             // 
             this.btnMenuCancelarAtencion.Name = "btnMenuCancelarAtencion";
             this.btnMenuCancelarAtencion.Size = new System.Drawing.Size(12, 20);
+            this.btnMenuCancelarAtencion.Click += new System.EventHandler(this.btnMenuCancelarAtencion_Click);
             // 
             // btnMenuListadoEstadistico
             // 
@@ -228,16 +237,6 @@
             this.btnCambiarPassword.Size = new System.Drawing.Size(136, 20);
             this.btnCambiarPassword.Text = "CAMBIAR PASSWORD";
             this.btnCambiarPassword.Click += new System.EventHandler(this.btnCambiarPassword_Click);
-            // 
-            // btnMenuEspecialidadesMedicasAlta
-            // 
-            this.btnMenuEspecialidadesMedicasAlta.Name = "btnMenuEspecialidadesMedicasAlta";
-            this.btnMenuEspecialidadesMedicasAlta.Size = new System.Drawing.Size(32, 19);
-            // 
-            // btnMenuPedidoTurnoGenerar
-            // 
-            this.btnMenuPedidoTurnoGenerar.Name = "btnMenuPedidoTurnoGenerar";
-            this.btnMenuPedidoTurnoGenerar.Size = new System.Drawing.Size(32, 19);
             // 
             // FrmMenu
             // 
@@ -267,7 +266,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnMenuRolBusqueda;
 
         private System.Windows.Forms.ToolStripMenuItem btnMenuEspecialidadesMedicas;
-        private System.Windows.Forms.ToolStripMenuItem btnMenuEspecialidadesMedicasAlta;
         private System.Windows.Forms.ToolStripMenuItem btnMenuEspecialidadesMedicasBusqueda;
 
         private System.Windows.Forms.ToolStripMenuItem btnMenuAfiliado;
@@ -281,8 +279,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnMenuPlanBusqueda;
 
         private System.Windows.Forms.ToolStripMenuItem btnMenuPedidoTurno;
-        private System.Windows.Forms.ToolStripMenuItem btnMenuPedidoTurnoGenerar;
-
         private System.Windows.Forms.ToolStripMenuItem btnMenuComprarBono;
         private System.Windows.Forms.ToolStripMenuItem btnMenuCancelarAtencion;
 

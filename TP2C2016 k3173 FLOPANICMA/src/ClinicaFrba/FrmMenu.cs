@@ -14,6 +14,16 @@ using ClinicaFrba.ABM_Rol;
 using ClinicaFrba.Common;
 using ClinicaFrba.ABM_Afiliado;
 using ClinicaFrba.Listado_Estadistico;
+using ClinicaFrba.Abm_Profesional;
+using ClinicaFrba.Pedir_Turno;
+using ClinicaFrba.Registrar_Agenta_Medico;
+using ClinicaFrba.Registro_Resultado;
+using ClinicaFrba.Cancelar_Atencion;
+using ClinicaFrba.Registro_Llegada;
+using ClinicaFrba.Compra_Bono;
+using ClinicaFrba.Abm_Planes;
+using ClinicaFrba.Abm_Especialidades_Medicas;
+using ClinicaFrba.Abm_Afiliado;
 
 
 namespace ClinicaFrba
@@ -143,63 +153,76 @@ namespace ClinicaFrba
             frmRolCrear.ShowDialog();
         }
 
-        //private void btnMenuAfiliadoAlta_Click(object sender, EventArgs e)
-        //{
-        //    FrmModificarUsuario frmUsuarioCrear = new FrmModificarUsuario();
-        //    frmUsuarioCrear.ShowDialog();
-        //}
+        private void btnMenuAfiliadoAlta_Click(object sender, EventArgs e)
+        {
+            FrmModificarAfiliado frmAfiliadoCrear = new FrmModificarAfiliado();
+            frmAfiliadoCrear.ShowDialog();
+        }
 
-        //private void btnMenuPlanBusqueda_Click(object sender, EventArgs e)
-        //{
-        //    FrmBuscarRubro frmRubroBusqueda = new FrmBuscarRubro();
-        //    frmRubroBusqueda.ShowDialog();
-        //}
+        private void btnMenuAfiliadoBusqueda_Click(object sender, EventArgs e)
+        {
+            FrmBuscarAfiliado frmBuscarAfiliado = new FrmBuscarAfiliado();
+            frmBuscarAfiliado.ShowDialog();
+        }
 
-        //private void btnMenuAfiliadoBusqueda_Click(object sender, EventArgs e)
-        //{
-        //    FrmBuscarUsuario frmBuscarUsuario = new FrmBuscarUsuario();
-        //    frmBuscarUsuario.ShowDialog();
-        //}
+        private void btnMenuPlanBusqueda_Click(object sender, EventArgs e)
+        {
+            FrmBuscarPlan frmPlanBusqueda = new FrmBuscarPlan();
+            frmPlanBusqueda.ShowDialog();
+        }
 
-        //private void btnMenuEspecialidadesMedicasGenerar_Click(object sender, EventArgs e)
-        //{
-        //    FrmPublicacion frmPublicacion = new FrmPublicacion( );
-        //    frmPublicacion.ShowDialog();
-        //}
+        private void btnMenuProfesionalAlta_Click(object sender, EventArgs e)
+        {
+            FrmABMProfesional frmAbmProfesional = new FrmABMProfesional();
+            frmAbmProfesional.ShowDialog();
+        }
 
-        //private void btnMenuProfesionalAlta_Click(object sender, EventArgs e)
-        //{
-        //    FrmABMVisibilidad frmAbmVisibilidad  = new FrmABMVisibilidad();
-        //    frmAbmVisibilidad.ShowDialog();
-        //}
+        private void btnMenuComprarBono_Click(object sender, EventArgs e)
+        {
+            FrmComprarBono frmComprar = new FrmComprarBono();
+            frmComprar.ShowDialog();
+        }
 
-        //private void btnMenuProfesionalBusqueda_Click(object sender, EventArgs e)
-        //{
-        //    FrmBuscarVisibilidad frmBusquedaVisibilidad = new FrmBuscarVisibilidad();
-        //    frmBusquedaVisibilidad.ShowDialog();
-        //}
+        private void btnMenuDesconectar_Click(object sender, EventArgs e)
+        {
+            new FrmLogin(this).ShowDialog();
+        }       
 
-        //private void btnMenuComprarBono_Click(object sender, EventArgs e)
-        //{
-        //    FrmComprarOfertar frmOfertar = new FrmComprarOfertar();
-        //    frmOfertar.ShowDialog();
-        //}
+        private void btnMenuEspecialidadesMedicasBusqueda_Click(object sender, EventArgs e)
+        {
+            FrmBuscarEspecialidadesMedicas frmEMBusqueda = new FrmBuscarEspecialidadesMedicas();
+            frmEMBusqueda.ShowDialog();
+        }
 
-        //private void btnMenuDesconectar_Click(object sender, EventArgs e)
-        //{
-        //    new FrmAutentificacion(this).ShowDialog();
-        //}       
+        private void btnMenuRegistrarLlegadaAM_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarLlegada frmRegistrarLlegada = new FrmRegistrarLlegada();
+            frmRegistrarLlegada.ShowDialog();
+        }
 
-        //private void btnMenuEspecialidadesMedicas_Click(object sender, EventArgs e)
-        //{
-        //    new FrmMisPublicaciones().ShowDialog();
-        //}
+        private void btnMenuRegistrarResultadoAM_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarResultado frmRegistrarRersultado = new FrmRegistrarResultado();
+            frmRegistrarRersultado.ShowDialog();
+        }
 
-        //private void btnMenuRegistrarResultadoAM_Click(object sender, EventArgs e)
-        //{
-        //    FrmFacturasVendedor frmFacturasVendedor = new FrmFacturasVendedor();
-        //    frmFacturasVendedor.ShowDialog();
-        //}
+        private void btnMenuRegistrarAgenda_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarAgenda frmRegistarAgenda = new FrmRegistrarAgenda();
+            frmRegistarAgenda.ShowDialog();
+        }
+
+        private void btnMenuPedidoTurno_Click(object sender, EventArgs e)
+        {
+            FrmPedidoTurno frmPedirTurno = new FrmPedidoTurno();
+            frmPedirTurno.ShowDialog();
+        }
+
+        private void btnMenuCancelarAtencion_Click(object sender, EventArgs e)
+        {
+            FrmCancelarAtencion frmCancelarAt = new FrmCancelarAtencion();
+            frmCancelarAt.ShowDialog();
+        }
 
         private void btnMenuListadoEstadistico_Click(object sender, EventArgs e)
         {
