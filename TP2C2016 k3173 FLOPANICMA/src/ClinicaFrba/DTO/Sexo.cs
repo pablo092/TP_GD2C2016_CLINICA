@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
-using ClinicaFrba.DAO;
+using System.Threading.Tasks;
 
 namespace ClinicaFrba.DTO
 {
-    public enum TipoDocumento
+    public enum Sexo
     {
-       DNI,
-       CI,
-       LC,
-       LD
+        Masculino,
+        Femenino
     }
 }

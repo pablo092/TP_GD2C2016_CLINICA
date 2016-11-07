@@ -65,7 +65,5 @@ namespace ClinicaFrba.DTO
             this.clave = clave;
             this.rol = rol;
         }
-
-
     }
 }

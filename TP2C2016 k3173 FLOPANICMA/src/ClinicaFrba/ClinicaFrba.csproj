@@ -93,7 +93,9 @@
     <Compile Include="Abm Rol\FrmCrearRol.Designer.cs">
       <DependentUpon>FrmCrearRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministradorDao\AdministradorRol.cs" />
+    <Compile Include="Administrador\AdministradorAfiliado.cs" />
+    <Compile Include="Administrador\AdministradorAgenda.cs" />
+    <Compile Include="Administrador\AdministradorRol.cs" />
     <Compile Include="Cancelar Atencion\FrmCancelarAtencion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,23 +114,30 @@
     <Compile Include="Compra Bono\FrmComprarBono.Designer.cs">
       <DependentUpon>FrmComprarBono.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\AgendaDAO.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\EspecialidadMedicaDAO.cs" />
     <Compile Include="DAO\FuncionalidadDAO.cs" />
     <Compile Include="DAO\ListadoEstadisticoDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
+    <Compile Include="DAO\PlanDAO.cs" />
+    <Compile Include="DAO\ProfesionalDAO.cs" />
     <Compile Include="DAO\RolDAO.cs" />
-    <Compile Include="DAO\TipoDocumentolDAO.cs" />
+    <Compile Include="DAO\TipoEspecialidadDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="DTO\Administrador.cs" />
-    <Compile Include="DTO\Cliente.cs" />
-    <Compile Include="DTO\Direccion.cs" />
+    <Compile Include="DTO\Agenda.cs" />
+    <Compile Include="DTO\Persona.cs" />
+    <Compile Include="DTO\EspecialidadMedica.cs" />
     <Compile Include="DTO\Estado.cs" />
     <Compile Include="DTO\Funcionalidad.cs" />
     <Compile Include="DTO\IUsuario.cs" />
+    <Compile Include="DTO\Plan.cs" />
+    <Compile Include="DTO\Profesional.cs" />
     <Compile Include="DTO\Rol.cs" />
+    <Compile Include="DTO\Sexo.cs" />
     <Compile Include="DTO\TipoDocumento.cs" />
-    <Compile Include="DTO\TipoRol.cs" />
+    <Compile Include="DTO\TipoEspecialidad.cs" />
     <Compile Include="DTO\Usuario.cs" />
     <Compile Include="FrmBuscarAfiliado.cs" />
     <Compile Include="FrmLogin.cs">
@@ -178,6 +187,9 @@
     <EmbeddedResource Include="Abm Afiliado\FrmModificarPassword.resx">
       <DependentUpon>FrmModificarPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Planes\FrmBuscarPlan.resx">
+      <DependentUpon>FrmBuscarPlan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Profesional\FrmABMProfesional.resx">
       <DependentUpon>FrmABMProfesional.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +218,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registrar Agenta Medico\FrmRegistrarAgenda.resx">
+      <DependentUpon>FrmRegistrarAgenda.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,4 +1,6 @@
-﻿namespace ClinicaFrba.Abm_Profesional
+﻿using ClinicaFrba.DAO;
+using ClinicaFrba.DTO;
+namespace ClinicaFrba.Abm_Profesional
 {
     partial class FrmABMProfesional
     {
@@ -6,6 +8,8 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
+        private TipoEspecialidadDAO ted = new TipoEspecialidadDAO();
 
         /// <summary>
         /// Clean up any resources being used.
@@ -49,13 +53,13 @@
             this.labelSexo = new System.Windows.Forms.Label();
             this.comboBoxSexo = new System.Windows.Forms.ComboBox();
             this.dateTimePickerNac = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxEspecialidades = new System.Windows.Forms.ComboBox();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.checkedListBoxEspecialidades = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(235, 421);
+            this.buttonGuardar.Location = new System.Drawing.Point(249, 474);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(139, 34);
             this.buttonGuardar.TabIndex = 0;
@@ -225,17 +229,9 @@
             this.dateTimePickerNac.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerNac.TabIndex = 21;
             // 
-            // comboBoxEspecialidades
-            // 
-            this.comboBoxEspecialidades.FormattingEnabled = true;
-            this.comboBoxEspecialidades.Location = new System.Drawing.Point(217, 368);
-            this.comboBoxEspecialidades.Name = "comboBoxEspecialidades";
-            this.comboBoxEspecialidades.Size = new System.Drawing.Size(225, 21);
-            this.comboBoxEspecialidades.TabIndex = 22;
-            // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(380, 421);
+            this.buttonCancelar.Location = new System.Drawing.Point(394, 474);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(139, 34);
             this.buttonCancelar.TabIndex = 23;
@@ -243,13 +239,21 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // checkedListBoxEspecialidades
+            // 
+            this.checkedListBoxEspecialidades.FormattingEnabled = true;
+            this.checkedListBoxEspecialidades.Location = new System.Drawing.Point(217, 374);
+            this.checkedListBoxEspecialidades.Name = "checkedListBoxEspecialidades";
+            this.checkedListBoxEspecialidades.Size = new System.Drawing.Size(224, 94);
+            this.checkedListBoxEspecialidades.TabIndex = 24;
+            // 
             // FrmABMProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 467);
+            this.ClientSize = new System.Drawing.Size(545, 520);
+            this.Controls.Add(this.checkedListBoxEspecialidades);
             this.Controls.Add(this.buttonCancelar);
-            this.Controls.Add(this.comboBoxEspecialidades);
             this.Controls.Add(this.dateTimePickerNac);
             this.Controls.Add(this.comboBoxSexo);
             this.Controls.Add(this.labelSexo);
@@ -302,7 +306,7 @@
         private System.Windows.Forms.Label labelSexo;
         private System.Windows.Forms.ComboBox comboBoxSexo;
         private System.Windows.Forms.DateTimePicker dateTimePickerNac;
-        private System.Windows.Forms.ComboBox comboBoxEspecialidades;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.CheckedListBox checkedListBoxEspecialidades;
     }
 }

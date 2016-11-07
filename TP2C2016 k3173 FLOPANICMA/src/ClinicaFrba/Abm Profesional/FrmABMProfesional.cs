@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClinicaFrba.DAO;
+using ClinicaFrba.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,8 @@ namespace ClinicaFrba.Abm_Profesional
         public FrmABMProfesional()
         {
             InitializeComponent();
+            cargarComboBox();
+            cargarCheckedEspecialidades();
         }
 
         private void FrmABMProfesional_Load(object sender, EventArgs e)
@@ -35,6 +39,28 @@ namespace ClinicaFrba.Abm_Profesional
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cargarComboBox()
+        {
+            comboBoxSexo.Items.Add(Sexo.Masculino);
+            comboBoxSexo.Items.Add(Sexo.Femenino);
+
+            comboBoxDNI.Items.Add(TipoDocumento.DNI);
+            comboBoxDNI.Items.Add(TipoDocumento.CI);
+            comboBoxDNI.Items.Add(TipoDocumento.LC);
+            comboBoxDNI.Items.Add(TipoDocumento.LD);
+        }
+
+        private void cargarCheckedEspecialidades()
+        {
+            TipoEspecialidadDAO ted = new TipoEspecialidadDAO();
+            DataTable dt = ted.getAllTipoEspecialidades();
+
+            for(int i=0; i < dt.Rows.Count; i++)
+            {
+                checkedListBoxEspecialidades.Items.Add(dt.Rows[i][1]);
+            }
         }
     }
 }

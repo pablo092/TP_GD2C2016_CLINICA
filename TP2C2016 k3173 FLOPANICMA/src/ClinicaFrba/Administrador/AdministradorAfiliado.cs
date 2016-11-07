@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ClinicaFrba.DTO
+namespace ClinicaFrba.Administrador
 {
-    class Administrador : Usuario
+    class AdministradorAfiliado
     {
-        
     }
 }

@@ -20,20 +20,20 @@ namespace ClinicaFrba.DAO
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns></returns>
-        public Respuesta guardar( Cliente cliente )
+        public Respuesta guardar( Persona cliente )
         {
             Respuesta respuesta = new Respuesta();
             SqlCommand comando;
             try
             {
-                if (cliente.Id > 0)
+                if (cliente.NumeroDocumento > 0)
                 {
                     comando = new SqlCommand("FLOPANICMA.ABM_USUARIO_MODIFICAR_CLIENTE", conexion);
 
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.Clear();
-                    comando.Parameters.AddWithValue("@ID_ESTADO_USUARIO", cliente.Estado.Id);
+                    comando.Parameters.AddWithValue("@ID_ESTADO_USUARIO", cliente);
                     comando.Parameters.AddWithValue("@LOGIN", cliente.Login);//
                 }
                 else
@@ -42,7 +42,6 @@ namespace ClinicaFrba.DAO
 
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.Clear();
-                    comando.Parameters.AddWithValue("@PASSWORD", cliente.Clave);
                     comando.Parameters.AddWithValue("@LOGIN", cliente.Login);
                     comando.Parameters.AddWithValue("@ALTA_USUARIO", Propiedades.getFechaActual);
                 }
@@ -62,28 +61,6 @@ namespace ClinicaFrba.DAO
                 comando.Parameters.AddWithValue("@TELEFONO", cliente.Telefono);//
                 comando.Parameters.AddWithValue("@FECHA_NACIMIENTO", DateTime.Parse( cliente.FechaNacimiento.ToShortDateString()).Date);//
                 comando.Parameters.AddWithValue("@MAIL", cliente.Email);//
-
-                comando.Parameters.AddWithValue("@DOM_CALLE", cliente.Direccion.Calle);
-
-                if (cliente.Direccion.Numero == null)
-                {
-                    comando.Parameters.AddWithValue("@NRO_CALLE", DBNull.Value);
-                }
-                else {
-                    comando.Parameters.AddWithValue("@NRO_CALLE", cliente.Direccion.Numero);
-                }
-                if (cliente.Direccion.Piso == null)
-                {
-                    comando.Parameters.AddWithValue("@PISO", DBNull.Value);
-                }
-                else
-                {
-                    comando.Parameters.AddWithValue("@PISO", cliente.Direccion.Piso);
-                }
-                comando.Parameters.AddWithValue("@DEPTO", cliente.Direccion.Departamento);
-                comando.Parameters.AddWithValue("@LOCALIDAD", cliente.Direccion.Localidad);
-                comando.Parameters.AddWithValue("@COD_POSTAL", cliente.Direccion.CodigoPostal);
-
                 
 
                 SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
@@ -122,7 +99,7 @@ namespace ClinicaFrba.DAO
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns></returns>
-        public Respuesta getClientes(Cliente cliente)
+        public Respuesta getClientes(Persona cliente)
         {
             Respuesta respuesta = new Respuesta();
             try
@@ -136,14 +113,6 @@ namespace ClinicaFrba.DAO
                 comando.Parameters.AddWithValue("@NOMBRE", cliente.Nombre);
                 comando.Parameters.AddWithValue("@APELLIDO", cliente.Apellido);
                 comando.Parameters.AddWithValue("@EMAIL", cliente.Email);
-                if (cliente.IdTipoDocumento == null || cliente.IdTipoDocumento == 0)
-                {
-                    comando.Parameters.AddWithValue("@ID_TIPO_DNI", DBNull.Value);
-                }
-                else
-                {
-                    comando.Parameters.AddWithValue("@ID_TIPO_DNI", cliente.IdTipoDocumento);
-                }
                 
                 if (cliente.NumeroDocumento == 0)
                 {
