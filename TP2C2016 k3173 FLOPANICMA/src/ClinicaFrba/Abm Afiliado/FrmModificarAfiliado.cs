@@ -16,5 +16,10 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             InitializeComponent();
         }
+
+        private void labelCantFam_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

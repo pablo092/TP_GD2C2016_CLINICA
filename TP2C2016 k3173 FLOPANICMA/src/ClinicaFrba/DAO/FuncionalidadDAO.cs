@@ -13,6 +13,20 @@ namespace ClinicaFrba.DAO
 {
     class FuncionalidadDAO  :BaseDao
     {
+        public FuncionalidadDAO()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor creado para el manejo de transacciones
+        /// </summary>
+        /// <param name="con"></param>
+        public FuncionalidadDAO(SqlConnection con)
+        {
+            conexion = con;
+        }
+
         /// <summary>
         /// Recupera una lista de todas las funcionalidades. 
         /// invoca a FLOPANICMA.GET_ALL_FUNCIONALIDADES

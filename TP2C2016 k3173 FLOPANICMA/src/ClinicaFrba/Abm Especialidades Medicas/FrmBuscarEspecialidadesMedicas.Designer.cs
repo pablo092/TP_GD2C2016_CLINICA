@@ -28,11 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dataGridViewEspMed = new System.Windows.Forms.DataGridView();
+            this.buttonCerrar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspMed)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridViewEspMed
+            // 
+            this.dataGridViewEspMed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEspMed.Location = new System.Drawing.Point(32, 32);
+            this.dataGridViewEspMed.Name = "dataGridViewEspMed";
+            this.dataGridViewEspMed.Size = new System.Drawing.Size(524, 284);
+            this.dataGridViewEspMed.TabIndex = 0;
+            // 
+            // buttonCerrar
+            // 
+            this.buttonCerrar.Location = new System.Drawing.Point(451, 346);
+            this.buttonCerrar.Name = "buttonCerrar";
+            this.buttonCerrar.Size = new System.Drawing.Size(105, 31);
+            this.buttonCerrar.TabIndex = 1;
+            this.buttonCerrar.Text = "Cerrar";
+            this.buttonCerrar.UseVisualStyleBackColor = true;
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
+            // 
+            // FrmBuscarEspecialidadesMedicas
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(578, 389);
+            this.Controls.Add(this.buttonCerrar);
+            this.Controls.Add(this.dataGridViewEspMed);
+            this.Name = "FrmBuscarEspecialidadesMedicas";
+            this.Text = "ESPECIALIDADES MÉDICAS";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspMed)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridViewEspMed;
+        private System.Windows.Forms.Button buttonCerrar;
     }
 }

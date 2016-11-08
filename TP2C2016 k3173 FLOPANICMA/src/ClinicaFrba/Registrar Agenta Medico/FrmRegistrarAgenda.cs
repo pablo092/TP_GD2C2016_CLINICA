@@ -66,7 +66,7 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
                 p.Nombre = (string)dt.Rows[i][1];
                 p.Apellido = (string)dt.Rows[i][2];
 
-                comboBoxProfesionales.Items.Add(p.Apellido + " " + p.Nombre + " - " + p.Id);
+                comboBoxProfesionales.Items.Add(p.Apellido + "," + p.Nombre + "-" + p.Id);
             }
         }
 

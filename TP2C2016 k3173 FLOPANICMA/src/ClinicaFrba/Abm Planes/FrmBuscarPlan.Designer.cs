@@ -39,12 +39,12 @@
             this.dataGridViewPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPlanes.Location = new System.Drawing.Point(30, 24);
             this.dataGridViewPlanes.Name = "dataGridViewPlanes";
-            this.dataGridViewPlanes.Size = new System.Drawing.Size(760, 250);
+            this.dataGridViewPlanes.Size = new System.Drawing.Size(440, 185);
             this.dataGridViewPlanes.TabIndex = 1;
             // 
             // buttonCerrar
             // 
-            this.buttonCerrar.Location = new System.Drawing.Point(660, 310);
+            this.buttonCerrar.Location = new System.Drawing.Point(340, 244);
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(130, 38);
             this.buttonCerrar.TabIndex = 2;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 373);
+            this.ClientSize = new System.Drawing.Size(499, 298);
             this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.dataGridViewPlanes);
             this.Name = "FrmBuscarPlan";

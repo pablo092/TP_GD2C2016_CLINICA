@@ -114,9 +114,9 @@
     <Compile Include="Compra Bono\FrmComprarBono.Designer.cs">
       <DependentUpon>FrmComprarBono.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\AfiliadoDAO.cs" />
     <Compile Include="DAO\AgendaDAO.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
-    <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\EspecialidadMedicaDAO.cs" />
     <Compile Include="DAO\FuncionalidadDAO.cs" />
     <Compile Include="DAO\ListadoEstadisticoDAO.cs" />
@@ -126,6 +126,7 @@
     <Compile Include="DAO\RolDAO.cs" />
     <Compile Include="DAO\TipoEspecialidadDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="DTO\Afiliado.cs" />
     <Compile Include="DTO\Agenda.cs" />
     <Compile Include="DTO\Persona.cs" />
     <Compile Include="DTO\EspecialidadMedica.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="DTO\Sexo.cs" />
     <Compile Include="DTO\TipoDocumento.cs" />
     <Compile Include="DTO\TipoEspecialidad.cs" />
+    <Compile Include="DTO\Semestre.cs" />
     <Compile Include="DTO\Usuario.cs" />
     <Compile Include="FrmBuscarAfiliado.cs" />
     <Compile Include="FrmLogin.cs">
@@ -184,8 +186,17 @@
     <Compile Include="Registro Resultado\FrmRegistrarResultado.Designer.cs">
       <DependentUpon>FrmRegistrarResultado.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abm Afiliado\FrmBuscarAfiliado.resx">
+      <DependentUpon>FrmBuscarAfiliado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Afiliado\FrmModificarAfiliado.resx">
+      <DependentUpon>FrmModificarAfiliado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Afiliado\FrmModificarPassword.resx">
       <DependentUpon>FrmModificarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.resx">
+      <DependentUpon>FrmBuscarEspecialidadesMedicas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Planes\FrmBuscarPlan.resx">
       <DependentUpon>FrmBuscarPlan.cs</DependentUpon>
@@ -198,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\FrmCrearRol.resx">
       <DependentUpon>FrmCrearRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compra Bono\FrmComprarBono.resx">
+      <DependentUpon>FrmComprarBono.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
