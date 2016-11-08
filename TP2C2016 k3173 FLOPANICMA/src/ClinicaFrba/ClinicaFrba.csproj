@@ -210,6 +210,9 @@
     <EmbeddedResource Include="Abm Rol\FrmCrearRol.resx">
       <DependentUpon>FrmCrearRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\FrmCancelarAtencion.resx">
+      <DependentUpon>FrmCancelarAtencion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compra Bono\FrmComprarBono.resx">
       <DependentUpon>FrmComprarBono.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +226,9 @@
     <EmbeddedResource Include="Listados\FrmListadoEstadistico.resx">
       <DependentUpon>FrmListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pedir Turno\FrmPedidoTurno.resx">
+      <DependentUpon>FrmPedidoTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -234,6 +240,9 @@
     </Compile>
     <EmbeddedResource Include="Registrar Agenta Medico\FrmRegistrarAgenda.resx">
       <DependentUpon>FrmRegistrarAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Resultado\FrmRegistrarResultado.resx">
+      <DependentUpon>FrmRegistrarResultado.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

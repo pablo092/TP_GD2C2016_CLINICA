@@ -42,14 +42,14 @@
             this.labelHorarioFin = new System.Windows.Forms.Label();
             this.numericUpDownHoraIni = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownHoraFin = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownSegIni = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownSegFin = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownMinIni = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownMinFin = new System.Windows.Forms.NumericUpDown();
             this.labelHSI = new System.Windows.Forms.Label();
             this.labelHSF = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraIni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraFin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSegIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSegFin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinIni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinFin)).BeginInit();
             this.SuspendLayout();
             // 
             // labelProfesional
@@ -160,38 +160,42 @@
             // numericUpDownHoraIni
             // 
             this.numericUpDownHoraIni.Location = new System.Drawing.Point(126, 183);
+            this.numericUpDownHoraIni.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
             this.numericUpDownHoraIni.Name = "numericUpDownHoraIni";
             this.numericUpDownHoraIni.Size = new System.Drawing.Size(41, 20);
             this.numericUpDownHoraIni.TabIndex = 15;
-            this.numericUpDownHoraIni.Maximum = 23;
-            this.numericUpDownHoraIni.Minimum = 0;
             // 
             // numericUpDownHoraFin
             // 
             this.numericUpDownHoraFin.Location = new System.Drawing.Point(126, 216);
+            this.numericUpDownHoraFin.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
             this.numericUpDownHoraFin.Name = "numericUpDownHoraFin";
             this.numericUpDownHoraFin.Size = new System.Drawing.Size(41, 20);
             this.numericUpDownHoraFin.TabIndex = 16;
-            this.numericUpDownHoraFin.Maximum = 23;
-            this.numericUpDownHoraFin.Minimum = 0;
             // 
-            // numericUpDownSegIni
+            // numericUpDownMinIni
             // 
-            this.numericUpDownSegIni.Location = new System.Drawing.Point(182, 183);
-            this.numericUpDownSegIni.Name = "numericUpDownSegIni";
-            this.numericUpDownSegIni.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDownSegIni.TabIndex = 17;
-            this.numericUpDownSegIni.Minimum = 0;
-            this.numericUpDownSegIni.Click += new System.EventHandler(this.numericUpDownSegIni_Click);
+            this.numericUpDownMinIni.Location = new System.Drawing.Point(182, 183);
+            this.numericUpDownMinIni.Name = "numericUpDownMinIni";
+            this.numericUpDownMinIni.Size = new System.Drawing.Size(41, 20);
+            this.numericUpDownMinIni.TabIndex = 17;
+            this.numericUpDownMinIni.Click += new System.EventHandler(this.numericUpDownSegIni_Click);
             // 
-            // numericUpDownSegFin
+            // numericUpDownMinFin
             // 
-            this.numericUpDownSegFin.Location = new System.Drawing.Point(182, 216);
-            this.numericUpDownSegFin.Name = "numericUpDownSegFin";
-            this.numericUpDownSegFin.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDownSegFin.TabIndex = 18;
-            this.numericUpDownSegFin.Minimum = 0;
-            this.numericUpDownSegFin.Click += new System.EventHandler(this.numericUpDownSegFin_Click);
+            this.numericUpDownMinFin.Location = new System.Drawing.Point(182, 216);
+            this.numericUpDownMinFin.Name = "numericUpDownMinFin";
+            this.numericUpDownMinFin.Size = new System.Drawing.Size(41, 20);
+            this.numericUpDownMinFin.TabIndex = 18;
+            this.numericUpDownMinFin.Click += new System.EventHandler(this.numericUpDownSegFin_Click);
             // 
             // labelHSI
             // 
@@ -218,8 +222,8 @@
             this.ClientSize = new System.Drawing.Size(438, 335);
             this.Controls.Add(this.labelHSF);
             this.Controls.Add(this.labelHSI);
-            this.Controls.Add(this.numericUpDownSegFin);
-            this.Controls.Add(this.numericUpDownSegIni);
+            this.Controls.Add(this.numericUpDownMinFin);
+            this.Controls.Add(this.numericUpDownMinIni);
             this.Controls.Add(this.numericUpDownHoraFin);
             this.Controls.Add(this.numericUpDownHoraIni);
             this.Controls.Add(this.labelHorarioFin);
@@ -238,8 +242,8 @@
             this.Text = "REGISTRAR AGENDA MÉDICO";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraIni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraFin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSegIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSegFin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinIni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinFin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,8 +265,8 @@
         private System.Windows.Forms.Label labelHorarioFin;
         private System.Windows.Forms.NumericUpDown numericUpDownHoraIni;
         private System.Windows.Forms.NumericUpDown numericUpDownHoraFin;
-        private System.Windows.Forms.NumericUpDown numericUpDownSegIni;
-        private System.Windows.Forms.NumericUpDown numericUpDownSegFin;
+        private System.Windows.Forms.NumericUpDown numericUpDownMinIni;
+        private System.Windows.Forms.NumericUpDown numericUpDownMinFin;
         private System.Windows.Forms.Label labelHSI;
         private System.Windows.Forms.Label labelHSF;
     }

@@ -37,19 +37,19 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 
         private void numericUpDownSegIni_Click(object sender, EventArgs e)
         {
-            if (numericUpDownSegIni.Value > 59)
+            if (numericUpDownMinIni.Value > 59)
             {
                 this.numericUpDownHoraIni.Value += 1;
-                this.numericUpDownSegIni.Value = 0;
+                this.numericUpDownMinIni.Value = 0;
             }
         }
 
         private void numericUpDownSegFin_Click(object sender, EventArgs e)
         {
-            if (numericUpDownSegFin.Value > 59)
+            if (numericUpDownMinFin.Value > 59)
             {
                 this.numericUpDownHoraFin.Value += 1;
-                this.numericUpDownSegFin.Value = 0;
+                this.numericUpDownMinFin.Value = 0;
             }
         }
         
