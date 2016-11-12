@@ -35,23 +35,6 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
             adm.insertaAgenda(a);
         }
 
-        private void numericUpDownSegIni_Click(object sender, EventArgs e)
-        {
-            if (numericUpDownMinIni.Value > 59)
-            {
-                this.numericUpDownHoraIni.Value += 1;
-                this.numericUpDownMinIni.Value = 0;
-            }
-        }
-
-        private void numericUpDownSegFin_Click(object sender, EventArgs e)
-        {
-            if (numericUpDownMinFin.Value > 59)
-            {
-                this.numericUpDownHoraFin.Value += 1;
-                this.numericUpDownMinFin.Value = 0;
-            }
-        }
         
         private void loadProfesionales()
         {
@@ -73,9 +56,9 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
         private void comboBoxProfesionales_Click(object sender, EventArgs e)
         {
             string profSelected = (string)comboBoxProfesionales.SelectedItem;
-            int ini = profSelected.IndexOf("-") + 1;
+            int ini = profSelected.IndexOf("-");
             int fin = profSelected.Length;
-            string s = profSelected.Substring(ini, fin);
+            string s = profSelected.Substring(3, 7);
             int id_prof = Int32.Parse(s);
 
             EspecialidadMedicaDAO em = new EspecialidadMedicaDAO();

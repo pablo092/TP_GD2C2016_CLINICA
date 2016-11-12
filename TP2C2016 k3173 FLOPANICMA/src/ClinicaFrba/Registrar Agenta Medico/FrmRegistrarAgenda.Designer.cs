@@ -42,14 +42,12 @@
             this.labelHorarioFin = new System.Windows.Forms.Label();
             this.numericUpDownHoraIni = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownHoraFin = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownMinIni = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownMinFin = new System.Windows.Forms.NumericUpDown();
             this.labelHSI = new System.Windows.Forms.Label();
             this.labelHSF = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxDia = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraIni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraFin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinFin)).BeginInit();
             this.SuspendLayout();
             // 
             // labelProfesional
@@ -82,7 +80,7 @@
             // labelHorarioIni
             // 
             this.labelHorarioIni.AutoSize = true;
-            this.labelHorarioIni.Location = new System.Drawing.Point(37, 185);
+            this.labelHorarioIni.Location = new System.Drawing.Point(40, 234);
             this.labelHorarioIni.Name = "labelHorarioIni";
             this.labelHorarioIni.Size = new System.Drawing.Size(72, 13);
             this.labelHorarioIni.TabIndex = 4;
@@ -127,16 +125,18 @@
             // 
             // dateTimePickerFecIni
             // 
+            this.dateTimePickerFecIni.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerFecIni.Location = new System.Drawing.Point(126, 114);
             this.dateTimePickerFecIni.Name = "dateTimePickerFecIni";
-            this.dateTimePickerFecIni.Size = new System.Drawing.Size(211, 20);
+            this.dateTimePickerFecIni.Size = new System.Drawing.Size(116, 20);
             this.dateTimePickerFecIni.TabIndex = 11;
             // 
             // dateTimePickerFecFin
             // 
+            this.dateTimePickerFecFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerFecFin.Location = new System.Drawing.Point(126, 147);
             this.dateTimePickerFecFin.Name = "dateTimePickerFecFin";
-            this.dateTimePickerFecFin.Size = new System.Drawing.Size(211, 20);
+            this.dateTimePickerFecFin.Size = new System.Drawing.Size(116, 20);
             this.dateTimePickerFecFin.TabIndex = 12;
             // 
             // labelFecFin
@@ -151,7 +151,7 @@
             // labelHorarioFin
             // 
             this.labelHorarioFin.AutoSize = true;
-            this.labelHorarioFin.Location = new System.Drawing.Point(37, 216);
+            this.labelHorarioFin.Location = new System.Drawing.Point(232, 234);
             this.labelHorarioFin.Name = "labelHorarioFin";
             this.labelHorarioFin.Size = new System.Drawing.Size(61, 13);
             this.labelHorarioFin.TabIndex = 14;
@@ -159,7 +159,7 @@
             // 
             // numericUpDownHoraIni
             // 
-            this.numericUpDownHoraIni.Location = new System.Drawing.Point(126, 183);
+            this.numericUpDownHoraIni.Location = new System.Drawing.Point(122, 232);
             this.numericUpDownHoraIni.Maximum = new decimal(new int[] {
             23,
             0,
@@ -171,7 +171,7 @@
             // 
             // numericUpDownHoraFin
             // 
-            this.numericUpDownHoraFin.Location = new System.Drawing.Point(126, 216);
+            this.numericUpDownHoraFin.Location = new System.Drawing.Point(310, 232);
             this.numericUpDownHoraFin.Maximum = new decimal(new int[] {
             23,
             0,
@@ -181,26 +181,10 @@
             this.numericUpDownHoraFin.Size = new System.Drawing.Size(41, 20);
             this.numericUpDownHoraFin.TabIndex = 16;
             // 
-            // numericUpDownMinIni
-            // 
-            this.numericUpDownMinIni.Location = new System.Drawing.Point(182, 183);
-            this.numericUpDownMinIni.Name = "numericUpDownMinIni";
-            this.numericUpDownMinIni.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDownMinIni.TabIndex = 17;
-            this.numericUpDownMinIni.Click += new System.EventHandler(this.numericUpDownSegIni_Click);
-            // 
-            // numericUpDownMinFin
-            // 
-            this.numericUpDownMinFin.Location = new System.Drawing.Point(182, 216);
-            this.numericUpDownMinFin.Name = "numericUpDownMinFin";
-            this.numericUpDownMinFin.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDownMinFin.TabIndex = 18;
-            this.numericUpDownMinFin.Click += new System.EventHandler(this.numericUpDownSegFin_Click);
-            // 
             // labelHSI
             // 
             this.labelHSI.AutoSize = true;
-            this.labelHSI.Location = new System.Drawing.Point(229, 185);
+            this.labelHSI.Location = new System.Drawing.Point(357, 234);
             this.labelHSI.Name = "labelHSI";
             this.labelHSI.Size = new System.Drawing.Size(22, 13);
             this.labelHSI.TabIndex = 19;
@@ -209,21 +193,45 @@
             // labelHSF
             // 
             this.labelHSF.AutoSize = true;
-            this.labelHSF.Location = new System.Drawing.Point(229, 218);
+            this.labelHSF.Location = new System.Drawing.Point(191, 234);
             this.labelHSF.Name = "labelHSF";
             this.labelHSF.Size = new System.Drawing.Size(22, 13);
             this.labelHSF.TabIndex = 20;
             this.labelHSF.Text = "HS";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 198);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Dia";
+            // 
+            // comboBoxDia
+            // 
+            this.comboBoxDia.FormattingEnabled = true;
+            this.comboBoxDia.Items.AddRange(new object[] {
+            "Lunes",
+            "Martes",
+            "Miércoles",
+            "Jueves",
+            "Viernes",
+            "Sábado"});
+            this.comboBoxDia.Location = new System.Drawing.Point(126, 189);
+            this.comboBoxDia.Name = "comboBoxDia";
+            this.comboBoxDia.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxDia.TabIndex = 22;
             // 
             // FrmRegistrarAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 335);
+            this.Controls.Add(this.comboBoxDia);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelHSF);
             this.Controls.Add(this.labelHSI);
-            this.Controls.Add(this.numericUpDownMinFin);
-            this.Controls.Add(this.numericUpDownMinIni);
             this.Controls.Add(this.numericUpDownHoraFin);
             this.Controls.Add(this.numericUpDownHoraIni);
             this.Controls.Add(this.labelHorarioFin);
@@ -242,8 +250,6 @@
             this.Text = "REGISTRAR AGENDA MÉDICO";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraIni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraFin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinFin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,9 +271,9 @@
         private System.Windows.Forms.Label labelHorarioFin;
         private System.Windows.Forms.NumericUpDown numericUpDownHoraIni;
         private System.Windows.Forms.NumericUpDown numericUpDownHoraFin;
-        private System.Windows.Forms.NumericUpDown numericUpDownMinIni;
-        private System.Windows.Forms.NumericUpDown numericUpDownMinFin;
         private System.Windows.Forms.Label labelHSI;
         private System.Windows.Forms.Label labelHSF;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxDia;
     }
 }
