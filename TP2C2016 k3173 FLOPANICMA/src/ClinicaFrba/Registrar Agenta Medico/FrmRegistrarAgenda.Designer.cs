@@ -45,7 +45,7 @@
             this.labelHSI = new System.Windows.Forms.Label();
             this.labelHSF = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxDia = new System.Windows.Forms.ComboBox();
+            this.checkedListBoxDia = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraIni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraFin)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +80,7 @@
             // labelHorarioIni
             // 
             this.labelHorarioIni.AutoSize = true;
-            this.labelHorarioIni.Location = new System.Drawing.Point(40, 234);
+            this.labelHorarioIni.Location = new System.Drawing.Point(40, 325);
             this.labelHorarioIni.Name = "labelHorarioIni";
             this.labelHorarioIni.Size = new System.Drawing.Size(72, 13);
             this.labelHorarioIni.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             // buttonCerrar
             // 
-            this.buttonCerrar.Location = new System.Drawing.Point(268, 282);
+            this.buttonCerrar.Location = new System.Drawing.Point(264, 380);
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(107, 34);
             this.buttonCerrar.TabIndex = 7;
@@ -98,7 +98,7 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(126, 282);
+            this.buttonAceptar.Location = new System.Drawing.Point(122, 380);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(116, 34);
             this.buttonAceptar.TabIndex = 8;
@@ -151,7 +151,7 @@
             // labelHorarioFin
             // 
             this.labelHorarioFin.AutoSize = true;
-            this.labelHorarioFin.Location = new System.Drawing.Point(232, 234);
+            this.labelHorarioFin.Location = new System.Drawing.Point(232, 325);
             this.labelHorarioFin.Name = "labelHorarioFin";
             this.labelHorarioFin.Size = new System.Drawing.Size(61, 13);
             this.labelHorarioFin.TabIndex = 14;
@@ -159,7 +159,7 @@
             // 
             // numericUpDownHoraIni
             // 
-            this.numericUpDownHoraIni.Location = new System.Drawing.Point(122, 232);
+            this.numericUpDownHoraIni.Location = new System.Drawing.Point(122, 323);
             this.numericUpDownHoraIni.Maximum = new decimal(new int[] {
             23,
             0,
@@ -171,7 +171,7 @@
             // 
             // numericUpDownHoraFin
             // 
-            this.numericUpDownHoraFin.Location = new System.Drawing.Point(310, 232);
+            this.numericUpDownHoraFin.Location = new System.Drawing.Point(310, 323);
             this.numericUpDownHoraFin.Maximum = new decimal(new int[] {
             23,
             0,
@@ -184,7 +184,7 @@
             // labelHSI
             // 
             this.labelHSI.AutoSize = true;
-            this.labelHSI.Location = new System.Drawing.Point(357, 234);
+            this.labelHSI.Location = new System.Drawing.Point(357, 325);
             this.labelHSI.Name = "labelHSI";
             this.labelHSI.Size = new System.Drawing.Size(22, 13);
             this.labelHSI.TabIndex = 19;
@@ -193,7 +193,7 @@
             // labelHSF
             // 
             this.labelHSF.AutoSize = true;
-            this.labelHSF.Location = new System.Drawing.Point(191, 234);
+            this.labelHSF.Location = new System.Drawing.Point(191, 325);
             this.labelHSF.Name = "labelHSF";
             this.labelHSF.Size = new System.Drawing.Size(22, 13);
             this.labelHSF.TabIndex = 20;
@@ -208,27 +208,27 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Dia";
             // 
-            // comboBoxDia
+            // checkedListBoxDia
             // 
-            this.comboBoxDia.FormattingEnabled = true;
-            this.comboBoxDia.Items.AddRange(new object[] {
+            this.checkedListBoxDia.FormattingEnabled = true;
+            this.checkedListBoxDia.Items.AddRange(new object[] {
             "Lunes",
             "Martes",
             "Miércoles",
             "Jueves",
             "Viernes",
             "Sábado"});
-            this.comboBoxDia.Location = new System.Drawing.Point(126, 189);
-            this.comboBoxDia.Name = "comboBoxDia";
-            this.comboBoxDia.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxDia.TabIndex = 22;
+            this.checkedListBoxDia.Location = new System.Drawing.Point(126, 198);
+            this.checkedListBoxDia.Name = "checkedListBoxDia";
+            this.checkedListBoxDia.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBoxDia.TabIndex = 22;
             // 
             // FrmRegistrarAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 335);
-            this.Controls.Add(this.comboBoxDia);
+            this.ClientSize = new System.Drawing.Size(472, 449);
+            this.Controls.Add(this.checkedListBoxDia);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelHSF);
             this.Controls.Add(this.labelHSI);
@@ -274,6 +274,6 @@
         private System.Windows.Forms.Label labelHSI;
         private System.Windows.Forms.Label labelHSF;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxDia;
+        private System.Windows.Forms.CheckedListBox checkedListBoxDia;
     }
 }
