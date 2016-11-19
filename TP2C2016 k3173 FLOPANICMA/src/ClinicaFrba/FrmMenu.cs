@@ -12,7 +12,6 @@ using ClinicaFrba.DAO;
 using ClinicaFrba.DTO;
 using ClinicaFrba.ABM_Rol;
 using ClinicaFrba.Common;
-using ClinicaFrba.ABM_Afiliado;
 using ClinicaFrba.Listado_Estadistico;
 using ClinicaFrba.Abm_Profesional;
 using ClinicaFrba.Pedir_Turno;
@@ -127,7 +126,7 @@ namespace ClinicaFrba
             {
                 btnMenuRegistrarLlegadaAM.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("LISTADOS"))
+            if (UsuarioLogueado.funcionalidades.Contains("LISTADO"))
             {
                 btnMenuListadoEstadistico.Visible = true;
             }
@@ -230,11 +229,6 @@ namespace ClinicaFrba
             frmListadoEstadistico.ShowDialog();
         }
 
-        private void btnCambiarPassword_Click(object sender, EventArgs e)
-        {
-            FrmModificarPassword frmModificarPassword = new FrmModificarPassword();
-            frmModificarPassword.Show();
-        }
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.frmLogin.Close();

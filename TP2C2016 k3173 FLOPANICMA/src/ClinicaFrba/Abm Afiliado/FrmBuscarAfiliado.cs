@@ -144,7 +144,7 @@ namespace ClinicaFrba.ABM_Rol
                     frmModificarRol.ShowDialog();
                 }
             }
-            
+
         }
     }
 }

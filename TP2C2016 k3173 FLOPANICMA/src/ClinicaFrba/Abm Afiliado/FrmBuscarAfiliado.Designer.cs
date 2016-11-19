@@ -34,8 +34,8 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.listadoRoles = new System.Windows.Forms.DataGridView();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.msgBusqueda = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoRoles)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -104,6 +104,11 @@
             this.listadoRoles.TabIndex = 1;
             this.listadoRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listadoRoles_CellContentClick);
             // 
+            // msgBusqueda
+            // 
+            this.msgBusqueda.Name = "msgBusqueda";
+            this.msgBusqueda.Size = new System.Drawing.Size(0, 17);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -113,11 +118,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(368, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // msgBusqueda
-            // 
-            this.msgBusqueda.Name = "msgBusqueda";
-            this.msgBusqueda.Size = new System.Drawing.Size(0, 17);
             // 
             // FrmBuscarAfiliado
             // 
@@ -152,7 +152,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView listadoRoles;
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel msgBusqueda;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

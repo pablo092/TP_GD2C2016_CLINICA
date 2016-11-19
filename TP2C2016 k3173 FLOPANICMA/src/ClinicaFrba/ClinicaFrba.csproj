@@ -57,12 +57,6 @@
     <Compile Include="Abm Afiliado\FrmModificarAfiliado.Designer.cs">
       <DependentUpon>FrmModificarAfiliado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Afiliado\FrmModificarPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Afiliado\FrmModificarPassword.Designer.cs">
-      <DependentUpon>FrmModificarPassword.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,9 +185,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Afiliado\FrmModificarAfiliado.resx">
       <DependentUpon>FrmModificarAfiliado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Afiliado\FrmModificarPassword.resx">
-      <DependentUpon>FrmModificarPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.resx">
       <DependentUpon>FrmBuscarEspecialidadesMedicas.cs</DependentUpon>

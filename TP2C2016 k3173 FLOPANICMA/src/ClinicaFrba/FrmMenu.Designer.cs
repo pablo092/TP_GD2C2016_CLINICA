@@ -231,13 +231,6 @@
             this.btnMenuListadoEstadistico.Text = "LISTADO ESTADISTICO";
             this.btnMenuListadoEstadistico.Click += new System.EventHandler(this.btnMenuListadoEstadistico_Click);
             // 
-            // btnCambiarPassword
-            // 
-            this.btnCambiarPassword.Name = "btnCambiarPassword";
-            this.btnCambiarPassword.Size = new System.Drawing.Size(136, 20);
-            this.btnCambiarPassword.Text = "CAMBIAR PASSWORD";
-            this.btnCambiarPassword.Click += new System.EventHandler(this.btnCambiarPassword_Click);
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
