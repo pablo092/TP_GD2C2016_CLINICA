@@ -12,7 +12,6 @@ using ClinicaFrba.DAO;
 using ClinicaFrba.DTO;
 using ClinicaFrba.ABM_Rol;
 using ClinicaFrba.Common;
-using ClinicaFrba.Listado_Estadistico;
 using ClinicaFrba.Abm_Profesional;
 using ClinicaFrba.Pedir_Turno;
 using ClinicaFrba.Registrar_Agenta_Medico;
@@ -23,6 +22,7 @@ using ClinicaFrba.Compra_Bono;
 using ClinicaFrba.Abm_Planes;
 using ClinicaFrba.Abm_Especialidades_Medicas;
 using ClinicaFrba.Abm_Afiliado;
+using ClinicaFrba.Listados;
 
 
 namespace ClinicaFrba
@@ -225,7 +225,7 @@ namespace ClinicaFrba
 
         private void btnMenuListadoEstadistico_Click(object sender, EventArgs e)
         {
-            FrmListadoEstadistico frmListadoEstadistico = new FrmListadoEstadistico();
+            ListadoEstadistico frmListadoEstadistico = new ListadoEstadistico();
             frmListadoEstadistico.ShowDialog();
         }
 

@@ -186,21 +186,21 @@
             // btnMenuRegistrarAgenda
             // 
             this.btnMenuRegistrarAgenda.Name = "btnMenuRegistrarAgenda";
-            this.btnMenuRegistrarAgenda.Size = new System.Drawing.Size(263, 22);
+            this.btnMenuRegistrarAgenda.Size = new System.Drawing.Size(265, 22);
             this.btnMenuRegistrarAgenda.Text = "AGENDA";
             this.btnMenuRegistrarAgenda.Click += new System.EventHandler(this.btnMenuRegistrarAgenda_Click);
             // 
             // btnMenuRegistrarLlegadaAM
             // 
             this.btnMenuRegistrarLlegadaAM.Name = "btnMenuRegistrarLlegadaAM";
-            this.btnMenuRegistrarLlegadaAM.Size = new System.Drawing.Size(263, 22);
+            this.btnMenuRegistrarLlegadaAM.Size = new System.Drawing.Size(265, 22);
             this.btnMenuRegistrarLlegadaAM.Text = "LLEGADA A ATENCIÓN MÉDICA";
             this.btnMenuRegistrarLlegadaAM.Click += new System.EventHandler(this.btnMenuRegistrarLlegadaAM_Click);
             // 
             // btnMenuRegistrarResultadoAM
             // 
             this.btnMenuRegistrarResultadoAM.Name = "btnMenuRegistrarResultadoAM";
-            this.btnMenuRegistrarResultadoAM.Size = new System.Drawing.Size(263, 22);
+            this.btnMenuRegistrarResultadoAM.Size = new System.Drawing.Size(265, 22);
             this.btnMenuRegistrarResultadoAM.Text = "RESULTADO DE ATENCIÓN MÉDICA";
             this.btnMenuRegistrarResultadoAM.Click += new System.EventHandler(this.btnMenuRegistrarResultadoAM_Click);
             // 
@@ -227,9 +227,15 @@
             // btnMenuListadoEstadistico
             // 
             this.btnMenuListadoEstadistico.Name = "btnMenuListadoEstadistico";
+            this.btnMenuListadoEstadistico.ShowShortcutKeys = false;
             this.btnMenuListadoEstadistico.Size = new System.Drawing.Size(140, 20);
             this.btnMenuListadoEstadistico.Text = "LISTADO ESTADISTICO";
             this.btnMenuListadoEstadistico.Click += new System.EventHandler(this.btnMenuListadoEstadistico_Click);
+            // 
+            // btnCambiarPassword
+            // 
+            this.btnCambiarPassword.Name = "btnCambiarPassword";
+            this.btnCambiarPassword.Size = new System.Drawing.Size(12, 20);
             // 
             // FrmMenu
             // 
