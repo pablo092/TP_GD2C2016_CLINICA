@@ -10,8 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ClinicaFrba.AdministradorDao;
+using ClinicaFrba.Abm_Afiliado;
 
-namespace ClinicaFrba.ABM_Rol
+namespace ClinicaFrba.ABM_Afiliado
 {
     public partial class FrmBuscarAfiliado : Form
     {
@@ -25,21 +26,21 @@ namespace ClinicaFrba.ABM_Rol
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            buscarRol();
+            buscarAfiliado();
         }
 
-        private void buscarRol()
+        private void buscarAfiliado()
         {
             Respuesta respuesta = null;
-            listadoRoles.DataSource = null;
+            listadoAfiliados.DataSource = null;
 
-            if (listadoRoles.Columns.Count != 0)
+            if (listadoAfiliados.Columns.Count != 0)
             {
-                listadoRoles.Columns.RemoveAt(0);
+                listadoAfiliados.Columns.RemoveAt(0);
             }
 
-            RolDAO rolDao = new RolDAO();
-            respuesta = rolDao.getRolByDescripcion(txtRolNombre.Text);
+            AfiliadoDAO afiliadoDAO = new AfiliadoDAO();
+            respuesta = afiliadoDAO.getAfiliadoByDescripcion(txtAfilNombre.Text);
 
             if (respuesta.CodigoError != 0)
             {
@@ -49,9 +50,9 @@ namespace ClinicaFrba.ABM_Rol
 
             if (respuesta.Resultado.Rows.Count > 0)
             {
-                listadoRoles.DataSource = respuesta.Resultado;
-                listadoRoles.Columns["ID_ROL"].Visible = false;
-                listadoRoles.Columns["ACTIVO"].Visible = false;
+                listadoAfiliados.DataSource = respuesta.Resultado;
+                listadoAfiliados.Columns["NUMERO_AFILIADO"].Visible = false;
+                listadoAfiliados.Columns["ACTIVO"].Visible = false;
                 DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
                 {
                     editar.HeaderText = "Acción";
@@ -62,13 +63,13 @@ namespace ClinicaFrba.ABM_Rol
                     editar.CellTemplate.Style.BackColor = Color.Honeydew;
                     editar.DisplayIndex = 4;
                 }
-                listadoRoles.Columns.Add(editar);
+                listadoAfiliados.Columns.Add(editar);
 
                 DataGridViewButtonColumn modificar = new DataGridViewButtonColumn();
                 {
                     modificar.HeaderText = "Opción";
-                    for(int i = 0; i < listadoRoles.Rows.Count; i++) {
-                        if (!(bool)listadoRoles.Rows[i].Cells["ACTIVO"].Value)
+                    for(int i = 0; i < listadoAfiliados.Rows.Count; i++) {
+                        if (!(bool)listadoAfiliados.Rows[i].Cells["ACTIVO"].Value)
                         {
                             modificar.Text = "Habilitar";
                         }
@@ -83,7 +84,7 @@ namespace ClinicaFrba.ABM_Rol
                     modificar.CellTemplate.Style.BackColor = Color.Honeydew;
                     modificar.DisplayIndex = 4;
                 }
-                listadoRoles.Columns.Add(modificar);
+                listadoAfiliados.Columns.Add(modificar);
                 msgBusqueda.Text = "";
 
             }
@@ -100,48 +101,49 @@ namespace ClinicaFrba.ABM_Rol
 
         private void limpiarFormulario()
         {
-            txtRolNombre.Text = "";
+            txtAfilNombre.Text = "";
             msgBusqueda.Text = "";
-            listadoRoles.DataSource = null;
-            if (listadoRoles.Columns.Count != 0)
+            listadoAfiliados.DataSource = null;
+            if (listadoAfiliados.Columns.Count != 0)
             {
-                listadoRoles.Columns.RemoveAt(0);
+                listadoAfiliados.Columns.RemoveAt(0);
+                listadoAfiliados.Columns.RemoveAt(1);
             }
         }
 
-        private void listadoRoles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void listadoAfiliados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaSeleccionada = listadoRoles.Rows[e.RowIndex];
-            Rol rol = new Rol();
-                
-            rol.Id = (int)filaSeleccionada.Cells["ID_ROL"].Value;
-            rol.Descripcion = (String)listadoRoles.Rows[e.RowIndex].Cells["DESCRIPCION"].Value;
-            rol.EstaHabilitado = (bool)listadoRoles.Rows[e.RowIndex].Cells["ACTIVO"].Value;
+            DataGridViewRow filaSeleccionada = listadoAfiliados.Rows[e.RowIndex];
+            Afiliado afiliado = new Afiliado();
+
+            afiliado.NroAfiliado = (string)filaSeleccionada.Cells["NUMERO_AFILIADO"].Value;
+            afiliado.Nombre = (String)listadoAfiliados.Rows[e.RowIndex].Cells["NOMBRE"].Value;
+            afiliado.NumeroDocumento = (string)listadoAfiliados.Rows[e.RowIndex].Cells["NUMERO_DOCUMENTO"].Value;
 
             if (e.ColumnIndex == 4)
             {
-                if (rol.Equals(UsuarioLogueado.usuario.Rol))
+                if (afiliado.Equals(UsuarioLogueado.usuario.Rol))
                 {
                     MessageBox.Show("No se puede deshabilitar el Rol con el que se ingresó al sistema.");
                     return;
                 }
                 else
                 {
-                    AdministradorRol admRol = new AdministradorRol();
-                    admRol.modificarRol(rol);
-                    listadoRoles.UpdateCellValue(e.ColumnIndex,e.RowIndex);
+                    AdministradorAfiliado admAfil = new AdministradorAfiliado();
+                    admAfil.modificarAfiliado(afiliado);
+                    listadoAfiliados.UpdateCellValue(e.ColumnIndex, e.RowIndex);
                 }    
             }
             else
             {
                 if (devolveValor)
                 {
-                    valorDevuelto = rol.Descripcion;
+                    valorDevuelto = afiliado.NroAfiliado;
                 }
                 else
                 {
-                    FrmCrearRol frmModificarRol = new FrmCrearRol(rol);
-                    frmModificarRol.ShowDialog();
+                    FrmCrearAfiliado frmModificarAfil = new FrmCrearAfiliado(afiliado);
+                    frmModificarAfil.ShowDialog();
                 }
             }
 

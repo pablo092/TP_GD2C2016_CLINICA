@@ -1,6 +1,6 @@
 ﻿namespace ClinicaFrba.Abm_Afiliado
 {
-    partial class FrmModificarAfiliado
+    partial class FrmCrearAfiliado
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelApellido = new System.Windows.Forms.Label();
             this.labelDNI = new System.Windows.Forms.Label();
-            this.labelFeccNac = new System.Windows.Forms.Label();
+            this.labelFecNac = new System.Windows.Forms.Label();
             this.labelDirec = new System.Windows.Forms.Label();
             this.labelTel = new System.Windows.Forms.Label();
             this.labelMail = new System.Windows.Forms.Label();
@@ -86,14 +86,14 @@
             this.labelDNI.TabIndex = 2;
             this.labelDNI.Text = "DNI:";
             // 
-            // labelFeccNac
+            // labelFecNac
             // 
-            this.labelFeccNac.AutoSize = true;
-            this.labelFeccNac.Location = new System.Drawing.Point(49, 121);
-            this.labelFeccNac.Name = "labelFeccNac";
-            this.labelFeccNac.Size = new System.Drawing.Size(111, 13);
-            this.labelFeccNac.TabIndex = 3;
-            this.labelFeccNac.Text = "Fecha de Nacimiento:";
+            this.labelFecNac.AutoSize = true;
+            this.labelFecNac.Location = new System.Drawing.Point(49, 121);
+            this.labelFecNac.Name = "labelFecNac";
+            this.labelFecNac.Size = new System.Drawing.Size(111, 13);
+            this.labelFecNac.TabIndex = 3;
+            this.labelFecNac.Text = "Fecha de Nacimiento:";
             // 
             // labelDirec
             // 
@@ -230,6 +230,7 @@
             this.buttonCancelar.TabIndex = 20;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Cick);
             // 
             // buttonGuardar
             // 
@@ -239,6 +240,7 @@
             this.buttonGuardar.TabIndex = 21;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // numericUpDownCantFam
             // 
@@ -255,7 +257,6 @@
             this.labelCantFam.Size = new System.Drawing.Size(152, 13);
             this.labelCantFam.TabIndex = 23;
             this.labelCantFam.Text = "Cantidad de familiares a cargo:";
-            this.labelCantFam.Click += new System.EventHandler(this.labelCantFam_Click);
             // 
             // checkBoxAsociar
             // 
@@ -322,7 +323,7 @@
             this.Controls.Add(this.labelMail);
             this.Controls.Add(this.labelTel);
             this.Controls.Add(this.labelDirec);
-            this.Controls.Add(this.labelFeccNac);
+            this.Controls.Add(this.labelFecNac);
             this.Controls.Add(this.labelDNI);
             this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.labelNombre);
@@ -339,7 +340,7 @@
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.Label labelDNI;
-        private System.Windows.Forms.Label labelFeccNac;
+        private System.Windows.Forms.Label labelFecNac;
         private System.Windows.Forms.Label labelDirec;
         private System.Windows.Forms.Label labelTel;
         private System.Windows.Forms.Label labelMail;

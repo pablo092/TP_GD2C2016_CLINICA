@@ -1,4 +1,4 @@
-﻿namespace ClinicaFrba.ABM_Rol
+﻿namespace ClinicaFrba.ABM_Afiliado
 {
     partial class FrmBuscarAfiliado
     {
@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblRolNombre = new System.Windows.Forms.Label();
-            this.txtRolNombre = new System.Windows.Forms.TextBox();
+            this.lblAfilNombre = new System.Windows.Forms.Label();
+            this.txtAfilNombre = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.listadoRoles = new System.Windows.Forms.DataGridView();
+            this.listadoAfiliados = new System.Windows.Forms.DataGridView();
             this.msgBusqueda = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listadoRoles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listadoAfiliados)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblRolNombre);
-            this.groupBox1.Controls.Add(this.txtRolNombre);
+            this.groupBox1.Controls.Add(this.lblAfilNombre);
+            this.groupBox1.Controls.Add(this.txtAfilNombre);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(340, 69);
@@ -52,21 +52,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "FILTRO BUSQUEDA";
             // 
-            // lblRolNombre
+            // lblAfilNombre
             // 
-            this.lblRolNombre.AutoSize = true;
-            this.lblRolNombre.Location = new System.Drawing.Point(19, 34);
-            this.lblRolNombre.Name = "lblRolNombre";
-            this.lblRolNombre.Size = new System.Drawing.Size(54, 13);
-            this.lblRolNombre.TabIndex = 1;
-            this.lblRolNombre.Text = "NOMBRE";
+            this.lblAfilNombre.AutoSize = true;
+            this.lblAfilNombre.Location = new System.Drawing.Point(19, 34);
+            this.lblAfilNombre.Name = "lblAfilNombre";
+            this.lblAfilNombre.Size = new System.Drawing.Size(54, 13);
+            this.lblAfilNombre.TabIndex = 1;
+            this.lblAfilNombre.Text = "NOMBRE";
             // 
-            // txtRolNombre
+            // txtAfilNombre
             // 
-            this.txtRolNombre.Location = new System.Drawing.Point(79, 31);
-            this.txtRolNombre.Name = "txtRolNombre";
-            this.txtRolNombre.Size = new System.Drawing.Size(245, 20);
-            this.txtRolNombre.TabIndex = 0;
+            this.txtAfilNombre.Location = new System.Drawing.Point(79, 31);
+            this.txtAfilNombre.Name = "txtAfilNombre";
+            this.txtAfilNombre.Size = new System.Drawing.Size(245, 20);
+            this.txtAfilNombre.TabIndex = 0;
             // 
             // btnLimpiar
             // 
@@ -90,19 +90,19 @@
             // 
             // listadoRoles
             // 
-            this.listadoRoles.AllowUserToAddRows = false;
-            this.listadoRoles.AllowUserToDeleteRows = false;
-            this.listadoRoles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.listadoRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listadoRoles.Location = new System.Drawing.Point(12, 117);
-            this.listadoRoles.MultiSelect = false;
-            this.listadoRoles.Name = "listadoRoles";
-            this.listadoRoles.ReadOnly = true;
-            this.listadoRoles.RowHeadersVisible = false;
-            this.listadoRoles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listadoRoles.Size = new System.Drawing.Size(341, 219);
-            this.listadoRoles.TabIndex = 1;
-            this.listadoRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listadoRoles_CellContentClick);
+            this.listadoAfiliados.AllowUserToAddRows = false;
+            this.listadoAfiliados.AllowUserToDeleteRows = false;
+            this.listadoAfiliados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listadoAfiliados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listadoAfiliados.Location = new System.Drawing.Point(12, 117);
+            this.listadoAfiliados.MultiSelect = false;
+            this.listadoAfiliados.Name = "listadoRoles";
+            this.listadoAfiliados.ReadOnly = true;
+            this.listadoAfiliados.RowHeadersVisible = false;
+            this.listadoAfiliados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listadoAfiliados.Size = new System.Drawing.Size(341, 219);
+            this.listadoAfiliados.TabIndex = 1;
+            this.listadoAfiliados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listadoAfiliados_CellContentClick);
             // 
             // msgBusqueda
             // 
@@ -127,7 +127,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.listadoRoles);
+            this.Controls.Add(this.listadoAfiliados);
             this.Controls.Add(this.groupBox1);
             this.MaximumSize = new System.Drawing.Size(384, 400);
             this.MinimumSize = new System.Drawing.Size(384, 400);
@@ -136,7 +136,7 @@
             this.Text = "BUSCAR AFILIADO";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listadoRoles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listadoAfiliados)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -147,11 +147,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblRolNombre;
-        private System.Windows.Forms.TextBox txtRolNombre;
+        private System.Windows.Forms.Label lblAfilNombre;
+        private System.Windows.Forms.TextBox txtAfilNombre;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView listadoRoles;
+        private System.Windows.Forms.DataGridView listadoAfiliados;
         private System.Windows.Forms.ToolStripStatusLabel msgBusqueda;
         private System.Windows.Forms.StatusStrip statusStrip1;
     }

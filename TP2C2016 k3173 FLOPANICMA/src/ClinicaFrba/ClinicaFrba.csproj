@@ -46,17 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abm Afiliado\AdministradoAfiliado.cs" />
     <Compile Include="Abm Afiliado\FrmBuscarAfiliado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Afiliado\FrmBuscarAfiliado.Designer.cs">
       <DependentUpon>FrmBuscarAfiliado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Afiliado\FrmModificarAfiliado.cs">
+    <Compile Include="Abm Afiliado\FrmCrearAfiliado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Afiliado\FrmModificarAfiliado.Designer.cs">
-      <DependentUpon>FrmModificarAfiliado.cs</DependentUpon>
+    <Compile Include="Abm Afiliado\FrmCrearAfiliado.Designer.cs">
+      <DependentUpon>FrmCrearAfiliado.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.cs">
       <SubType>Form</SubType>
@@ -184,8 +185,8 @@
     <EmbeddedResource Include="Abm Afiliado\FrmBuscarAfiliado.resx">
       <DependentUpon>FrmBuscarAfiliado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Afiliado\FrmModificarAfiliado.resx">
-      <DependentUpon>FrmModificarAfiliado.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Afiliado\FrmCrearAfiliado.resx">
+      <DependentUpon>FrmCrearAfiliado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.resx">
       <DependentUpon>FrmBuscarEspecialidadesMedicas.cs</DependentUpon>

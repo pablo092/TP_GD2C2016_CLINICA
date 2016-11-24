@@ -23,6 +23,7 @@ using ClinicaFrba.Abm_Planes;
 using ClinicaFrba.Abm_Especialidades_Medicas;
 using ClinicaFrba.Abm_Afiliado;
 using ClinicaFrba.Listados;
+using ClinicaFrba.ABM_Afiliado;
 
 
 namespace ClinicaFrba
@@ -154,7 +155,7 @@ namespace ClinicaFrba
 
         private void btnMenuAfiliadoAlta_Click(object sender, EventArgs e)
         {
-            FrmModificarAfiliado frmAfiliadoCrear = new FrmModificarAfiliado();
+            FrmCrearAfiliado frmAfiliadoCrear = new FrmCrearAfiliado();
             frmAfiliadoCrear.ShowDialog();
         }
 

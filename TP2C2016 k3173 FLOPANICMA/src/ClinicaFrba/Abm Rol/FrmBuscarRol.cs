@@ -106,6 +106,7 @@ namespace ClinicaFrba.ABM_Rol
             if (listadoRoles.Columns.Count != 0)
             {
                 listadoRoles.Columns.RemoveAt(0);
+                listadoRoles.Columns.RemoveAt(1);
             }
         }
 
