@@ -1428,7 +1428,9 @@ BEGIN TRANSACTION T1
 			END;
 		SET @FECHA = DATEADD(DAY,7,@FECHA)
 	END;
-		
+	SET @FLAG_ERROR = 0
+	SET @MENSAJE = 'La actividad se registro exitosamente'
+	
 COMMIT
 
 GO 
