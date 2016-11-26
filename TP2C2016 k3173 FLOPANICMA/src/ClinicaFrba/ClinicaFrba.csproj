@@ -124,6 +124,7 @@
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DTO\Afiliado.cs" />
     <Compile Include="DTO\Agenda.cs" />
+    <Compile Include="DTO\EstadoCivil.cs" />
     <Compile Include="DTO\Persona.cs" />
     <Compile Include="DTO\EspecialidadMedica.cs" />
     <Compile Include="DTO\Estado.cs" />

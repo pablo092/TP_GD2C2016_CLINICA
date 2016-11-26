@@ -20,6 +20,8 @@ namespace ClinicaFrba.Abm_Afiliado
         public FrmCrearAfiliado()
         {
             InitializeComponent();
+            this.ocultarItemes();
+            this.cargarComboBox();
         }
 
         /* MODIFICAR */
@@ -57,6 +59,15 @@ namespace ClinicaFrba.Abm_Afiliado
             AdministradorAfiliado adm = new AdministradorAfiliado();
             int pareja = 0;
 
+            if (checkBoxAsociar.Checked)
+            {
+                afiliado.CantHijos = (int)numericUpDownCantFam.Value;
+            }
+            if (checkBoxAsocPareja.Checked)
+            {
+                pareja = 1;
+            }
+
             afiliado.Nombre = textBoxNombre.Text;
             afiliado.Apellido = textBoxApellido.Text;
             afiliado.TipoDocumento = "DNI";
@@ -65,21 +76,15 @@ namespace ClinicaFrba.Abm_Afiliado
             afiliado.Email = textBoxMail.Text;
             afiliado.PlanMedicoAnterior = (string)comboBoxPM.SelectedItem;
             afiliado.PlanMedicoActual = (string)comboBoxPM.SelectedItem;
-            afiliado.Sexo = (string)comboBoxSexo.SelectedItem;
-            afiliado.EstadoCivil = (string)comboBoxEstadoCivil.SelectedItem;
+            afiliado.Sexo = comboBoxSexo.SelectedText;
+            afiliado.EstadoCivil = comboBoxEstadoCivil.SelectedText;
             afiliado.FechaNacimiento = dateTimePickerFecNac.Value;
 
-            if (checkBoxAsociar.Enabled)
-            {
-                afiliado.CantHijos = (int)numericUpDownCantFam.Value;
-            }
-            if (checkBoxAsocPareja.Enabled)
-            {
-                pareja = 1;
-            }
             adm.insertaAfiliado(afiliado);
+
             for (int i = 0; i <= afiliado.CantHijos + pareja; i++)
             {
+                FrmCrearAfiliado fmrAfil = new FrmCrearAfiliado();
             }
         }
 
@@ -87,5 +92,56 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             this.Close();
         }
+
+        private void cargarComboBox()
+        {
+            comboBoxSexo.Items.Add(Sexo.Masculino);
+            comboBoxSexo.Items.Add(Sexo.Femenino);
+
+            comboBoxPM.Items.Add("Plan Medico 110");
+            comboBoxPM.Items.Add("Plan Medico 120");
+            comboBoxPM.Items.Add("Plan Medico 130");
+            comboBoxPM.Items.Add("Plan Medico 140");
+            comboBoxPM.Items.Add("Plan Medico 150");
+
+            comboBoxEstadoCivil.Items.Add(EstadoCivil.Soltero);
+            comboBoxEstadoCivil.Items.Add(EstadoCivil.Casado);
+            comboBoxEstadoCivil.Items.Add(EstadoCivil.Concubinato);
+            comboBoxEstadoCivil.Items.Add(EstadoCivil.Divorciado);
+        }
+
+        private void ocultarItemes()
+        {
+            this.textBoxNroAfil.Visible = false;
+            this.labelNroAfil.Visible = false;
+            this.checkBoxAsociar.Visible = false;
+            this.checkBoxAsocPareja.Visible = false;
+        }
+
+        private void comboBoxEstadoCivil_Click(object sender, EventArgs e)
+        {
+            object estado = comboBoxEstadoCivil.SelectedItem;
+            if (EstadoCivil.Casado.Equals(estado) || EstadoCivil.Concubinato.Equals(estado))
+            {
+                this.checkBoxAsocPareja.Visible = true;
+            }
+            else
+            {
+                this.checkBoxAsocPareja.Visible = false;
+            }
+        }
+
+        private void numericUpDownCantFam_Click(object sender, EventArgs e)
+        {
+            if (this.numericUpDownCantFam.Value > 0)
+            {
+                this.checkBoxAsociar.Visible = true;
+            }
+            else
+            {
+                this.checkBoxAsociar.Visible = false;
+            }
+        }
+
     }
 }

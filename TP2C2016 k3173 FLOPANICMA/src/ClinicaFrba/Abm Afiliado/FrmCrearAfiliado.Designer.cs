@@ -221,6 +221,7 @@
             this.comboBoxEstadoCivil.Name = "comboBoxEstadoCivil";
             this.comboBoxEstadoCivil.Size = new System.Drawing.Size(99, 21);
             this.comboBoxEstadoCivil.TabIndex = 19;
+            this.comboBoxEstadoCivil.Click += new System.EventHandler(this.comboBoxEstadoCivil_Click);
             // 
             // buttonCancelar
             // 
@@ -248,6 +249,7 @@
             this.numericUpDownCantFam.Name = "numericUpDownCantFam";
             this.numericUpDownCantFam.Size = new System.Drawing.Size(46, 20);
             this.numericUpDownCantFam.TabIndex = 22;
+            this.numericUpDownCantFam.Click += new System.EventHandler(this.numericUpDownCantFam_Click);
             // 
             // labelCantFam
             // 
