@@ -12,6 +12,8 @@ using ClinicaFrba.DAO;
 using ClinicaFrba.DTO;
 using ClinicaFrba.ABM_Rol;
 using ClinicaFrba.Common;
+using ClinicaFrba.ABM_Afiliado;
+using ClinicaFrba.Listado_Estadistico;
 using ClinicaFrba.Abm_Profesional;
 using ClinicaFrba.Pedir_Turno;
 using ClinicaFrba.Registrar_Agenta_Medico;
@@ -22,8 +24,6 @@ using ClinicaFrba.Compra_Bono;
 using ClinicaFrba.Abm_Planes;
 using ClinicaFrba.Abm_Especialidades_Medicas;
 using ClinicaFrba.Abm_Afiliado;
-using ClinicaFrba.Listados;
-using ClinicaFrba.ABM_Afiliado;
 
 
 namespace ClinicaFrba
@@ -127,7 +127,7 @@ namespace ClinicaFrba
             {
                 btnMenuRegistrarLlegadaAM.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("LISTADO"))
+            if (UsuarioLogueado.funcionalidades.Contains("LISTADOS"))
             {
                 btnMenuListadoEstadistico.Visible = true;
             }
@@ -155,7 +155,7 @@ namespace ClinicaFrba
 
         private void btnMenuAfiliadoAlta_Click(object sender, EventArgs e)
         {
-            FrmCrearAfiliado frmAfiliadoCrear = new FrmCrearAfiliado();
+            FrmModificarAfiliado frmAfiliadoCrear = new FrmModificarAfiliado();
             frmAfiliadoCrear.ShowDialog();
         }
 
@@ -226,10 +226,15 @@ namespace ClinicaFrba
 
         private void btnMenuListadoEstadistico_Click(object sender, EventArgs e)
         {
-            ListadoEstadistico frmListadoEstadistico = new ListadoEstadistico();
+            FrmListadoEstadistico frmListadoEstadistico = new FrmListadoEstadistico();
             frmListadoEstadistico.ShowDialog();
         }
 
+        private void btnCambiarPassword_Click(object sender, EventArgs e)
+        {
+            FrmModificarPassword frmModificarPassword = new FrmModificarPassword();
+            frmModificarPassword.Show();
+        }
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.frmLogin.Close();

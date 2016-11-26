@@ -9,42 +9,42 @@ namespace ClinicaFrba.DTO
 {
     class Agenda
     {
-        private DateTime fecha;
-        private int idProf;
-        private int idEsp;
-        private int horaInicio;
-        private int horaFin;
+        private String dia;
+        private Int32 idProf;
+        private Decimal idEsp;
+        private Int32 horaInicio;
+        private Int32 horaFin;
         private DateTime periodoInicio;
         private DateTime periodoFin;
 
-        public int HoraFin
+        public Int32 HoraFin
         {
             get { return horaFin; }
             set { horaFin = value; }
         }
 
-        public int HoraInicio
+        public Int32 HoraInicio
         {
             get { return horaInicio; }
             set { horaInicio = value; }
         }
 
-        public int IdProf
+        public Int32 IdProf
         {
             get { return idProf; }
             set { idProf = value; }
         }
 
-        public int IdEsp
+        public Decimal IdEsp
         {
             get { return idEsp; }
             set { idEsp = value; }
         }
 
-        public DateTime Fecha
+        public String Dia
         {
-            get { return fecha; }
-            set { fecha = value; }
+            get { return dia; }
+            set { dia = value; }
         }
 
         public DateTime PeriodoInicio
@@ -64,7 +64,7 @@ namespace ClinicaFrba.DTO
             
         }
 
-        public Agenda(int idProf, int idEsp, int hI, int hF, DateTime PIni, DateTime PFin, DateTime fecha)
+        public Agenda(int idProf, Decimal idEsp, int hI, int hF, DateTime PIni, DateTime PFin, String day)
         {
             this.idProf = idProf;
             this.idEsp = idEsp;
@@ -72,19 +72,19 @@ namespace ClinicaFrba.DTO
             this.horaFin = hF;
             this.PeriodoFin = PFin;
             this.periodoInicio = PIni;
-            this.fecha = fecha;
+            this.dia = day;
         }
 
-        public Agenda(DateTime fecha)
+      /*  public Agenda(String day)
         {
-            this.fecha = fecha;
+            this.dia = day;
         }
 
         public Agenda(DataRowView item)
         {
-            this.IdEsp = (int)item.Row[0];
-            this.Fecha = (DateTime)item.Row[1];
+            this.IdEsp = (Int32)item.Row[0];
+            this.Dia = (String)item.Row[1];
             this.IdProf = (int)item.Row[0];
-        }
+        }*/
     }
 }

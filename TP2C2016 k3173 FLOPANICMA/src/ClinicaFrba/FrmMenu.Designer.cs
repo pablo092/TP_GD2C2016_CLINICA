@@ -48,9 +48,9 @@
             this.btnMenuRegistrarResultadoAM = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuComprarBono = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuPedidoTurno = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMenuCancelarAtencion = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuListadoEstadistico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCambiarPassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuCancelarAtencion = new System.Windows.Forms.ToolStripMenuItem();
             this.mnPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.btnCambiarPassword});
             this.mnPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnPrincipal.Name = "mnPrincipal";
-            this.mnPrincipal.Size = new System.Drawing.Size(692, 24);
+            this.mnPrincipal.Size = new System.Drawing.Size(815, 24);
             this.mnPrincipal.TabIndex = 0;
             this.mnPrincipal.Text = "Menú Principal";
             // 
@@ -218,16 +218,9 @@
             this.btnMenuPedidoTurno.Text = "PEDIDO DE TURNOS";
             this.btnMenuPedidoTurno.Click += new System.EventHandler(this.btnMenuPedidoTurno_Click);
             // 
-            // btnMenuCancelarAtencion
-            // 
-            this.btnMenuCancelarAtencion.Name = "btnMenuCancelarAtencion";
-            this.btnMenuCancelarAtencion.Size = new System.Drawing.Size(12, 20);
-            this.btnMenuCancelarAtencion.Click += new System.EventHandler(this.btnMenuCancelarAtencion_Click);
-            // 
             // btnMenuListadoEstadistico
             // 
             this.btnMenuListadoEstadistico.Name = "btnMenuListadoEstadistico";
-            this.btnMenuListadoEstadistico.ShowShortcutKeys = false;
             this.btnMenuListadoEstadistico.Size = new System.Drawing.Size(140, 20);
             this.btnMenuListadoEstadistico.Text = "LISTADO ESTADISTICO";
             this.btnMenuListadoEstadistico.Click += new System.EventHandler(this.btnMenuListadoEstadistico_Click);
@@ -235,14 +228,22 @@
             // btnCambiarPassword
             // 
             this.btnCambiarPassword.Name = "btnCambiarPassword";
-            this.btnCambiarPassword.Size = new System.Drawing.Size(12, 20);
+            this.btnCambiarPassword.Size = new System.Drawing.Size(136, 20);
+            this.btnCambiarPassword.Text = "CAMBIAR PASSWORD";
+            this.btnCambiarPassword.Click += new System.EventHandler(this.btnCambiarPassword_Click);
+            // 
+            // btnMenuCancelarAtencion
+            // 
+            this.btnMenuCancelarAtencion.Name = "btnMenuCancelarAtencion";
+            this.btnMenuCancelarAtencion.Size = new System.Drawing.Size(113, 20);
+            this.btnMenuCancelarAtencion.Text = "CANCELACIONES";
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(692, 346);
+            this.ClientSize = new System.Drawing.Size(815, 346);
             this.Controls.Add(this.mnPrincipal);
             this.MainMenuStrip = this.mnPrincipal;
             this.Name = "FrmMenu";
@@ -279,7 +280,6 @@
 
         private System.Windows.Forms.ToolStripMenuItem btnMenuPedidoTurno;
         private System.Windows.Forms.ToolStripMenuItem btnMenuComprarBono;
-        private System.Windows.Forms.ToolStripMenuItem btnMenuCancelarAtencion;
 
         private System.Windows.Forms.ToolStripMenuItem btnMenuRegistrar;
         private System.Windows.Forms.ToolStripMenuItem btnMenuRegistrarAgenda;
@@ -288,5 +288,6 @@
 
         private System.Windows.Forms.ToolStripMenuItem btnMenuListadoEstadistico;
         private System.Windows.Forms.ToolStripMenuItem btnCambiarPassword;
+        private System.Windows.Forms.ToolStripMenuItem btnMenuCancelarAtencion;
     }
 }

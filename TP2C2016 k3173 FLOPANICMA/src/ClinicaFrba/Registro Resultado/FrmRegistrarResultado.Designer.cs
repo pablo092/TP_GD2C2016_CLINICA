@@ -28,142 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelSintomas = new System.Windows.Forms.Label();
-            this.labelDiagnostico = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.richTextBoxDiagnostico = new System.Windows.Forms.RichTextBox();
-            this.richTextBoxSintomas = new System.Windows.Forms.RichTextBox();
-            this.buttonGuardar = new System.Windows.Forms.Button();
-            this.buttonCerrar = new System.Windows.Forms.Button();
-            this.labelHora = new System.Windows.Forms.Label();
-            this.numericUpDownHH = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownMM = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMM)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TXTSINTOMAS = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TXTDIAGNOSTICO = new System.Windows.Forms.TextBox();
+            this.BTNACEPTAR = new System.Windows.Forms.Button();
+            this.BTNCANCELAR = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbPaciente = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // labelSintomas
+            // label2
             // 
-            this.labelSintomas.AutoSize = true;
-            this.labelSintomas.Location = new System.Drawing.Point(64, 103);
-            this.labelSintomas.Name = "labelSintomas";
-            this.labelSintomas.Size = new System.Drawing.Size(55, 13);
-            this.labelSintomas.TabIndex = 0;
-            this.labelSintomas.Text = "Síntomas:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Sintomas";
             // 
-            // labelDiagnostico
+            // TXTSINTOMAS
             // 
-            this.labelDiagnostico.AutoSize = true;
-            this.labelDiagnostico.Location = new System.Drawing.Point(64, 182);
-            this.labelDiagnostico.Name = "labelDiagnostico";
-            this.labelDiagnostico.Size = new System.Drawing.Size(66, 13);
-            this.labelDiagnostico.TabIndex = 1;
-            this.labelDiagnostico.Text = "Diagnóstico:";
+            this.TXTSINTOMAS.Location = new System.Drawing.Point(156, 93);
+            this.TXTSINTOMAS.Multiline = true;
+            this.TXTSINTOMAS.Name = "TXTSINTOMAS";
+            this.TXTSINTOMAS.Size = new System.Drawing.Size(244, 75);
+            this.TXTSINTOMAS.TabIndex = 3;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Fecha:";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(29, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Diagnostico";
             // 
-            // dateTimePicker1
+            // TXTDIAGNOSTICO
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(136, 23);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.TXTDIAGNOSTICO.Location = new System.Drawing.Point(156, 190);
+            this.TXTDIAGNOSTICO.Multiline = true;
+            this.TXTDIAGNOSTICO.Name = "TXTDIAGNOSTICO";
+            this.TXTDIAGNOSTICO.Size = new System.Drawing.Size(244, 75);
+            this.TXTDIAGNOSTICO.TabIndex = 5;
             // 
-            // richTextBoxDiagnostico
+            // BTNACEPTAR
             // 
-            this.richTextBoxDiagnostico.Location = new System.Drawing.Point(136, 182);
-            this.richTextBoxDiagnostico.Name = "richTextBoxDiagnostico";
-            this.richTextBoxDiagnostico.Size = new System.Drawing.Size(362, 96);
-            this.richTextBoxDiagnostico.TabIndex = 4;
-            this.richTextBoxDiagnostico.Text = "";
+            this.BTNACEPTAR.Location = new System.Drawing.Point(50, 307);
+            this.BTNACEPTAR.Name = "BTNACEPTAR";
+            this.BTNACEPTAR.Size = new System.Drawing.Size(122, 35);
+            this.BTNACEPTAR.TabIndex = 6;
+            this.BTNACEPTAR.Text = "&Aceptar";
+            this.BTNACEPTAR.UseVisualStyleBackColor = true;
+            this.BTNACEPTAR.Click += new System.EventHandler(this.BTNACEPTAR_Click);
             // 
-            // richTextBoxSintomas
+            // BTNCANCELAR
             // 
-            this.richTextBoxSintomas.Location = new System.Drawing.Point(136, 103);
-            this.richTextBoxSintomas.Name = "richTextBoxSintomas";
-            this.richTextBoxSintomas.Size = new System.Drawing.Size(362, 68);
-            this.richTextBoxSintomas.TabIndex = 5;
-            this.richTextBoxSintomas.Text = "";
+            this.BTNCANCELAR.Location = new System.Drawing.Point(259, 307);
+            this.BTNCANCELAR.Name = "BTNCANCELAR";
+            this.BTNCANCELAR.Size = new System.Drawing.Size(122, 35);
+            this.BTNCANCELAR.TabIndex = 7;
+            this.BTNCANCELAR.Text = "&Cancelar";
+            this.BTNCANCELAR.UseVisualStyleBackColor = true;
+            this.BTNCANCELAR.Click += new System.EventHandler(this.BTNCANCELAR_Click);
             // 
-            // buttonGuardar
+            // label4
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(344, 303);
-            this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
-            this.buttonGuardar.TabIndex = 6;
-            this.buttonGuardar.Text = "Guardar";
-            this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(29, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Paciente";
             // 
-            // buttonCerrar
+            // cmbPaciente
             // 
-            this.buttonCerrar.Location = new System.Drawing.Point(423, 303);
-            this.buttonCerrar.Name = "buttonCerrar";
-            this.buttonCerrar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCerrar.TabIndex = 7;
-            this.buttonCerrar.Text = "Cerrar";
-            this.buttonCerrar.UseVisualStyleBackColor = true;
-            // 
-            // labelHora
-            // 
-            this.labelHora.AutoSize = true;
-            this.labelHora.Location = new System.Drawing.Point(64, 65);
-            this.labelHora.Name = "labelHora";
-            this.labelHora.Size = new System.Drawing.Size(33, 13);
-            this.labelHora.TabIndex = 8;
-            this.labelHora.Text = "Hora:";
-            // 
-            // numericUpDownHH
-            // 
-            this.numericUpDownHH.Location = new System.Drawing.Point(136, 58);
-            this.numericUpDownHH.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.numericUpDownHH.Name = "numericUpDownHH";
-            this.numericUpDownHH.Size = new System.Drawing.Size(31, 20);
-            this.numericUpDownHH.TabIndex = 9;
-            // 
-            // numericUpDownMM
-            // 
-            this.numericUpDownMM.Location = new System.Drawing.Point(173, 58);
-            this.numericUpDownMM.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.numericUpDownMM.Name = "numericUpDownMM";
-            this.numericUpDownMM.Size = new System.Drawing.Size(31, 20);
-            this.numericUpDownMM.TabIndex = 10;
+            this.cmbPaciente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPaciente.FormattingEnabled = true;
+            this.cmbPaciente.Location = new System.Drawing.Point(158, 32);
+            this.cmbPaciente.Name = "cmbPaciente";
+            this.cmbPaciente.Size = new System.Drawing.Size(242, 28);
+            this.cmbPaciente.TabIndex = 9;
             // 
             // FrmRegistrarResultado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 339);
-            this.Controls.Add(this.numericUpDownMM);
-            this.Controls.Add(this.numericUpDownHH);
-            this.Controls.Add(this.labelHora);
-            this.Controls.Add(this.buttonCerrar);
-            this.Controls.Add(this.buttonGuardar);
-            this.Controls.Add(this.richTextBoxSintomas);
-            this.Controls.Add(this.richTextBoxDiagnostico);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelDiagnostico);
-            this.Controls.Add(this.labelSintomas);
+            this.ClientSize = new System.Drawing.Size(431, 365);
+            this.Controls.Add(this.cmbPaciente);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.BTNCANCELAR);
+            this.Controls.Add(this.BTNACEPTAR);
+            this.Controls.Add(this.TXTDIAGNOSTICO);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TXTSINTOMAS);
+            this.Controls.Add(this.label2);
             this.Name = "FrmRegistrarResultado";
-            this.Text = "REGISTRAR RESULTADO";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMM)).EndInit();
+            this.Text = "REGISTRAR RESULTADO CONSULTA";
+            this.Load += new System.EventHandler(this.FrmRegistrarResultado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,16 +137,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelSintomas;
-        private System.Windows.Forms.Label labelDiagnostico;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RichTextBox richTextBoxDiagnostico;
-        private System.Windows.Forms.RichTextBox richTextBoxSintomas;
-        private System.Windows.Forms.Button buttonGuardar;
-        private System.Windows.Forms.Button buttonCerrar;
-        private System.Windows.Forms.Label labelHora;
-        private System.Windows.Forms.NumericUpDown numericUpDownHH;
-        private System.Windows.Forms.NumericUpDown numericUpDownMM;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TXTSINTOMAS;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TXTDIAGNOSTICO;
+        private System.Windows.Forms.Button BTNACEPTAR;
+        private System.Windows.Forms.Button BTNCANCELAR;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbPaciente;
     }
 }
