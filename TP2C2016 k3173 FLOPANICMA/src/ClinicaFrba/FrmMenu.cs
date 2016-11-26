@@ -13,7 +13,6 @@ using ClinicaFrba.DTO;
 using ClinicaFrba.ABM_Rol;
 using ClinicaFrba.Common;
 using ClinicaFrba.ABM_Afiliado;
-using ClinicaFrba.Listado_Estadistico;
 using ClinicaFrba.Abm_Profesional;
 using ClinicaFrba.Pedir_Turno;
 using ClinicaFrba.Registrar_Agenta_Medico;
@@ -24,6 +23,8 @@ using ClinicaFrba.Compra_Bono;
 using ClinicaFrba.Abm_Planes;
 using ClinicaFrba.Abm_Especialidades_Medicas;
 using ClinicaFrba.Abm_Afiliado;
+using ClinicaFrba.Listados;
+using ClinicaFrba.HistorialModifPlanes;
 
 
 namespace ClinicaFrba
@@ -84,6 +85,8 @@ namespace ClinicaFrba
             btnMenuAfiliado.Visible = false;
             btnMenuProfesional.Visible = false;
             btnMenuCancelarAtencion.Visible = false;
+            btnMenuHistorialModificacionesPlanAfiliado.Visible = false;
+
         }
 
         /// <summary>
@@ -98,6 +101,7 @@ namespace ClinicaFrba
             if (UsuarioLogueado.funcionalidades.Contains("ABM DE AFILIADO"))
             {
                 btnMenuAfiliado.Visible = true;
+                btnMenuHistorialModificacionesPlanAfiliado.Visible = true;
             }
             if (UsuarioLogueado.funcionalidades.Contains("ABM DE PLANES MEDICOS"))
             {
@@ -155,7 +159,7 @@ namespace ClinicaFrba
 
         private void btnMenuAfiliadoAlta_Click(object sender, EventArgs e)
         {
-            FrmModificarAfiliado frmAfiliadoCrear = new FrmModificarAfiliado();
+            FrmCrearAfiliado frmAfiliadoCrear = new FrmCrearAfiliado();
             frmAfiliadoCrear.ShowDialog();
         }
 
@@ -226,15 +230,16 @@ namespace ClinicaFrba
 
         private void btnMenuListadoEstadistico_Click(object sender, EventArgs e)
         {
-            FrmListadoEstadistico frmListadoEstadistico = new FrmListadoEstadistico();
+            ListadoEstadistico frmListadoEstadistico = new ListadoEstadistico();
             frmListadoEstadistico.ShowDialog();
         }
 
-        private void btnCambiarPassword_Click(object sender, EventArgs e)
+        private void btnMenuHistorialModificacionesPlanAfiliado_Click(object sender, EventArgs e)
         {
-            FrmModificarPassword frmModificarPassword = new FrmModificarPassword();
-            frmModificarPassword.Show();
+            FrmHistModifPlan frmHistModifPlan = new FrmHistModifPlan();
+            frmHistModifPlan.ShowDialog();
         }
+
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.frmLogin.Close();

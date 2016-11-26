@@ -138,7 +138,6 @@
     <Compile Include="DTO\TipoEspecialidad.cs" />
     <Compile Include="DTO\Semestre.cs" />
     <Compile Include="DTO\Usuario.cs" />
-    <Compile Include="FrmBuscarAfiliado.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>

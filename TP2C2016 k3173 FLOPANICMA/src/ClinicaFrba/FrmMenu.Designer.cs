@@ -51,6 +51,7 @@
             this.btnMenuListadoEstadistico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCambiarPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuCancelarAtencion = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuHistorialModificacionesPlanAfiliado = new System.Windows.Forms.ToolStripMenuItem();
             this.mnPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,12 +226,12 @@
             this.btnMenuListadoEstadistico.Text = "LISTADO ESTADISTICO";
             this.btnMenuListadoEstadistico.Click += new System.EventHandler(this.btnMenuListadoEstadistico_Click);
             // 
-            // btnCambiarPassword
+            // btnMenuHistorialModificacionesPlanAfiliado
             // 
-            this.btnCambiarPassword.Name = "btnCambiarPassword";
-            this.btnCambiarPassword.Size = new System.Drawing.Size(136, 20);
-            this.btnCambiarPassword.Text = "CAMBIAR PASSWORD";
-            this.btnCambiarPassword.Click += new System.EventHandler(this.btnCambiarPassword_Click);
+            this.btnMenuHistorialModificacionesPlanAfiliado.Name = "btnMenuHistorialModificacionesPlanAfiliado";
+            this.btnMenuHistorialModificacionesPlanAfiliado.Size = new System.Drawing.Size(136, 20);
+            this.btnMenuHistorialModificacionesPlanAfiliado.Text = "HISTORIAL DE MODIFICACIONES PLAN MEDICO";
+            this.btnMenuHistorialModificacionesPlanAfiliado.Click += new System.EventHandler(this.btnMenuHistorialModificacionesPlanAfiliado_Click);
             // 
             // btnMenuCancelarAtencion
             // 
@@ -289,5 +290,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnMenuListadoEstadistico;
         private System.Windows.Forms.ToolStripMenuItem btnCambiarPassword;
         private System.Windows.Forms.ToolStripMenuItem btnMenuCancelarAtencion;
+        private System.Windows.Forms.ToolStripMenuItem btnMenuHistorialModificacionesPlanAfiliado;
     }
 }
