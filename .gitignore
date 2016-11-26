@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.resx
+*.config
+*.config
+*.exe
+*.manifest
+*.csproj
+*.resources
+*.Cache
+*.txt
+*.pdb
+*.resources
+*.resx
