@@ -131,7 +131,7 @@ namespace ClinicaFrba
             {
                 btnMenuRegistrarLlegadaAM.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("LISTADOS"))
+            if (UsuarioLogueado.funcionalidades.Contains("LISTADO"))
             {
                 btnMenuListadoEstadistico.Visible = true;
             }
