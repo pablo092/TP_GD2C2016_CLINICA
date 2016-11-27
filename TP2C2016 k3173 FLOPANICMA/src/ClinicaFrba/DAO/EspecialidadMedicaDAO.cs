@@ -25,11 +25,43 @@ namespace ClinicaFrba.DAO
             conexion = con;
         }
 
+      
+        public DataTable getEspecialidades(SqlTransaction tran = null)
+        {
+            DataTable respuesta = new DataTable();
+
+            SqlCommand comando = new SqlCommand("SELECT DETALLE FROM FLOPANICMA.ESPECIALIDAD", conexion);
+            comando.Transaction = tran;
+
+            try
+            {
+                comando.CommandType = CommandType.Text;
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                respuesta.Load(reader);
+
+                return respuesta;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (tran == null)
+                {
+                    conexion.Close();
+                }
+
+            }
+        }
+
         public DataTable getAllEspecialidades(SqlTransaction tran = null)
         {
             DataTable respuesta = new DataTable();
 
-            SqlCommand comando = new SqlCommand("SELECT TESP.DETALLE AS 'TIPO ESPECIALIDAD', " + 
+            SqlCommand comando = new SqlCommand("SELECT DISTINCT TESP.DETALLE AS 'TIPO ESPECIALIDAD', " + 
                                                 "ESP.DETALLE AS 'ESPECIALIDAD', PER.NOMBRE, PER.APELLIDO " +  
                                                 "FROM FLOPANICMA.ESPECIALIDAD AS ESP JOIN " +
                                                 "FLOPANICMA.TIPO_ESPECIALIDAD AS TESP " +
