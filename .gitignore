@@ -68,7 +68,8 @@ TP2C2016 k3173 FLOPANICMA/src/ClinicaFrba/obj/Release/ClinicaFrba.csproj.FileLis
 *.Cache
 *.csproj
 
-# a partir de aca es el archivo que encontre
+# --------------------   AGREGO LO DEL ARCHIVO GITIGNORE CONFIGURADO PARA VISUAL STUDIO 2012   ----------------------------
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
