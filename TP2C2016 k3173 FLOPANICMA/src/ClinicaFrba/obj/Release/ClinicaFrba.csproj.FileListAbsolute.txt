@@ -21,3 +21,4 @@ C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\sr
 C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\obj\Release\ClinicaFrba.pdb
 C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\obj\Release\ClinicaFrba.Abm_Afiliado.FrmCrearAfiliado.resources
 C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\obj\Release\ClinicaFrba.ABM_Afiliado.FrmBuscarAfiliado.resources
+C:\Users\Pablo\Documents\GitHub\TP_GD2C2016_CLINICA\TP2C2016 k3173 FLOPANICMA\src\ClinicaFrba\obj\Release\ClinicaFrba.HistorialModificacionesPlan.FrmHistModifPlan.resources

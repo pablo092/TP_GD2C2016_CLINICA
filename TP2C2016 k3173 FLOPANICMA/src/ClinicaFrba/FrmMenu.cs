@@ -24,7 +24,7 @@ using ClinicaFrba.Abm_Planes;
 using ClinicaFrba.Abm_Especialidades_Medicas;
 using ClinicaFrba.Abm_Afiliado;
 using ClinicaFrba.Listados;
-using ClinicaFrba.HistorialM_odifPlanes;
+using ClinicaFrba.HistorialModificacionesPlan;
 
 
 namespace ClinicaFrba
@@ -236,7 +236,7 @@ namespace ClinicaFrba
 
         private void btnMenuHistorialModificacionesPlanAfiliado_Click(object sender, EventArgs e)
         {
-            FrmHistModifPlanes frmHistModifPlan = new FrmHistModifPlanes();
+            FrmHistModifPlan frmHistModifPlan = new FrmHistModifPlan();
             frmHistModifPlan.ShowDialog();
         }
 
