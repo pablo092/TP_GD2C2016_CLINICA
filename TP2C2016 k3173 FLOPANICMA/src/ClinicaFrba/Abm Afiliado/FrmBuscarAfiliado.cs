@@ -40,7 +40,7 @@ namespace ClinicaFrba.ABM_Afiliado
             }
 
             AfiliadoDAO afiliadoDAO = new AfiliadoDAO();
-            respuesta = afiliadoDAO.getAfiliadoByDescripcion(txtAfilNombre.Text);
+            respuesta = afiliadoDAO.getAfiliadoByDescripcion(Int32.Parse(txtNroAfil.Text));
 
             if (respuesta.CodigoError != 0)
             {
@@ -101,7 +101,7 @@ namespace ClinicaFrba.ABM_Afiliado
 
         private void limpiarFormulario()
         {
-            txtAfilNombre.Text = "";
+            txtNroAfil.Text = "";
             msgBusqueda.Text = "";
             listadoAfiliados.DataSource = null;
             if (listadoAfiliados.Columns.Count != 0)

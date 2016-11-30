@@ -115,8 +115,8 @@
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\EspecialidadMedicaDAO.cs" />
     <Compile Include="DAO\FuncionalidadDAO.cs" />
+    <Compile Include="DAO\HistorialModifPlanDAO.cs" />
     <Compile Include="DAO\ListadoEstadisticoDAO.cs" />
-    <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\PacienteDAO.cs" />
     <Compile Include="DAO\PlanDAO.cs" />
     <Compile Include="DAO\ProfesionalDAO.cs" />

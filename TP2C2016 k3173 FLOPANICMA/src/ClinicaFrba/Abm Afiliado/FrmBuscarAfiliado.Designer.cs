@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblAfilNombre = new System.Windows.Forms.Label();
-            this.txtAfilNombre = new System.Windows.Forms.TextBox();
+            this.lblNroAfil = new System.Windows.Forms.Label();
+            this.txtNroAfil = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.listadoAfiliados = new System.Windows.Forms.DataGridView();
@@ -43,8 +43,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblAfilNombre);
-            this.groupBox1.Controls.Add(this.txtAfilNombre);
+            this.groupBox1.Controls.Add(this.lblNroAfil);
+            this.groupBox1.Controls.Add(this.txtNroAfil);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(340, 69);
@@ -52,21 +52,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "FILTRO BUSQUEDA";
             // 
-            // lblAfilNombre
+            // lblNroAfil
             // 
-            this.lblAfilNombre.AutoSize = true;
-            this.lblAfilNombre.Location = new System.Drawing.Point(19, 34);
-            this.lblAfilNombre.Name = "lblAfilNombre";
-            this.lblAfilNombre.Size = new System.Drawing.Size(54, 13);
-            this.lblAfilNombre.TabIndex = 1;
-            this.lblAfilNombre.Text = "NOMBRE";
+            this.lblNroAfil.AutoSize = true;
+            this.lblNroAfil.Location = new System.Drawing.Point(6, 34);
+            this.lblNroAfil.Name = "lblNroAfil";
+            this.lblNroAfil.Size = new System.Drawing.Size(88, 13);
+            this.lblNroAfil.TabIndex = 1;
+            this.lblNroAfil.Text = "NRO. AFILIADO:";
             // 
-            // txtAfilNombre
+            // txtNroAfil
             // 
-            this.txtAfilNombre.Location = new System.Drawing.Point(79, 31);
-            this.txtAfilNombre.Name = "txtAfilNombre";
-            this.txtAfilNombre.Size = new System.Drawing.Size(245, 20);
-            this.txtAfilNombre.TabIndex = 0;
+            this.txtNroAfil.Location = new System.Drawing.Point(100, 31);
+            this.txtNroAfil.Name = "txtNroAfil";
+            this.txtNroAfil.Size = new System.Drawing.Size(224, 20);
+            this.txtNroAfil.TabIndex = 0;
             // 
             // btnLimpiar
             // 
@@ -88,7 +88,7 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // listadoRoles
+            // listadoAfiliados
             // 
             this.listadoAfiliados.AllowUserToAddRows = false;
             this.listadoAfiliados.AllowUserToDeleteRows = false;
@@ -96,7 +96,7 @@
             this.listadoAfiliados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoAfiliados.Location = new System.Drawing.Point(12, 117);
             this.listadoAfiliados.MultiSelect = false;
-            this.listadoAfiliados.Name = "listadoRoles";
+            this.listadoAfiliados.Name = "listadoAfiliados";
             this.listadoAfiliados.ReadOnly = true;
             this.listadoAfiliados.RowHeadersVisible = false;
             this.listadoAfiliados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -147,8 +147,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblAfilNombre;
-        private System.Windows.Forms.TextBox txtAfilNombre;
+        private System.Windows.Forms.Label lblNroAfil;
+        private System.Windows.Forms.TextBox txtNroAfil;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView listadoAfiliados;

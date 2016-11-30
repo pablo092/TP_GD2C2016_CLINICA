@@ -121,13 +121,14 @@ namespace ClinicaFrba.Abm_Afiliado
         private void comboBoxEstadoCivil_Click(object sender, EventArgs e)
         {
             object estado = comboBoxEstadoCivil.SelectedItem;
-            if (EstadoCivil.Casado.Equals(estado) || EstadoCivil.Concubinato.Equals(estado))
+            if (!EstadoCivil.Casado.Equals(estado) &&
+                !EstadoCivil.Concubinato.Equals(estado))
             {
-                this.checkBoxAsocPareja.Visible = true;
+                this.checkBoxAsocPareja.Visible = false;
             }
             else
             {
-                this.checkBoxAsocPareja.Visible = false;
+                this.checkBoxAsocPareja.Visible = true;
             }
         }
 

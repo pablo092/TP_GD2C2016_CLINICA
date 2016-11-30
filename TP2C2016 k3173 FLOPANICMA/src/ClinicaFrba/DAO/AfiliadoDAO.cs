@@ -30,7 +30,7 @@ namespace ClinicaFrba.DAO
         /// Invoca a FLOPANICMA.SP_GET_AFILIADO_PARA_MODIF para editar un afiliado
         /// </summary>
         /// <param name="con"></param>
-        public Respuesta getAfiliadoByDescripcion(string descripcion)
+        public Respuesta getAfiliadoByDescripcion(int nroAfiliado)
         {
             Respuesta resultadoSP = new Respuesta();
 
@@ -42,10 +42,7 @@ namespace ClinicaFrba.DAO
 
                 comando.Parameters.Clear();
 
-                comando.Parameters.AddWithValue("@NRO_AFILIADO", descripcion);
-                comando.Parameters.AddWithValue("@NOMBRE", descripcion);
-                comando.Parameters.AddWithValue("@APELLIDO", descripcion);
-                comando.Parameters.AddWithValue("@NRO_DOCUMENTO", descripcion);
+                comando.Parameters.AddWithValue("@NRO_AFILIADO", nroAfiliado);
 
                 SqlParameter valorRetorno1 = new SqlParameter("@ID_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
