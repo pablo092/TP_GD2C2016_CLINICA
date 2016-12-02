@@ -41,6 +41,12 @@ namespace ClinicaFrba.HistorialModificacionesPlan
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
+            if (this.textBoxNroAfiliado.Text.Equals("") || this.textBoxNroAfiliado.Text == null)
+            {
+                MessageBox.Show("Ingrese un numero de afiliado");
+                return;
+            }
+
             HistorialModifPlanDAO hist = new HistorialModifPlanDAO();
 
             DataTable dt = hist.getHistModifByNroAfil(Int32.Parse(this.textBoxNroAfiliado.Text));
