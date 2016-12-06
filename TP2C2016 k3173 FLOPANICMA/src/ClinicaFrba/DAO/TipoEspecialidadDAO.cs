@@ -26,6 +26,11 @@ namespace ClinicaFrba.DAO
 
         public DataTable getAllTipoEspecialidades()
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             DataTable dt = new DataTable();
 
             try

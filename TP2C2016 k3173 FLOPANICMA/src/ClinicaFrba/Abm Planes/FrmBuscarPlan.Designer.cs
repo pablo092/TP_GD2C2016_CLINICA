@@ -35,10 +35,13 @@
             // 
             // dataGridViewPlanes
             // 
-            this.dataGridViewPlanes.AllowUserToOrderColumns = true;
+            this.dataGridViewPlanes.AllowUserToAddRows = false;
+            this.dataGridViewPlanes.AllowUserToDeleteRows = false;
+            this.dataGridViewPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPlanes.Location = new System.Drawing.Point(30, 24);
             this.dataGridViewPlanes.Name = "dataGridViewPlanes";
+            this.dataGridViewPlanes.ReadOnly = true;
             this.dataGridViewPlanes.Size = new System.Drawing.Size(440, 185);
             this.dataGridViewPlanes.TabIndex = 1;
             // 
@@ -48,7 +51,7 @@
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(130, 38);
             this.buttonCerrar.TabIndex = 2;
-            this.buttonCerrar.Text = "Cerrar";
+            this.buttonCerrar.Text = "&Cerrar";
             this.buttonCerrar.UseVisualStyleBackColor = true;
             this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
@@ -59,7 +62,9 @@
             this.ClientSize = new System.Drawing.Size(499, 298);
             this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.dataGridViewPlanes);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarPlan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LISTADO DE PLANES";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlanes)).EndInit();
             this.ResumeLayout(false);

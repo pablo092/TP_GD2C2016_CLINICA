@@ -22,11 +22,17 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta credencialValida(Usuario usuario)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta respuesta = new Respuesta();
 
-            SqlCommand comando = new SqlCommand("FLOPANICMA.LOGIN_USUARIO", conexion);
             try
             {
+                SqlCommand comando = new SqlCommand("FLOPANICMA.LOGIN_USUARIO", conexion);
+
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.AddWithValue("@USERNAME", usuario.Username);
@@ -75,7 +81,12 @@ namespace ClinicaFrba.DAO
         /// <param name="pass"></param>
         /// <param name="username"></param>
         /// <returns></returns>
-        public Boolean passwordValida(String pass) {
+        public Boolean passwordValida(String pass) 
+        {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
 
             SqlDataReader reader = null;
 
@@ -84,9 +95,9 @@ namespace ClinicaFrba.DAO
                 Boolean esValida = false;
 
                 SqlCommand cmd =
-                    new SqlCommand("select 1 from flopanicma.usuario where PASSWORD = flopanicma.F_HASH(@Pass) and login = @Login", conexion);
-                cmd.Parameters.Add("Pass", SqlDbType.NVarChar).Value = pass;
-                cmd.Parameters.Add("Login", SqlDbType.NVarChar).Value = UsuarioLogueado.usuario.Username;
+                    new SqlCommand("SELECT 1 FROM FLOPANICMA.USUARIO WHERE PASSWORD = FLOPANICMA.PASSWORD_HASH(@Pass) AND USERNAME = @USERNAME", conexion);
+                cmd.Parameters.Add("@Pass", SqlDbType.NVarChar).Value = pass;
+                cmd.Parameters.Add("@USERNAME", SqlDbType.NVarChar).Value = UsuarioLogueado.usuario.Username;
 
                 reader = cmd.ExecuteReader();
 
@@ -118,6 +129,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta guardar(Usuario usuario)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta respuesta = new Respuesta();
             SqlTransaction transaction = conexion.BeginTransaction();
             try
@@ -210,6 +226,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Usuario getUsuarioPorUsername(String username, SqlTransaction transaction = null)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
 
             String sql = "SELECT U.ID_USUARIO, U.ID_ESTADO AS ESTADO_USUARIO, RO.ID_ROL, RO.DESCRIPCION AS ROL " +
                         "FROM FLOPANICMA.USUARIO U, FLOPANICMA.USUARIO_ROL UR, FLOPANICMA.ROL RO " +
@@ -276,11 +297,17 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta getListaUsuariosByUsername(String username)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta respuesta = new Respuesta();
 
-            SqlCommand comando = new SqlCommand("FLOPANICMA.GET_USUARIOS_POR_USERNAME", conexion);
             try
             {
+                SqlCommand comando = new SqlCommand("FLOPANICMA.GET_USUARIOS_POR_USERNAME", conexion);
+
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.AddWithValue("@USERNAME", username);
@@ -313,11 +340,18 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta actualizarClave(Usuario usuario)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta respuesta = new Respuesta();
 
-            SqlCommand comando = new SqlCommand("FLOPANICMA.MODIFICAR_PASSWORD", conexion);
+            
             try
             {
+                SqlCommand comando = new SqlCommand("FLOPANICMA.MODIFICAR_PASSWORD", conexion);
+
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@ID_USUARIO", usuario.Id);
                 comando.Parameters.AddWithValue("@PASS_NUEVA", usuario.Clave);
@@ -360,12 +394,17 @@ namespace ClinicaFrba.DAO
         /// <param name="p"></param>
         internal void actualizarPassword(string pass)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             try
             {
                 SqlCommand cmd =
-                    new SqlCommand("update flopanicma.usuario set PASSWORD = flopanicma.F_HASH(@Pass) where login = @Login", conexion);
-                cmd.Parameters.Add("Pass", SqlDbType.NVarChar).Value = pass;
-                cmd.Parameters.Add("Login", SqlDbType.NVarChar).Value = UsuarioLogueado.usuario.Username;
+                    new SqlCommand("UPDATE FLOPANICMA.USUARIO SET PASSWORD = FLOPANICMA.PASSWORD_HASH (@PASS) WHERE USERNAME = @LOGIN", conexion);
+                cmd.Parameters.Add("@PASS", SqlDbType.NVarChar).Value = pass;
+                cmd.Parameters.Add("@LOGIN", SqlDbType.NVarChar).Value = UsuarioLogueado.usuario.Username;
                 
                 cmd.ExecuteNonQuery();
             }
@@ -381,12 +420,17 @@ namespace ClinicaFrba.DAO
         /// <param name="usuario"></param>
         internal void actualizarEstadoUsuario(Usuario usuario)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             try
             {
                 SqlCommand cmd =
-                    new SqlCommand("update flopanicma.usuario set id_estado = @idEstado where login = @Login", conexion);
-                cmd.Parameters.Add("idEstado", SqlDbType.NVarChar).Value = usuario.Estado.Id;
-                cmd.Parameters.Add("Login", SqlDbType.NVarChar).Value = usuario.Username;
+                    new SqlCommand("UPDATE FLOPANICMA.USUARIO SET ID_ESTADO = @IDESTADO WHERE USERNAME = @LOGIN", conexion);
+                cmd.Parameters.Add("IDESTADO", SqlDbType.NVarChar).Value = usuario.Estado.Id;
+                cmd.Parameters.Add("LOGIN", SqlDbType.NVarChar).Value = usuario.Username;
 
                 cmd.ExecuteNonQuery();
             }

@@ -25,7 +25,7 @@ namespace ClinicaFrba.Common
             set { codigoError = value; }
         }
 
-        private string descripcionError;
+        private string descripcionError = "ok";
 
         public string DescripcionError
         {
@@ -33,7 +33,7 @@ namespace ClinicaFrba.Common
             set { descripcionError = value; }
         }
 
-        private Object parametroAdicional;
+        private Object parametroAdicional = "a";
 
         public Object ParametroAdicional
         {

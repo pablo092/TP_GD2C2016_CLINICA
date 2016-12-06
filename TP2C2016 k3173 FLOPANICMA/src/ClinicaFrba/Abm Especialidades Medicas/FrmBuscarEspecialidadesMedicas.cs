@@ -27,7 +27,7 @@ namespace ClinicaFrba.Abm_Especialidades_Medicas
         private void loadTable()
         {
             EspecialidadMedicaDAO em = new EspecialidadMedicaDAO();
-            DataTable dt = em.getAllEspecialidades();
+            DataTable dt = em.GetAllEspecialidades();
 
             BindingSource SBind = new BindingSource();
             SBind.DataSource = dt;

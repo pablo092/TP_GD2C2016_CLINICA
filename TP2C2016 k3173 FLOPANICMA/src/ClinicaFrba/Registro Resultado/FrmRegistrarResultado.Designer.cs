@@ -51,6 +51,7 @@
             // TXTSINTOMAS
             // 
             this.TXTSINTOMAS.Location = new System.Drawing.Point(156, 93);
+            this.TXTSINTOMAS.MaxLength = 255;
             this.TXTSINTOMAS.Multiline = true;
             this.TXTSINTOMAS.Name = "TXTSINTOMAS";
             this.TXTSINTOMAS.Size = new System.Drawing.Size(244, 75);
@@ -69,6 +70,7 @@
             // TXTDIAGNOSTICO
             // 
             this.TXTDIAGNOSTICO.Location = new System.Drawing.Point(156, 190);
+            this.TXTDIAGNOSTICO.MaxLength = 255;
             this.TXTDIAGNOSTICO.Multiline = true;
             this.TXTDIAGNOSTICO.Name = "TXTDIAGNOSTICO";
             this.TXTDIAGNOSTICO.Size = new System.Drawing.Size(244, 75);
@@ -127,7 +129,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TXTSINTOMAS);
             this.Controls.Add(this.label2);
+            this.MaximizeBox = false;
             this.Name = "FrmRegistrarResultado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "REGISTRAR RESULTADO CONSULTA";
             this.Load += new System.EventHandler(this.FrmRegistrarResultado_Load);
             this.ResumeLayout(false);

@@ -17,16 +17,55 @@ namespace ClinicaFrba.DAO
 
         }
 
+        public DataTable GetNumero(String afiliado)
+        {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
+            DataTable dt = new DataTable();
+      
+            try
+            {
+                SqlCommand comando = new SqlCommand("SELECT AFI.NRO_AFILIADO FROM FLOPANICMA.PERSONA AS PER JOIN " +
+                                                "FLOPANICMA.AFILIADO AS AFI ON PER.ID_PERSONA = AFI.ID_AFILIADO " +
+                                                "WHERE APELLIDO + ',' + NOMBRE = @AFILIADO", conexion);
+
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@AFILIADO", afiliado);
+
+                dt.Load(comando.ExecuteReader());
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
 
         public DataTable GetNombre(int numero_afiliado)
         {
-            DataTable dt = new DataTable();
-            SqlCommand comando = new SqlCommand("SELECT APELLIDO,NOMBRE FROM FLOPANICMA.PERSONA AS PER JOIN " +
-                                                "AFILIADO AS AFI ON PER.ID_PERSONA = AFI.ID_AFILIADO " +
-                                                "WHERE NRO_AFILIADO = @AFILIADO", conexion);
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
 
+            DataTable dt = new DataTable();
+ 
             try
             {
+                SqlCommand comando = new SqlCommand("SELECT APELLIDO,NOMBRE FROM FLOPANICMA.PERSONA AS PER JOIN " +
+                                                "FLOPANICMA.AFILIADO AS AFI ON PER.ID_PERSONA = AFI.ID_AFILIADO " +
+                                                "WHERE NRO_AFILIADO = @AFILIADO", conexion);
+
                 comando.CommandType = CommandType.Text;
                 comando.Parameters.AddWithValue("@AFILIADO", numero_afiliado);
 
@@ -57,12 +96,18 @@ namespace ClinicaFrba.DAO
 
         public DataTable get_id(string per)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             DataTable dt = new DataTable();
-            SqlCommand comando = new SqlCommand("SELECT ID_PERSONA FROM FLOPANICMA.PERSONA " +
-                                                "WHERE APELLIDO + ','+NOMBRE = @PERSONA", conexion);
 
             try
             {
+                SqlCommand comando = new SqlCommand("SELECT ID_PERSONA FROM FLOPANICMA.PERSONA " +
+                                                "WHERE APELLIDO + ','+NOMBRE = @PERSONA", conexion);
+
                 comando.CommandType = CommandType.Text;
                 comando.Parameters.AddWithValue("@PERSONA", per);
 
@@ -87,6 +132,11 @@ namespace ClinicaFrba.DAO
         /// <param name="con"></param>
         public Respuesta insertarRegistrarLlegada(RegistrarLlegada reg)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta resultadoSP = new Respuesta();
 
             try
@@ -100,7 +150,7 @@ namespace ClinicaFrba.DAO
                 comando.Parameters.AddWithValue("@ID_PROFESIONAL", reg.Id_profesional);
                 comando.Parameters.AddWithValue("@ID_AFILIADO", reg.Id_afiliado);
                 comando.Parameters.AddWithValue("@ID_TURNO", reg.Id_turno);
-                comando.Parameters.AddWithValue("@HORA", reg.Hora_llegada);
+                comando.Parameters.AddWithValue("@FECHA", reg.Hora_llegada);
                 
                 SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
                 valorRetorno1.Size = sizeof(int);
@@ -124,6 +174,46 @@ namespace ClinicaFrba.DAO
                 resultadoSP.CodigoError = 99;
                 resultadoSP.DescripcionError = "Error Fatal: " + ex.Message;
                 return resultadoSP;
+            }
+        }
+
+        public DataTable turnos(int id_profesional, int id_afiliado, DateTime fechaActual)
+        {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
+            DataTable dt = new DataTable();
+            DateTime inicio = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 0, 0, 0);
+            DateTime fin = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 23, 59, 0);
+            
+            try
+            {
+                SqlCommand comando = new SqlCommand("SELECT ID_TURNO,FECHA FROM FLOPANICMA.PEDIDO_TURNO " +
+                                                "WHERE ID_PROFESIONAL = @PROFESIONAL AND ID_AFILIADO = @AFILIADO " +
+                                                "AND ID_TURNO NOT IN (SELECT ID_TURNO FROM FLOPANICMA.CONSULTA) AND "+
+                                                "FECHA BETWEEN @INICIO AND @FIN ", conexion);
+
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@PROFESIONAL", id_profesional);
+                comando.Parameters.AddWithValue("@AFILIADO", id_afiliado);
+                comando.Parameters.AddWithValue("@INICIO", inicio);
+                comando.Parameters.AddWithValue("@FIN", fin);
+
+                dt.Load(comando.ExecuteReader());
+
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                conexion.Close();
             }
         }
     }

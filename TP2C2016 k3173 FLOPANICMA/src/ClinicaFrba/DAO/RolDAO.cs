@@ -36,6 +36,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta insertaRol(Rol rol, SqlTransaction tran = null )
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta resultadoSP = new Respuesta();
 
             try
@@ -85,6 +90,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta modificarEstadoRol(Rol rol, SqlTransaction tran = null)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta resultadoSP = new Respuesta();
 
             try
@@ -135,6 +145,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta limpiarFuncionalidad(Rol rol, SqlTransaction tran = null)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta resultadoSP = new Respuesta();
 
             try
@@ -184,6 +199,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta eliminarRolInUsername(String username, String rol, SqlTransaction tran = null)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta respuesta = new Respuesta();
 
             try
@@ -244,6 +264,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta insertaRolFuncionalidad(Rol rol, Funcionalidad funcionalidad, SqlTransaction tran = null)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta respuesta = new Respuesta();
             
             try
@@ -292,13 +317,18 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta getRolesByUsername(String username, SqlTransaction tran = null)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta respuesta = new Respuesta();
-            
-            SqlCommand comando = new SqlCommand("FLOPANICMA.GET_ROLES_POR_USUARIO", conexion);
-            comando.Transaction = tran;
             
             try
             {
+                SqlCommand comando = new SqlCommand("FLOPANICMA.GET_ROLES_POR_USUARIO", conexion);
+                comando.Transaction = tran;
+
                 comando.CommandType = CommandType.StoredProcedure;
                 
                 comando.Parameters.AddWithValue("@USERNAME", username);
@@ -346,6 +376,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta getRolByDescripcion(String descripcionRol)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             DataTable dt = new DataTable();
             Respuesta respuesta = new Respuesta();
 
@@ -385,6 +420,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         internal Respuesta updateRol(Rol rol, SqlTransaction tran = null)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta resultadoSP = new Respuesta();
 
             try

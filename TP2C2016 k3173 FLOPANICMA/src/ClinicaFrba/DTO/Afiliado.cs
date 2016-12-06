@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.DTO
 {
-    public class Afiliado : Persona
+    class Afiliado : Persona
     {
         private String estadoCivil;
-        private string nroAfiliado;
-        private string planMedicoAnterior;
-        private string planMedicoActual;
-        private string datelleModificacion;
+        private int nroAfiliado;
+        private String planMedico;
         private Int16 activo;
         private int cantHijos;
         private int nroConsulta;
@@ -23,28 +21,16 @@ namespace ClinicaFrba.DTO
             set { estadoCivil = value; }
         }
 
-        public string NroAfiliado
+        public int NroAfiliado
         {
             get { return nroAfiliado; }
             set { nroAfiliado = value; }
         }
 
-        public string PlanMedicoAnterior
+        public String PlanMedico
         {
-            get { return planMedicoAnterior; }
-            set { planMedicoAnterior = value; }
-        }
-
-        public string PlanMedicoActual
-        {
-            get { return planMedicoActual; }
-            set { planMedicoActual = value; }
-        }
-
-        public string DatelleModificacion
-        {
-            get { return datelleModificacion; }
-            set { datelleModificacion = value; }
+            get { return planMedico; }
+            set { planMedico = value; }
         }
 
         public Int16 Activo
@@ -70,15 +56,13 @@ namespace ClinicaFrba.DTO
             
         }
 
-        public Afiliado(string nroAfiliado, string pmAnt, string pmAct, Int16 activo, int cH, int nroCons, string estadoCivil, string dm)
+        public Afiliado(int nroAfiliado, String pm, Int16 activo, int cH, int nroCons, string estadoCivil)
         {
             this.nroAfiliado = nroAfiliado;
-            this.planMedicoAnterior = pmAnt;
-            this.planMedicoAnterior = pmAct;
-            this.datelleModificacion = dm;
+            this.planMedico = pm;
             this.activo = activo;
             this.cantHijos = cH;
-            this.nroConsulta = nroCons;
+            this.nroAfiliado = nroCons;
             this.estadoCivil = estadoCivil;
         }
     }

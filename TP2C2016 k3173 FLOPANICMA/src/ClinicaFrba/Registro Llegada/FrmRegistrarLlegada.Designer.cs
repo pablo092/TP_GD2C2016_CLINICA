@@ -135,6 +135,7 @@
             this.CMBTurno.Size = new System.Drawing.Size(229, 28);
             this.CMBTurno.Sorted = true;
             this.CMBTurno.TabIndex = 4;
+            this.CMBTurno.SelectedIndexChanged += new System.EventHandler(this.CMBTurno_SelectedIndexChanged);
             // 
             // BTNAceptar
             // 
@@ -172,11 +173,15 @@
             // 
             this.txtNumeroAfiliado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroAfiliado.Location = new System.Drawing.Point(259, 33);
+            this.txtNumeroAfiliado.MaxLength = 15;
             this.txtNumeroAfiliado.Name = "txtNumeroAfiliado";
             this.txtNumeroAfiliado.Size = new System.Drawing.Size(233, 26);
             this.txtNumeroAfiliado.TabIndex = 13;
             this.txtNumeroAfiliado.Text = "Ingrese numero de afiliado";
-            this.txtNumeroAfiliado.TextChanged += new System.EventHandler(this.txtNumeroAfiliado_TextChanged);
+            this.txtNumeroAfiliado.Click += new System.EventHandler(this.txtNumeroAfiliado_Enter);
+            this.txtNumeroAfiliado.Enter += new System.EventHandler(this.txtNumeroAfiliado_Enter);
+            this.txtNumeroAfiliado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroAfiliado_KeyPress);
+            this.txtNumeroAfiliado.Leave += new System.EventHandler(this.txtNumeroAfiliado_Leave);
             // 
             // FrmRegistrarLlegada
             // 
@@ -195,9 +200,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CMBEspecialidades);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmRegistrarLlegada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registrar Llegada";
+            this.Load += new System.EventHandler(this.FrmRegistrarLlegada_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

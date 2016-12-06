@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using ClinicaFrba.ABM_Rol;
 
 using System.Windows.Forms;
 using ClinicaFrba.AdministradorDao;
@@ -17,8 +18,8 @@ namespace ClinicaFrba.ABM_Rol
     public partial class FrmCrearRol : Form
     {
         Rol rol = new Rol();
-        String mensajeOK = "Rol dado de alta exitosamente";
 
+        /*** INICIALIZACIONES ***/
         public FrmCrearRol()
         {
             InitializeComponent();
@@ -31,7 +32,6 @@ namespace ClinicaFrba.ABM_Rol
         {
             InitializeComponent();
             this.Text = "EDITAR ROL";
-            mensajeOK = "Rol modificado exitosamente";
             btnLimpiar.Text = "Deshacer";
             chkHabilitado.Checked = r.EstaHabilitado;
             rol = r;
@@ -46,45 +46,6 @@ namespace ClinicaFrba.ABM_Rol
                 chkHabilitado.Enabled = false;
                 checkFuncionalidades.SelectionMode = SelectionMode.None;
             }
-
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            AdministradorRol admRol = new AdministradorRol();
-            Respuesta resultadoSP = new Respuesta();
-
-            List<Funcionalidad> funcionalidades = new List<Funcionalidad>();
-
-            foreach (DataRowView item in checkFuncionalidades.CheckedItems)
-            {
-                funcionalidades.Add(new Funcionalidad(item));
-            }
-
-            if (!(rol.Id > 0))
-            {
-                rol = new Rol();            
-            }
-            rol.Descripcion = txtRolNombre.Text; 
-            rol.EstaHabilitado = chkHabilitado.Checked;
-            
-            resultadoSP = admRol.guardarRolFuncionalidad(rol, funcionalidades);
-
-            if (resultadoSP.CodigoError > 0)
-            {
-                msgCreacion.Text = resultadoSP.DescripcionError;
-            }
-            else
-            {
-                limpiarFormulario();
-                msgCreacion.Text = (mensajeOK);
-            }
-
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            limpiarFormulario();            
         }
 
         private void traerFuncionalidades()
@@ -130,6 +91,68 @@ namespace ClinicaFrba.ABM_Rol
 
                 checkFuncionalidades.SetItemChecked(indice - 1, true);
             }
+        }
+
+        /*** VALIDACIONES ***/
+        // solo permite ingresar caracteres del alfabeto y BACKSPACE
+        private void txtRolNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char caracter = e.KeyChar;
+
+            /* 
+               Los numeros de los primeros dos argumentos son caracteres del abecedario en la tabla ASCII.
+               El numero 8 representa al BACKSPACE en el codigo ASCII
+            */
+            if (!(caracter >= 65 && caracter <= 90) && !(caracter >= 97 && caracter <= 122) && (!char.IsSeparator(caracter)) && (caracter != 8))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /*** BOTONES ***/
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            AdministradorRol admRol = new AdministradorRol();
+            Respuesta resultadoSP = new Respuesta();
+
+            List<Funcionalidad> funcionalidades = new List<Funcionalidad>();
+
+            foreach (DataRowView item in checkFuncionalidades.CheckedItems)
+            {
+                funcionalidades.Add(new Funcionalidad(item));
+            }
+
+            if (!(rol.Id > 0))
+            {
+                rol = new Rol();
+            }
+
+            rol.Descripcion = txtRolNombre.Text.Trim();
+            rol.EstaHabilitado = chkHabilitado.Checked;
+
+            resultadoSP = admRol.guardarRolFuncionalidad(rol, funcionalidades);
+
+            if (resultadoSP.CodigoError == 1)
+            {
+                msgCreacion.Text = resultadoSP.DescripcionError;
+            }
+
+            else if( (this.Text == "EDITAR ROL") && (txtRolNombre.Modified) )
+            {
+                MessageBox.Show("El rol " + rol.Descripcion + " se ha guardado correctamente", "Modificar rol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+
+            else if (txtRolNombre.Modified)
+            {
+                MessageBox.Show("El rol " + rol.Descripcion  + " se ha guardado correctamente", "Insertar rol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiarFormulario();
         }
     }
 }

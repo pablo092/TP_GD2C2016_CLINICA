@@ -47,6 +47,9 @@ namespace ClinicaFrba.Abm_Profesional
             comboBoxSexo.Items.Add(Sexo.Femenino);
 
             comboBoxDNI.Items.Add(TipoDocumento.DNI);
+            comboBoxDNI.Items.Add(TipoDocumento.CI);
+            comboBoxDNI.Items.Add(TipoDocumento.LC);
+            comboBoxDNI.Items.Add(TipoDocumento.LD);
         }
 
         private void cargarCheckedEspecialidades()

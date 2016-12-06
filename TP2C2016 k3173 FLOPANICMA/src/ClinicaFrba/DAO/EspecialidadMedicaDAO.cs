@@ -28,13 +28,18 @@ namespace ClinicaFrba.DAO
       
         public DataTable getEspecialidades(SqlTransaction tran = null)
         {
-            DataTable respuesta = new DataTable();
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
 
-            SqlCommand comando = new SqlCommand("SELECT DETALLE FROM FLOPANICMA.ESPECIALIDAD", conexion);
-            comando.Transaction = tran;
+            DataTable respuesta = new DataTable();
 
             try
             {
+                SqlCommand comando = new SqlCommand("SELECT DETALLE FROM FLOPANICMA.ESPECIALIDAD", conexion);
+                comando.Transaction = tran;
+
                 comando.CommandType = CommandType.Text;
 
                 SqlDataReader reader = comando.ExecuteReader();
@@ -57,59 +62,55 @@ namespace ClinicaFrba.DAO
             }
         }
 
-        public DataTable getAllEspecialidades(SqlTransaction tran = null)
+        public DataTable GetAllEspecialidades()
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             DataTable respuesta = new DataTable();
-
-            SqlCommand comando = new SqlCommand("SELECT DISTINCT TESP.DETALLE AS 'TIPO ESPECIALIDAD', " + 
-                                                "ESP.DETALLE AS 'ESPECIALIDAD', PER.NOMBRE, PER.APELLIDO " +  
-                                                "FROM FLOPANICMA.ESPECIALIDAD AS ESP JOIN " +
-                                                "FLOPANICMA.TIPO_ESPECIALIDAD AS TESP " +
-                                                "ON ESP.ID_TIPO_ESPECIALIDAD = TESP.ID_TIPO_ESPECIALIDAD " +
-                                                "JOIN FLOPANICMA.ESPECIALIDAD_PROFESIONAL AS ESP_PROF " +
-                                                "ON ESP_PROF.ID_ESPECIALIDAD = ESP.ID_ESPECIALIDAD " +
-                                                "JOIN FLOPANICMA.PERSONA AS PER " +
-                                                "ON ESP_PROF.ID_PROFESIONAL = PER.ID_PERSONA " +
-                                                "ORDER BY ESP.DETALLE ASC", conexion);
-            comando.Transaction = tran;
-
+            
             try
             {
+                SqlCommand comando = new SqlCommand("SELECT DISTINCT * FROM FLOPANICMA.ESPECIALIDAD", conexion);
+
                 comando.CommandType = CommandType.Text;
 
-                SqlDataReader reader = comando.ExecuteReader();
-
-                respuesta.Load(reader);
+                SqlDataReader reader = comando.ExecuteReader(); // declaro un objeto 'reader', el cual lee un flujo de registros.
+                respuesta.Load(reader); // cargo mi tabla con lo que leyo el 'reader'.
 
                 return respuesta;
             }
+
             catch (Exception ex)
             {
                 throw ex;
             }
+
             finally
             {
-                if (tran == null)
-                {
-                    conexion.Close();
-                }
-
+                conexion.Close();
             }
         }
 
-        public DataTable getEspecialidadesByProfesional(int idProf, SqlTransaction tran = null)
+        public DataTable getEspecialidadesByProfesional(int idProf)
         {
-            DataTable respuesta = new DataTable();
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
 
-            SqlCommand comando = new SqlCommand("SELECT DETALLE FROM " +
-                                                "FLOPANICMA.ESPECIALIDAD AS ESP " +
-                                                "JOIN FLOPANICMA.ESPECIALIDAD_PROFESIONAL AS ESP_PROF " + 
-                                                "ON ESP.ID_ESPECIALIDAD = ESP_PROF.ID_ESPECIALIDAD " + 
-                                                "WHERE ID_PROFESIONAL = @ID_PROFESIONAL", conexion);
-            comando.Transaction = tran;
+            DataTable respuesta = new DataTable();
 
             try
             {
+                SqlCommand comando = new SqlCommand("SELECT DETALLE FROM " +
+                                               "FLOPANICMA.ESPECIALIDAD AS ESP " +
+                                               "JOIN FLOPANICMA.ESPECIALIDAD_PROFESIONAL AS ESP_PROF " +
+                                               "ON ESP.ID_ESPECIALIDAD = ESP_PROF.ID_ESPECIALIDAD " +
+                                               "WHERE ID_PROFESIONAL = @ID_PROFESIONAL", conexion);
+
                 comando.CommandType = CommandType.Text;
 
                 comando.Parameters.AddWithValue("@ID_PROFESIONAL", idProf);
@@ -126,12 +127,9 @@ namespace ClinicaFrba.DAO
             }
             finally
             {
-                if (tran == null)
-                {
-                    conexion.Close();
-                }
-
+                conexion.Close();
             }
+
         }
     }
 }

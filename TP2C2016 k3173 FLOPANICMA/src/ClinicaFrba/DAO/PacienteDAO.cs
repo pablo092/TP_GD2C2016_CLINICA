@@ -11,18 +11,34 @@ namespace ClinicaFrba.DAO
 {
     class PacienteDAO : BaseDao
     {
+    
+        public DataTable getPacientesXProfesional(int usuario)
+        {
+            int prof_id = getIdProfesional(usuario);
 
-        public DataTable getPacientesXProfesional(int prof_id)
-        { DataTable dt = new DataTable();
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+            
+            DataTable dt = new DataTable();
 
             try
             {
-                SqlCommand comando = new SqlCommand("SELECT DISTINCT PER.NOMBRE,PER.APELLIDO FROM FLOPANICMA.PERSONA PER JOIN FLOPANICMA.AFILIADO AFI "+
-                                                    "ON PER.ID_PERSONA=AFI.ID_AFILIADO JOIN FLOPANICMA.PEDIDO_TURNO TUR ON TUR.ID_AFILIADO=AFI.ID_AFILIADO " +
-                                                    "WHERE ID_PROFESIONAL = @PROFESIONAL AND FECHA = GETDATE()", conexion);
+                DateTime inicio = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day,7,0,0);
+                DateTime fin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 20, 0, 0);
+
+                SqlCommand comando = new SqlCommand("SELECT A.NRO_AFILIADO, P.NOMBRE, P.APELLIDO FROM FLOPANICMA.PERSONA AS P JOIN "+
+                                                             "FLOPANICMA.AFILIADO AS A ON P.ID_PERSONA = A.ID_AFILIADO JOIN "+
+                                                             "FLOPANICMA.PEDIDO_TURNO AS T ON A.ID_AFILIADO = T.ID_AFILIADO JOIN "+
+                                                             "FLOPANICMA.CONSULTA AS C ON T.ID_TURNO = C.ID_TURNO "+
+                                                             "WHERE T.ID_PROFESIONAL = @ID_PROFESIONAL AND C.REGISTRO_ATENCION IS NULL "+
+                                                             "AND C.REGISTRO_LLEGADA IS NOT NULL AND T.FECHA BETWEEN @INICIO AND @FIN", conexion);
 
                 comando.CommandType = CommandType.Text;
-                comando.Parameters.AddWithValue("@PROFESIONAL", prof_id);
+                comando.Parameters.AddWithValue("@ID_PROFESIONAL", prof_id);
+                comando.Parameters.AddWithValue("@INICIO",inicio);
+                comando.Parameters.AddWithValue("@FIN",fin);
 
                 SqlDataReader reader = comando.ExecuteReader();
 
@@ -41,6 +57,37 @@ namespace ClinicaFrba.DAO
                 conexion.Close();
             }
             
+
+        }
+
+        public int getIdProfesional(int usuario)
+        {
+            if(conexion.State==ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
+            try
+            {
+                SqlCommand comando = new SqlCommand("SELECT ID_PERSONA FROM FLOPANICMA.USUARIO " +
+                                                    "WHERE ID_USUARIO = @ID_USUARIO", conexion);
+
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@ID_USUARIO", usuario);
+
+                return Convert.ToInt32(comando.ExecuteScalar());
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                conexion.Close();
+            }
+
 
         }
 

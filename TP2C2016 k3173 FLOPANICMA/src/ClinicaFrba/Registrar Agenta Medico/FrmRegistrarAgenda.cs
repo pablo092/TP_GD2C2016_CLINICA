@@ -39,7 +39,7 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
         {
             Respuesta resp = new Respuesta();
 
-            if (CMBEspecialidad.Text != "Seleccione Profesional" && CMBEspecialidad.Text != "Seleccione Especialidad")
+            if ((CMBEspecialidad.SelectedIndex != -1)  && (CMBEspecialidad.SelectedIndex != -1))
             {
                 AgendaDAO agdao = new AgendaDAO();
                 Agenda ag = new Agenda();
@@ -99,17 +99,19 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
                     resp = agdao.insertarAgenda(ag);
                 }
 
-                MessageBox.Show(resp.DescripcionError);
-               
-
-                CMBProfesionales.Refresh();
-                CMBEspecialidad.Enabled = false;
-                CMBEspecialidad.ResetText();
+                if ((CHBLunes.Checked == false) && (CHBMartes.Checked == false) && (CHBMiercoles.Checked == false) && (CHBJueves.Checked == false) &&
+                    (CHBViernes.Checked == false) && (CHBSabado.Checked == false))
+                {
+                    MessageBox.Show("Debe seleccionar dia/s laborables", "Agenda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show(resp.DescripcionError, "Agenda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
-            {
-                MessageBox.Show("Todos los campos indicados (*) deben estar completos");
-            }
+            
+                
+            
             
         }
 
@@ -135,7 +137,6 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
         {
             string profSelected = (string)CMBProfesionales.SelectedItem;
             int ini = profSelected.IndexOf("-")+1;
-            int fin = profSelected.Length;
             string s = profSelected.Substring(ini, 4);
             int id_prof = Int32.Parse(s);
             CMBEspecialidad.Items.Clear();
@@ -324,6 +325,11 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
         private void DTPInicio_ValueChanged(object sender, EventArgs e)
         {
             DTPFin.MinDate = DTPInicio.Value;
+        }
+
+        private void CMBEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonAceptar.Enabled = true;
         }
 
        

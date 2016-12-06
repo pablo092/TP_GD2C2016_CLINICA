@@ -41,8 +41,8 @@
             this.buttonCerrar.Location = new System.Drawing.Point(469, 326);
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(93, 30);
-            this.buttonCerrar.TabIndex = 0;
-            this.buttonCerrar.Text = "Cerrar";
+            this.buttonCerrar.TabIndex = 5;
+            this.buttonCerrar.Text = "&Cerrar";
             this.buttonCerrar.UseVisualStyleBackColor = true;
             this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
@@ -51,8 +51,10 @@
             this.dataGridViewResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewResultados.Location = new System.Drawing.Point(43, 91);
             this.dataGridViewResultados.Name = "dataGridViewResultados";
+            this.dataGridViewResultados.ReadOnly = true;
             this.dataGridViewResultados.Size = new System.Drawing.Size(519, 207);
-            this.dataGridViewResultados.TabIndex = 1;
+            this.dataGridViewResultados.TabIndex = 4;
+            this.dataGridViewResultados.TabStop = false;
             // 
             // buttonBuscar
             // 
@@ -60,7 +62,7 @@
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(93, 30);
             this.buttonBuscar.TabIndex = 2;
-            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.Text = "&Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
@@ -69,13 +71,13 @@
             this.textBoxNroAfiliado.Location = new System.Drawing.Point(145, 47);
             this.textBoxNroAfiliado.Name = "textBoxNroAfiliado";
             this.textBoxNroAfiliado.Size = new System.Drawing.Size(239, 20);
-            this.textBoxNroAfiliado.TabIndex = 3;
+            this.textBoxNroAfiliado.TabIndex = 1;
             this.textBoxNroAfiliado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_numero_KeyPress);
             // 
             // labelNroAfil
             // 
             this.labelNroAfil.AutoSize = true;
-            this.labelNroAfil.Location = new System.Drawing.Point(40, 54);
+            this.labelNroAfil.Location = new System.Drawing.Point(40, 50);
             this.labelNroAfil.Name = "labelNroAfil";
             this.labelNroAfil.Size = new System.Drawing.Size(99, 13);
             this.labelNroAfil.TabIndex = 4;
@@ -91,8 +93,10 @@
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.dataGridViewResultados);
             this.Controls.Add(this.buttonCerrar);
+            this.MaximizeBox = false;
             this.Name = "FrmHistModifPlan";
-            this.Text = "HISTORIAL DE MODIFICACIONES PLAN MEDICO";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "HISTORIAL DE MODIFICACIONES DE PLANES MEDICOS";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

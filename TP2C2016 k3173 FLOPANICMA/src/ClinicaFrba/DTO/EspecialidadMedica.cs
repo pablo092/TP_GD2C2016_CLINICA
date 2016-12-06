@@ -10,10 +10,10 @@ namespace ClinicaFrba.DTO
     class EspecialidadMedica
     {
         private String detalle;
-        private int idTipoEspecialidad;
-        private int id;
+        private Decimal idTipoEspecialidad;
+        private Decimal id;
 
-        public int Id
+        public Decimal Id
         {
             get { return id; }
             set { id = value; }
@@ -25,7 +25,7 @@ namespace ClinicaFrba.DTO
             set { detalle = value; }
         }
 
-        public int IdTipoEspecialidad
+        public Decimal IdTipoEspecialidad
         {
             get { return idTipoEspecialidad; }
             set { idTipoEspecialidad = value; }
@@ -36,7 +36,7 @@ namespace ClinicaFrba.DTO
             
         }
 
-        public EspecialidadMedica(int id, int idTipoEspecialidad, string detalle)
+        public EspecialidadMedica(Decimal id, Decimal idTipoEspecialidad, String detalle)
         {
             this.id = id;
             this.idTipoEspecialidad = idTipoEspecialidad;

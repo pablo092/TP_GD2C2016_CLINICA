@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.checkFuncionalidades = new System.Windows.Forms.CheckedListBox();
             this.lblRolFuncionalidades = new System.Windows.Forms.Label();
             this.txtRolNombre = new System.Windows.Forms.TextBox();
@@ -37,7 +38,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.msgCreacion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chkHabilitado = new System.Windows.Forms.CheckBox();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +56,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Campos del Rol";
+            // 
+            // chkHabilitado
+            // 
+            this.chkHabilitado.AutoSize = true;
+            this.chkHabilitado.Location = new System.Drawing.Point(165, 67);
+            this.chkHabilitado.Name = "chkHabilitado";
+            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
+            this.chkHabilitado.TabIndex = 6;
+            this.chkHabilitado.Text = "Habilitado";
+            this.chkHabilitado.UseVisualStyleBackColor = true;
             // 
             // checkFuncionalidades
             // 
@@ -76,9 +87,12 @@
             // txtRolNombre
             // 
             this.txtRolNombre.Location = new System.Drawing.Point(165, 31);
+            this.txtRolNombre.MaxLength = 50;
             this.txtRolNombre.Name = "txtRolNombre";
+            this.txtRolNombre.ShortcutsEnabled = false;
             this.txtRolNombre.Size = new System.Drawing.Size(153, 20);
             this.txtRolNombre.TabIndex = 3;
+            this.txtRolNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRolNombre_KeyPress);
             // 
             // lblRolNombre
             // 
@@ -112,7 +126,8 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msgCreacion});
+            this.msgCreacion,
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 306);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(359, 22);
@@ -124,15 +139,12 @@
             this.msgCreacion.Name = "msgCreacion";
             this.msgCreacion.Size = new System.Drawing.Size(0, 17);
             // 
-            // chkHabilitado
+            // toolStripStatusLabel1
             // 
-            this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(165, 67);
-            this.chkHabilitado.Name = "chkHabilitado";
-            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
-            this.chkHabilitado.TabIndex = 6;
-            this.chkHabilitado.Text = "Habilitado";
-            this.chkHabilitado.UseVisualStyleBackColor = true;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Visible = false;
             // 
             // FrmCrearRol
             // 
@@ -169,5 +181,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel msgCreacion;
         private System.Windows.Forms.CheckBox chkHabilitado;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

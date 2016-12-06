@@ -17,8 +17,7 @@ namespace ClinicaFrba.Registro_Resultado
 {
     public partial class FrmRegistrarResultado : Form
     {
-        RegistrarAtencion atencion = new RegistrarAtencion();
-
+        
         public FrmRegistrarResultado()
         {
             InitializeComponent();
@@ -36,14 +35,34 @@ namespace ClinicaFrba.Registro_Resultado
 
         private void BTNACEPTAR_Click(object sender, EventArgs e)
         {
+            if (cmbPaciente.SelectedIndex != -1)
+            {
+                decimal turno = getId_turno();
 
-            RegistrarAtencionDAO rd = new RegistrarAtencionDAO();
+                RegistrarAtencionDAO rd = new RegistrarAtencionDAO();
 
-            
-            rd.insertarRegistroAtencion(atencion);
+                RegistrarAtencion ra = new RegistrarAtencion(TXTSINTOMAS.Text, TXTDIAGNOSTICO.Text, turno, DateTime.Now);
 
-            TXTDIAGNOSTICO.Text = "";
-            TXTSINTOMAS.Text = "";
+                rd.insertarRegistroAtencion(ra);
+
+                MessageBox.Show("La atencion al afiliado "+ cmbPaciente.Text+" ha sido registrada", "Atencion registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar el afiliado", "Registrar atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private decimal getId_turno()
+        {
+            AfiliadoDAO pd = new AfiliadoDAO();
+
+            int afiliado = pd.GetIdPorNroAfiliado(Convert.ToDecimal(cmbPaciente.Text.Substring(0, cmbPaciente.Text.IndexOf("-"))));
+
+            int profesional = new PacienteDAO().getIdProfesional(UsuarioLogueado.usuario.Id);
+
+            return new RegistrarAtencionDAO().turnos(profesional, afiliado);
         }
 
        private void loadPacientes()
@@ -52,14 +71,21 @@ namespace ClinicaFrba.Registro_Resultado
             PacienteDAO pd = new PacienteDAO();
             DataTable dt = pd.getPacientesXProfesional(UsuarioLogueado.usuario.Id);
 
-            for (int i = 0; i < dt.Rows.Count; i++)
+            if (dt.Rows.Count != 0)
             {
-                Profesional p = new Profesional();
-                p.Id = (int)dt.Rows[i][0];
-                p.Nombre = (string)dt.Rows[i][1];
-                p.Apellido = (string)dt.Rows[i][2];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Afiliado afi = new Afiliado();
+                    afi.Nombre = (string)dt.Rows[i][1];
+                    afi.Apellido = (string)dt.Rows[i][2];
 
-                cmbPaciente.Items.Add(p.Apellido + " " + p.Nombre + " - " + p.Id);
+                    cmbPaciente.Items.Add(Convert.ToString(dt.Rows[i][0]) + " - " + afi.Apellido + " " + afi.Nombre);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se registro la llegada de ninguno paciente", "Registro atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
         }
 

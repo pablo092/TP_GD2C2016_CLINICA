@@ -34,6 +34,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public DataTable getFuncionalidades()
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             DataTable dt = new DataTable();
 
             try
@@ -63,6 +68,11 @@ namespace ClinicaFrba.DAO
         /// <returns></returns>
         public Respuesta getFuncionalidadesByRol(String descripcionRol)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             Respuesta resultadoSP = new Respuesta();
 
             DataTable dt = new DataTable();

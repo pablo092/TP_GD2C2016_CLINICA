@@ -13,6 +13,7 @@ using ClinicaFrba.DTO;
 using ClinicaFrba.ABM_Rol;
 using ClinicaFrba.Common;
 using ClinicaFrba.ABM_Afiliado;
+using ClinicaFrba.Listados;
 using ClinicaFrba.Abm_Profesional;
 using ClinicaFrba.Pedir_Turno;
 using ClinicaFrba.Registrar_Agenta_Medico;
@@ -23,7 +24,6 @@ using ClinicaFrba.Compra_Bono;
 using ClinicaFrba.Abm_Planes;
 using ClinicaFrba.Abm_Especialidades_Medicas;
 using ClinicaFrba.Abm_Afiliado;
-using ClinicaFrba.Listados;
 using ClinicaFrba.HistorialModificacionesPlan;
 
 
@@ -85,8 +85,9 @@ namespace ClinicaFrba
             btnMenuAfiliado.Visible = false;
             btnMenuProfesional.Visible = false;
             btnMenuCancelarAtencion.Visible = false;
-            btnMenuHistorialModificacionesPlanAfiliado.Visible = false;
-
+            btnMenuAbm.Visible = false;
+            btnMenuRegistrar.Visible = false;
+            btnModifPlanes.Visible = false;
         }
 
         /// <summary>
@@ -95,13 +96,15 @@ namespace ClinicaFrba
         /// </summary>
         private void habilitarPanelesPorRol()
         {
-            if (UsuarioLogueado.funcionalidades.Contains("ABM DE ROL")){
+            if (UsuarioLogueado.funcionalidades.Contains("ABM DE ROL"))
+            {
+                btnMenuAbm.Visible = true;
                 btnMenuRol.Visible = true;                
             }
             if (UsuarioLogueado.funcionalidades.Contains("ABM DE AFILIADO"))
             {
+                btnModifPlanes.Visible = true;
                 btnMenuAfiliado.Visible = true;
-                btnMenuHistorialModificacionesPlanAfiliado.Visible = true;
             }
             if (UsuarioLogueado.funcionalidades.Contains("ABM DE PLANES MEDICOS"))
             {
@@ -129,6 +132,7 @@ namespace ClinicaFrba
             }
             if (UsuarioLogueado.funcionalidades.Contains("REGISTRAR LLEGADA"))
             {
+                btnMenuRegistrar.Visible = true;
                 btnMenuRegistrarLlegadaAM.Visible = true;
             }
             if (UsuarioLogueado.funcionalidades.Contains("LISTADO"))
@@ -137,6 +141,7 @@ namespace ClinicaFrba
             }
             if (UsuarioLogueado.funcionalidades.Contains("REGISTRAR RESULTADO"))
             {
+                btnMenuRegistrar.Visible = true;
                 btnMenuRegistrarResultadoAM.Visible = true;
             }
             if (UsuarioLogueado.funcionalidades.Contains("CANCELAR ATENCION"))
@@ -159,7 +164,7 @@ namespace ClinicaFrba
 
         private void btnMenuAfiliadoAlta_Click(object sender, EventArgs e)
         {
-            FrmCrearAfiliado frmAfiliadoCrear = new FrmCrearAfiliado();
+            FrmModificarAfiliado frmAfiliadoCrear = new FrmModificarAfiliado();
             frmAfiliadoCrear.ShowDialog();
         }
 
@@ -218,7 +223,7 @@ namespace ClinicaFrba
 
         private void btnMenuPedidoTurno_Click(object sender, EventArgs e)
         {
-            FrmPedidoTurno frmPedirTurno = new FrmPedidoTurno();
+            frmPedidoTurno frmPedirTurno = new frmPedidoTurno();
             frmPedirTurno.ShowDialog();
         }
 
@@ -230,19 +235,45 @@ namespace ClinicaFrba
 
         private void btnMenuListadoEstadistico_Click(object sender, EventArgs e)
         {
-            ListadoEstadistico frmListadoEstadistico = new ListadoEstadistico();
+            FrmListadoEstadistico frmListadoEstadistico = new FrmListadoEstadistico();
             frmListadoEstadistico.ShowDialog();
         }
 
-        private void btnMenuHistorialModificacionesPlanAfiliado_Click(object sender, EventArgs e)
+        private void btnModifPlanes_Click(object sender, EventArgs e)
         {
             FrmHistModifPlan frmHistModifPlan = new FrmHistModifPlan();
             frmHistModifPlan.ShowDialog();
         }
 
+        private void btnCambiarPassword_Click(object sender, EventArgs e)
+        {
+            FrmModificarPassword frmModificarPassword = new FrmModificarPassword();
+            frmModificarPassword.Show();
+        }
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.frmLogin.Close();
         }
+
+        private void btnMenuCancelarAtencion_Click_1(object sender, EventArgs e)
+        {
+            if ((UsuarioLogueado.usuario.Rol.Id == 2) || (UsuarioLogueado.usuario.Rol.Id == 3))
+            {
+                FrmCancelarAtencion frmCancelarAtencion = new FrmCancelarAtencion();
+                frmCancelarAtencion.Show();
+            }
+            else
+            {
+                MessageBox.Show("Funcionalidad solo disponible para afiliados y profesionales", "Funcionalidad", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void aSOCIARAFILIADOSEXISTENTESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAsociarAfiliadosExistentes frmAsociarAfiliadosExistentes = new FrmAsociarAfiliadosExistentes();
+            frmAsociarAfiliadosExistentes.ShowDialog();
+        }
+
+        
     }
 }

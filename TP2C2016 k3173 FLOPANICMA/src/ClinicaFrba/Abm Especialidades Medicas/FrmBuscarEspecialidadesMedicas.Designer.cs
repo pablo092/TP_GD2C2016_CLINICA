@@ -35,9 +35,13 @@
             // 
             // dataGridViewEspMed
             // 
+            this.dataGridViewEspMed.AllowUserToAddRows = false;
+            this.dataGridViewEspMed.AllowUserToDeleteRows = false;
+            this.dataGridViewEspMed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewEspMed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEspMed.Location = new System.Drawing.Point(32, 32);
             this.dataGridViewEspMed.Name = "dataGridViewEspMed";
+            this.dataGridViewEspMed.ReadOnly = true;
             this.dataGridViewEspMed.Size = new System.Drawing.Size(524, 284);
             this.dataGridViewEspMed.TabIndex = 0;
             // 
@@ -47,7 +51,7 @@
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(105, 31);
             this.buttonCerrar.TabIndex = 1;
-            this.buttonCerrar.Text = "Cerrar";
+            this.buttonCerrar.Text = "&Cerrar";
             this.buttonCerrar.UseVisualStyleBackColor = true;
             this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
@@ -58,7 +62,9 @@
             this.ClientSize = new System.Drawing.Size(578, 389);
             this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.dataGridViewEspMed);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarEspecialidadesMedicas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ESPECIALIDADES MÉDICAS";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspMed)).EndInit();
             this.ResumeLayout(false);

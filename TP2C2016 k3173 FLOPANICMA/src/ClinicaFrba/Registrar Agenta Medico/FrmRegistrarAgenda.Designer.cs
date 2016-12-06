@@ -154,6 +154,7 @@
             // 
             // buttonAceptar
             // 
+            this.buttonAceptar.Enabled = false;
             this.buttonAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAceptar.Location = new System.Drawing.Point(134, 403);
             this.buttonAceptar.Name = "buttonAceptar";
@@ -186,6 +187,7 @@
             this.CMBEspecialidad.Size = new System.Drawing.Size(311, 28);
             this.CMBEspecialidad.Sorted = true;
             this.CMBEspecialidad.TabIndex = 2;
+            this.CMBEspecialidad.SelectedIndexChanged += new System.EventHandler(this.CMBEspecialidad_SelectedIndexChanged);
             // 
             // DTPInicio
             // 
@@ -948,6 +950,7 @@
             this.Controls.Add(this.lbl24);
             this.Controls.Add(this.lbl22);
             this.Controls.Add(this.lbl53);
+            this.MaximizeBox = false;
             this.Name = "FrmRegistrarAgenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "REGISTRAR AGENDA MÉDICO";

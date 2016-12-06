@@ -63,7 +63,7 @@ namespace ClinicaFrba.Abm_Profesional
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(139, 34);
             this.buttonGuardar.TabIndex = 0;
-            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.Text = "&Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
             this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
@@ -235,7 +235,7 @@ namespace ClinicaFrba.Abm_Profesional
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(139, 34);
             this.buttonCancelar.TabIndex = 23;
-            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.Text = "&Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
@@ -275,7 +275,9 @@ namespace ClinicaFrba.Abm_Profesional
             this.Controls.Add(this.textBoxApellido);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.buttonGuardar);
+            this.MaximizeBox = false;
             this.Name = "FrmABMProfesional";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "REGISTRAR PROFESIONAL";
             this.Load += new System.EventHandler(this.FrmABMProfesional_Load);
             this.ResumeLayout(false);

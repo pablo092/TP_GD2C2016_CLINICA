@@ -26,6 +26,11 @@ namespace ClinicaFrba.DAO
 
         public DataTable getPlanes()
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             DataTable dt = new DataTable();
 
             try
@@ -46,6 +51,35 @@ namespace ClinicaFrba.DAO
                 conexion.Close();
             }
             return dt;
+        }
+
+        internal decimal GetIdPlanPorDescripcion(string detalle)
+        {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
+            try
+            {
+                SqlCommand comando = new SqlCommand("SELECT ID_PLAN FROM FLOPANICMA.PLAN_MEDICO " +
+                                                    "WHERE DESCRIPCION = @DETALLE", conexion);
+
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@DETALLE", detalle);
+
+                return Convert.ToDecimal(comando.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                conexion.Close();
+            }
+
         }
     }
 }

@@ -25,12 +25,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,18 +45,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abm Afiliado\AdministradoAfiliado.cs" />
+    <Compile Include="Abm Afiliado\FrmAsociarAfiliadosExistentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\FrmAsociarAfiliadosExistentes.Designer.cs">
+      <DependentUpon>FrmAsociarAfiliadosExistentes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Afiliado\FrmBuscarAfiliado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Afiliado\FrmBuscarAfiliado.Designer.cs">
       <DependentUpon>FrmBuscarAfiliado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Afiliado\FrmCrearAfiliado.cs">
+    <Compile Include="Abm Afiliado\FrmModificarAfiliado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Afiliado\FrmCrearAfiliado.Designer.cs">
-      <DependentUpon>FrmCrearAfiliado.cs</DependentUpon>
+    <Compile Include="Abm Afiliado\FrmModificarAfiliado.Designer.cs">
+      <DependentUpon>FrmModificarAfiliado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Afiliado\FrmModificarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\FrmModificarPassword.Designer.cs">
+      <DependentUpon>FrmModificarPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.cs">
       <SubType>Form</SubType>
@@ -113,11 +123,14 @@
     <Compile Include="DAO\AfiliadoDAO.cs" />
     <Compile Include="DAO\AgendaDAO.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
+    <Compile Include="DAO\CancelarAtencionDAO.cs" />
+    <Compile Include="DAO\CompraBonoDAO.cs" />
     <Compile Include="DAO\EspecialidadMedicaDAO.cs" />
     <Compile Include="DAO\FuncionalidadDAO.cs" />
     <Compile Include="DAO\HistorialModifPlanDAO.cs" />
     <Compile Include="DAO\ListadoEstadisticoDAO.cs" />
     <Compile Include="DAO\PacienteDAO.cs" />
+    <Compile Include="DAO\PedidoTurnoDAO.cs" />
     <Compile Include="DAO\PlanDAO.cs" />
     <Compile Include="DAO\ProfesionalDAO.cs" />
     <Compile Include="DAO\RegistrarAtencionDAO.cs" />
@@ -127,7 +140,8 @@
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DTO\Afiliado.cs" />
     <Compile Include="DTO\Agenda.cs" />
-    <Compile Include="DTO\EstadoCivil.cs" />
+    <Compile Include="DTO\CompraBono.cs" />
+    <Compile Include="DTO\PedidoTurno.cs" />
     <Compile Include="DTO\Persona.cs" />
     <Compile Include="DTO\EspecialidadMedica.cs" />
     <Compile Include="DTO\Estado.cs" />
@@ -143,6 +157,7 @@
     <Compile Include="DTO\TipoEspecialidad.cs" />
     <Compile Include="DTO\Semestre.cs" />
     <Compile Include="DTO\Usuario.cs" />
+    <Compile Include="FrmBuscarAfiliado.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,11 +176,11 @@
     <Compile Include="HistorialModificacionesPlan\FrmHistModifPlan.Designer.cs">
       <DependentUpon>FrmHistModifPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listados\ListadoEstadistico.cs">
+    <Compile Include="Listados\FrmListadoEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listados\ListadoEstadistico.Designer.cs">
-      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
+    <Compile Include="Listados\FrmListadoEstadistico.Designer.cs">
+      <DependentUpon>FrmListadoEstadistico.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedir Turno\FrmPedidoTurno.cs">
       <SubType>Form</SubType>
@@ -193,11 +208,17 @@
     <Compile Include="Registro Resultado\FrmRegistrarResultado.Designer.cs">
       <DependentUpon>FrmRegistrarResultado.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abm Afiliado\FrmAsociarAfiliadosExistentes.resx">
+      <DependentUpon>FrmAsociarAfiliadosExistentes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Afiliado\FrmBuscarAfiliado.resx">
       <DependentUpon>FrmBuscarAfiliado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Afiliado\FrmCrearAfiliado.resx">
-      <DependentUpon>FrmCrearAfiliado.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Afiliado\FrmModificarAfiliado.resx">
+      <DependentUpon>FrmModificarAfiliado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Afiliado\FrmModificarPassword.resx">
+      <DependentUpon>FrmModificarPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Especialidades Medicas\FrmBuscarEspecialidadesMedicas.resx">
       <DependentUpon>FrmBuscarEspecialidadesMedicas.cs</DependentUpon>
@@ -230,8 +251,8 @@
     <EmbeddedResource Include="HistorialModificacionesPlan\FrmHistModifPlan.resx">
       <DependentUpon>FrmHistModifPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\ListadoEstadistico.resx">
-      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
+    <EmbeddedResource Include="Listados\FrmListadoEstadistico.resx">
+      <DependentUpon>FrmListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedir Turno\FrmPedidoTurno.resx">
       <DependentUpon>FrmPedidoTurno.cs</DependentUpon>
@@ -247,6 +268,9 @@
     </Compile>
     <EmbeddedResource Include="Registrar Agenta Medico\FrmRegistrarAgenda.resx">
       <DependentUpon>FrmRegistrarAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Llegada\FrmRegistrarLlegada.resx">
+      <DependentUpon>FrmRegistrarLlegada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registro Resultado\FrmRegistrarResultado.resx">
       <DependentUpon>FrmRegistrarResultado.cs</DependentUpon>

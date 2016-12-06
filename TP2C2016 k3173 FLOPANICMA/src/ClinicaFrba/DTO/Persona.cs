@@ -23,10 +23,15 @@ namespace ClinicaFrba.DTO
 
         public string TipoDocumento { get; set; }
 
-        public string NumeroDocumento { get; set; }
+        public int? NumeroDocumento { get; set; }
 
         public DateTime FechaNacimiento { get; set; }
         
         public string Login { get; set; }
+
+        public string Estado_Civil { get; set; }
+
+        public int Cantidad_Hijos { get; set; }
+
     }
 }

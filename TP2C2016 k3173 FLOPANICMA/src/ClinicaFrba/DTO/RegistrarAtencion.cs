@@ -9,7 +9,7 @@ namespace ClinicaFrba.DTO
 {
     class RegistrarAtencion
     {
-        private Int32 id_pedido;
+        private Decimal id_pedido;
         private String sintoma;
         private String diagnostico;
         private DateTime fecha;
@@ -21,7 +21,7 @@ namespace ClinicaFrba.DTO
             set { fecha = value; }
         }
 
-        public Int32 Id_pedido
+        public Decimal Id_pedido
         {
             get { return id_pedido; }
             set { id_pedido = value; }
@@ -44,7 +44,7 @@ namespace ClinicaFrba.DTO
 
         }
 
-        public RegistrarAtencion(string sint, string diag,Int32 turno, DateTime fecha_turno)
+        public RegistrarAtencion(string sint, string diag,Decimal turno, DateTime fecha_turno)
         {
             this.Id_pedido=turno;
             this.Sintoma = sint;

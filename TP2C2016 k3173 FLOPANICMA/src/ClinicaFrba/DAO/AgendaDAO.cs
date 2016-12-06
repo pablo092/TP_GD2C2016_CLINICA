@@ -26,17 +26,25 @@ namespace ClinicaFrba.DAO
             conexion = con;
 
         }
+
         public int GetIdProfesional(String profesional)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
             int respuesta = new int();
             DataTable dt = new DataTable();
-            SqlCommand comando = new SqlCommand("SELECT ID_PERSONA FROM FLOPANICMA.PERSONA " +
-                                               "WHERE APELLIDO +','+ NOMBRE = @PROFESIONAL", conexion);
-
-            comando.CommandType = CommandType.Text;
-            comando.Parameters.AddWithValue("Profesional", profesional);
+          
             try
             {
+                SqlCommand comando = new SqlCommand("SELECT ID_PERSONA FROM FLOPANICMA.PERSONA " +
+                                              "WHERE APELLIDO +','+ NOMBRE = @PROFESIONAL", conexion);
+
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("Profesional", profesional);
+
                 SqlDataReader reader = comando.ExecuteReader();
 
                 dt.Load(reader);
@@ -61,17 +69,22 @@ namespace ClinicaFrba.DAO
 
         public Decimal GetIdEspecialidad(string especialidad)
         {
-            conexion.Open();
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+       
             Decimal respuesta = new Decimal();
             DataTable dt = new DataTable();
-            SqlCommand comando = new SqlCommand("SELECT ID_ESPECIALIDAD FROM FLOPANICMA.ESPECIALIDAD " +
-                                                "WHERE DETALLE = @ESPECIALIDAD", conexion);
-
-            comando.CommandType = CommandType.Text;
-            comando.Parameters.AddWithValue("@ESPECIALIDAD", especialidad);
-
+           
             try
             {
+                SqlCommand comando = new SqlCommand("SELECT ID_ESPECIALIDAD FROM FLOPANICMA.ESPECIALIDAD " +
+                                               "WHERE DETALLE = @ESPECIALIDAD", conexion);
+
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@ESPECIALIDAD", especialidad);
+
                 SqlDataReader reader = comando.ExecuteReader();
 
                 dt.Load(reader);
@@ -99,12 +112,15 @@ namespace ClinicaFrba.DAO
         /// <param name="con"></param>
         public Respuesta insertarAgenda(Agenda agenda)
         {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+       
             Respuesta resultadoSP = new Respuesta();
 
             try
             {
-                conexion.Open();
-
                 
                 SqlCommand comando = new SqlCommand("FLOPANICMA.SP_REGISTRAR_AGENDA", conexion);
 

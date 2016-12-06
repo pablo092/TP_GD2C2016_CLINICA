@@ -38,6 +38,10 @@ namespace ClinicaFrba.DTO
             set { id_turno = value; }
         }
 
+        public RegistrarLlegada()
+        { 
+        }
+
         public RegistrarLlegada(int afiliado, int profesional, int turno, DateTime hora)
         {
             this.Hora_llegada = hora;

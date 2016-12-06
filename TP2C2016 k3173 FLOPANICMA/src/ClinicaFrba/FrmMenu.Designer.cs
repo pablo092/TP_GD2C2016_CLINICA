@@ -50,7 +50,9 @@
             this.btnMenuPedidoTurno = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuCancelarAtencion = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuListadoEstadistico = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMenuHistorialModificacionesPlanAfiliado = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModifPlanes = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCambiarPassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,11 +64,12 @@
             this.btnMenuComprarBono,
             this.btnMenuPedidoTurno,
             this.btnMenuCancelarAtencion,
-            this.btnMenuHistorialModificacionesPlanAfiliado,
-            this.btnMenuListadoEstadistico});
+            this.btnMenuListadoEstadistico,
+            this.btnModifPlanes,
+            this.btnCambiarPassword});
             this.mnPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnPrincipal.Name = "mnPrincipal";
-            this.mnPrincipal.Size = new System.Drawing.Size(982, 24);
+            this.mnPrincipal.Size = new System.Drawing.Size(944, 24);
             this.mnPrincipal.TabIndex = 0;
             this.mnPrincipal.Text = "Menú Principal";
             // 
@@ -109,7 +112,8 @@
             // 
             this.btnMenuAfiliado.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnMenuAfiliadoBusqueda,
-            this.btnMenuAfiliadoAlta});
+            this.btnMenuAfiliadoAlta,
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem});
             this.btnMenuAfiliado.Name = "btnMenuAfiliado";
             this.btnMenuAfiliado.Size = new System.Drawing.Size(216, 22);
             this.btnMenuAfiliado.Text = "AFILIADO";
@@ -117,14 +121,14 @@
             // btnMenuAfiliadoBusqueda
             // 
             this.btnMenuAfiliadoBusqueda.Name = "btnMenuAfiliadoBusqueda";
-            this.btnMenuAfiliadoBusqueda.Size = new System.Drawing.Size(222, 22);
+            this.btnMenuAfiliadoBusqueda.Size = new System.Drawing.Size(249, 22);
             this.btnMenuAfiliadoBusqueda.Text = "BUSCAR / EDITAR AFILIADO";
             this.btnMenuAfiliadoBusqueda.Click += new System.EventHandler(this.btnMenuAfiliadoBusqueda_Click);
             // 
             // btnMenuAfiliadoAlta
             // 
             this.btnMenuAfiliadoAlta.Name = "btnMenuAfiliadoAlta";
-            this.btnMenuAfiliadoAlta.Size = new System.Drawing.Size(222, 22);
+            this.btnMenuAfiliadoAlta.Size = new System.Drawing.Size(249, 22);
             this.btnMenuAfiliadoAlta.Text = "INGRESAR AFILIADO";
             this.btnMenuAfiliadoAlta.Click += new System.EventHandler(this.btnMenuAfiliadoAlta_Click);
             // 
@@ -223,6 +227,7 @@
             this.btnMenuCancelarAtencion.Name = "btnMenuCancelarAtencion";
             this.btnMenuCancelarAtencion.Size = new System.Drawing.Size(113, 20);
             this.btnMenuCancelarAtencion.Text = "CANCELACIONES";
+            this.btnMenuCancelarAtencion.Click += new System.EventHandler(this.btnMenuCancelarAtencion_Click_1);
             // 
             // btnMenuListadoEstadistico
             // 
@@ -231,19 +236,33 @@
             this.btnMenuListadoEstadistico.Text = "LISTADO ESTADISTICO";
             this.btnMenuListadoEstadistico.Click += new System.EventHandler(this.btnMenuListadoEstadistico_Click);
             // 
-            // btnMenuHistorialModificacionesPlanAfiliado
+            // btnModifPlanes
             // 
-            this.btnMenuHistorialModificacionesPlanAfiliado.Name = "btnMenuHistorialModificacionesPlanAfiliado";
-            this.btnMenuHistorialModificacionesPlanAfiliado.Size = new System.Drawing.Size(275, 20);
-            this.btnMenuHistorialModificacionesPlanAfiliado.Text = "HISTORIAL DE MODIFICACIONES PLAN MEDICO";
-            this.btnMenuHistorialModificacionesPlanAfiliado.Click += new System.EventHandler(this.btnMenuHistorialModificacionesPlanAfiliado_Click);
+            this.btnModifPlanes.Name = "btnModifPlanes";
+            this.btnModifPlanes.Size = new System.Drawing.Size(176, 20);
+            this.btnModifPlanes.Text = "HISTORIAL PLANES AFILIADO";
+            this.btnModifPlanes.Click += new System.EventHandler(this.btnModifPlanes_Click);
+            // 
+            // btnCambiarPassword
+            // 
+            this.btnCambiarPassword.Name = "btnCambiarPassword";
+            this.btnCambiarPassword.Size = new System.Drawing.Size(136, 20);
+            this.btnCambiarPassword.Text = "CAMBIAR PASSWORD";
+            this.btnCambiarPassword.Click += new System.EventHandler(this.btnCambiarPassword_Click);
+            // 
+            // aSOCIARAFILIADOSEXISTENTESToolStripMenuItem
+            // 
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Name = "aSOCIARAFILIADOSEXISTENTESToolStripMenuItem";
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Text = "ASOCIAR AFILIADOS EXISTENTES";
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Click += new System.EventHandler(this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(982, 346);
+            this.ClientSize = new System.Drawing.Size(944, 346);
             this.Controls.Add(this.mnPrincipal);
             this.MainMenuStrip = this.mnPrincipal;
             this.Name = "FrmMenu";
@@ -287,7 +306,9 @@
         private System.Windows.Forms.ToolStripMenuItem btnMenuRegistrarLlegadaAM;
 
         private System.Windows.Forms.ToolStripMenuItem btnMenuListadoEstadistico;
+        private System.Windows.Forms.ToolStripMenuItem btnCambiarPassword;
         private System.Windows.Forms.ToolStripMenuItem btnMenuCancelarAtencion;
-        private System.Windows.Forms.ToolStripMenuItem btnMenuHistorialModificacionesPlanAfiliado;
+        private System.Windows.Forms.ToolStripMenuItem btnModifPlanes;
+        private System.Windows.Forms.ToolStripMenuItem aSOCIARAFILIADOSEXISTENTESToolStripMenuItem;
     }
 }
