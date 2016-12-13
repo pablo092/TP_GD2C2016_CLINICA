@@ -24,6 +24,7 @@ namespace ClinicaFrba.Registro_Llegada
 
         private void FrmRegistrarLlegada_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("Solo se mostraran los turnos de la fecha actual", "Registrar llegada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CMBProfesional.Items.Clear();
             CMBAfiliado.Items.Clear();
             CMBEspecialidades.Items.Clear();
@@ -266,9 +267,16 @@ namespace ClinicaFrba.Registro_Llegada
                 afiliado.Hora_llegada = DateTime.Now;
 
                 resp = registrarLlegadaDAO.insertarRegistrarLlegada(afiliado);
+                if (resp.CodigoError != 0)
+                {
+                    MessageBox.Show(resp.DescripcionError, "Turnos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show(resp.DescripcionError, "Turnos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
 
-                MessageBox.Show(resp.DescripcionError, "Turnos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.Close();
             }
             else
             {

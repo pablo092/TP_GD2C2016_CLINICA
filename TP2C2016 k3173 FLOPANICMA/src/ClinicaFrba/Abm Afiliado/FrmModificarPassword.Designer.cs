@@ -46,7 +46,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 22;
-            this.btnCancelar.Text = "&CANCELAR";
+            this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -56,7 +56,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 21;
-            this.btnGuardar.Text = "&GUARDAR";
+            this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -133,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 169);
+            this.ClientSize = new System.Drawing.Size(421, 168);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gbDatosUsuario);
@@ -141,7 +141,7 @@
             this.MaximumSize = new System.Drawing.Size(437, 207);
             this.MinimumSize = new System.Drawing.Size(437, 207);
             this.Name = "FrmModificarPassword";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CAMBIAR PASSWORD";
             this.gbDatosUsuario.ResumeLayout(false);
             this.gbDatosUsuario.PerformLayout();

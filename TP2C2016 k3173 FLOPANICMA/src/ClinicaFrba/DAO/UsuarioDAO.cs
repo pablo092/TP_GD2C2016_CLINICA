@@ -122,7 +122,7 @@ namespace ClinicaFrba.DAO
         }
 
         /// <summary>
-        /// Agrega roles a un usuario. Se debe usar junto con el alta/modificacion de clientes/empresas. 
+        /// Agrega roles a un usuario. 
         /// Invoca a ABM_USUARIO_AGREGAR_ROL
         /// </summary>
         /// <param name="usuario"></param>
@@ -166,7 +166,6 @@ namespace ClinicaFrba.DAO
                             new Exception();
                         }
                     }
-
                 }
 
                 //Agrego el rol seleccionado
@@ -434,6 +433,41 @@ namespace ClinicaFrba.DAO
 
                 cmd.ExecuteNonQuery();
             }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        internal string GetNombrePorIdUsuario(int id_usuario)
+        {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
+            try
+            {
+                DataTable dt = new DataTable();
+
+                SqlCommand comando = new SqlCommand("SELECT APELLIDO,NOMBRE FROM FLOPANICMA.PERSONA AS PER " +
+                                                     "JOIN FLOPANICMA.USUARIO AS USU ON USU.ID_PERSONA=PER.ID_PERSONA " +
+                                                     "WHERE ID_USUARIO = @ID_USUARIO", conexion);
+                
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@ID_USUARIO", id_usuario);
+                SqlDataReader reader = comando.ExecuteReader();
+
+                dt.Load(reader);
+
+                return (Convert.ToString(dt.Rows[0][0]) + ", " + Convert.ToString(dt.Rows[0][1]));
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
             finally
             {
                 conexion.Close();

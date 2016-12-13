@@ -28,17 +28,15 @@ namespace ClinicaFrba.Listados
 
         private void LoadTipoListado()
         {
-            Tipo_Listado.Items.Add("Top 5 especialidades que registran más cancelaciones");
-            Tipo_Listado.Items.Add("Top 5 profesionales más consultados por Plan");
-            Tipo_Listado.Items.Add("Top 5 profesionales con menos horas trabajadas");
-            Tipo_Listado.Items.Add("Top 5 afiliados con mayor cantidad de bonos comprados");
-            Tipo_Listado.Items.Add("Top 5 specialidades de médicos con más bonos de consultas utilizados");
-
+            Tipo_Listado.Items.Add("Especialidades que registran más cancelaciones");
+            Tipo_Listado.Items.Add("Profesionales más consultados por Plan");
+            Tipo_Listado.Items.Add("Profesionales con menos horas trabajadas");
+            Tipo_Listado.Items.Add("Afiliados con mayor cantidad de bonos comprados");
+            Tipo_Listado.Items.Add("Especialidades de médicos con más bonos de consultas utilizados");
         }
 
         private void LoadEspecialidades()
         {
-
             DataTable especialidades = new DataTable();
             ListadoEstadisticoDAO DAO_especialidades = new ListadoEstadisticoDAO();
             especialidades = DAO_especialidades.getEspecialidades();
@@ -71,13 +69,13 @@ namespace ClinicaFrba.Listados
             switch (Tipo_Listado.Text)
             {
 
-                case "Top 5 especialidades que registran más cancelaciones":
+                case "Especialidades que registran más cancelaciones":
                     {
                         Filtro_Extra.Hide();
                         L_Filtro_Extra.Hide();
                         break;
                     }
-                case "Top 5 profesionales más consultados por Plan":
+                case "Profesionales más consultados por Plan":
                     {
                         L_Filtro_Extra.Show();
                         Filtro_Extra.Show();
@@ -85,7 +83,7 @@ namespace ClinicaFrba.Listados
                         loadPlanes();
                         break;
                     }
-                case "Top 5 profesionales con menos horas trabajadas":
+                case "Profesionales con menos horas trabajadas":
                     {
                         L_Filtro_Extra.Show();
                         Filtro_Extra.Show();
@@ -93,13 +91,13 @@ namespace ClinicaFrba.Listados
                         LoadEspecialidades();
                         break;
                     }
-                case "Top 5 afiliados con mayor cantidad de bonos comprados":
+                case "Afiliados con mayor cantidad de bonos comprados":
                     {
                         Filtro_Extra.Hide();
                         L_Filtro_Extra.Hide();
                         break;
                     }
-                case "Top 5 specialidades de médicos con más bonos de consultas utilizados":
+                case "Especialidades de médicos con más bonos de consultas utilizados":
                     {
                         Filtro_Extra.Hide();
                         L_Filtro_Extra.Hide();
@@ -196,12 +194,12 @@ namespace ClinicaFrba.Listados
                 switch (Tipo_Listado.Text)
                 {
 
-                    case "Top 5 especialidades que registran más cancelaciones":
+                    case "Especialidades que registran más cancelaciones":
                         {
                             DGVListados.DataSource = listado.ListadoEspConMasCancelaciones(Convert.ToInt32(NUDAnio.Value), nro_semestre, nro_mes);
                             break;
                         }
-                    case "Top 5 profesionales más consultados por Plan":
+                    case "Profesionales más consultados por Plan":
                         {
                             if (Filtro_Extra.Text != "Seleccione Plan")
                             {
@@ -214,7 +212,7 @@ namespace ClinicaFrba.Listados
 
                             break;
                         }
-                    case "Top 5 profesionales con menos horas trabajadas":
+                    case "Profesionales con menos horas trabajadas":
                         {
                             if (Filtro_Extra.Text != "Seleccione Especialidad")
                             {
@@ -226,13 +224,13 @@ namespace ClinicaFrba.Listados
                             }
                             break;
                         }
-                    case "Top 5 afiliados con mayor cantidad de bonos comprados":
+                    case "Afiliados con mayor cantidad de bonos comprados":
                         {
                             
                             DGVListados.DataSource = listado.ListadoMasBonosComprados(Convert.ToInt32(NUDAnio.Value), nro_semestre, nro_mes);
                             break;
                         }
-                    case "Top 5 specialidades de médicos con más bonos de consultas utilizados":
+                    case "Especialidades de médicos con más bonos de consultas utilizados":
                         {
                             DGVListados.DataSource = listado.ListadoEspConMasBonos(Convert.ToInt32(NUDAnio.Value), nro_semestre, nro_mes);
                             break;
@@ -257,7 +255,5 @@ namespace ClinicaFrba.Listados
         {
             this.Close();
         }
-
-        
     }
 }

@@ -92,6 +92,8 @@
             // 
             this.listadoRoles.AllowUserToAddRows = false;
             this.listadoRoles.AllowUserToDeleteRows = false;
+            this.listadoRoles.AllowUserToResizeColumns = false;
+            this.listadoRoles.AllowUserToResizeRows = false;
             this.listadoRoles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listadoRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoRoles.Location = new System.Drawing.Point(15, 130);

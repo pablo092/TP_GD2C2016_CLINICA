@@ -9,9 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using ClinicaFrba.ABM_Rol;
-
 using System.Windows.Forms;
-using ClinicaFrba.AdministradorDao;
 
 namespace ClinicaFrba.ABM_Rol
 {
@@ -20,34 +18,35 @@ namespace ClinicaFrba.ABM_Rol
         Rol rol = new Rol();
 
         /*** INICIALIZACIONES ***/
+
+        // constructor usado al querer insertar un nuevo rol
         public FrmCrearRol()
         {
             InitializeComponent();
             traerFuncionalidades();
-            chkHabilitado.Checked = true;
         }
 
-        /* MODIFICAR */
+        // constructor usado al querer modificar nuevo rol ya existente
         public FrmCrearRol(Rol r)
         {
             InitializeComponent();
             this.Text = "EDITAR ROL";
             btnLimpiar.Text = "Deshacer";
-            chkHabilitado.Checked = r.EstaHabilitado;
             rol = r;
             txtRolNombre.Text = rol.Descripcion;                    
             traerFuncionalidadesByRol(rol.Descripcion);
 
-            if (r.Equals(UsuarioLogueado.usuario.Rol)) {
-                MessageBox.Show("No se permite modificar el Rol con el que se ingresó al sistema.");
+            if (r.Equals(UsuarioLogueado.usuario.Rol)) 
+            {
+                MessageBox.Show("No se permite modificar el Rol con el que se ingresó al sistema.","Modificar rol", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 btnLimpiar.Enabled = false;
                 btnAgregar.Enabled = false;
                 txtRolNombre.Enabled = false;
-                chkHabilitado.Enabled = false;
                 checkFuncionalidades.SelectionMode = SelectionMode.None;
             }
         }
 
+        /*** PROCEDIMIENTOS ***/
         private void traerFuncionalidades()
         {
             FuncionalidadDAO funcionalidadDAO = new FuncionalidadDAO();
@@ -109,43 +108,68 @@ namespace ClinicaFrba.ABM_Rol
             }
         }
 
-        /*** BOTONES ***/
+        /*** EVENTOS ***/
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AdministradorRol admRol = new AdministradorRol();
             Respuesta resultadoSP = new Respuesta();
 
             List<Funcionalidad> funcionalidades = new List<Funcionalidad>();
-
             foreach (DataRowView item in checkFuncionalidades.CheckedItems)
             {
                 funcionalidades.Add(new Funcionalidad(item));
             }
 
-            if (!(rol.Id > 0))
-            {
-                rol = new Rol();
-            }
-
             rol.Descripcion = txtRolNombre.Text.Trim();
-            rol.EstaHabilitado = chkHabilitado.Checked;
 
-            resultadoSP = admRol.guardarRolFuncionalidad(rol, funcionalidades);
+            RolDAO rolDAO = new RolDAO();
 
-            if (resultadoSP.CodigoError == 1)
+            if (this.Text == "INGRESAR ROL")
             {
-                msgCreacion.Text = resultadoSP.DescripcionError;
+                resultadoSP = rolDAO.insertarRol(rol);
+                
+                if(resultadoSP.CodigoError == 1)
+                {
+                    msgCreacion.Text = resultadoSP.DescripcionError; // si hubo un error al crear un nuevo rol (codigoError == 1), muestra el mensaje de error en el toolStrip
+                }
+                else
+                {
+                    foreach(Funcionalidad funcionalidad in funcionalidades)
+                    {
+                        resultadoSP = rolDAO.insertaFuncionalidadEnRol(rol,funcionalidad);
+                    }
+
+                    if (resultadoSP.CodigoError == 1) // si hubo error al insertar alguna de las funcionalidades (codigoError == 1), muestra el mensaje de error en el toolStrip. Sino todo ok
+                    {
+                        msgCreacion.Text = resultadoSP.DescripcionError;
+                    }
+                    else
+                    {
+                        foreach (Funcionalidad funcionalidad in funcionalidades)
+                        {
+                            resultadoSP = rolDAO.insertaFuncionalidadEnRol(rol, funcionalidad);
+                        }
+
+                        MessageBox.Show("El rol " + rol.Descripcion + " se ha guardado correctamente", "Insertar rol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                }
             }
 
-            else if( (this.Text == "EDITAR ROL") && (txtRolNombre.Modified) )
+            if( (this.Text == "EDITAR ROL") )
             {
+                rolDAO.limpiarFuncionalidades(rol.Id);
+                
+                foreach (Funcionalidad funcionalidad in funcionalidades)
+                {
+                    resultadoSP = rolDAO.insertaFuncionalidadEnRol(rol, funcionalidad);
+                }
+
+                if(txtRolNombre.Modified)
+                {
+                    rolDAO.updateRol(rol);
+                }
+
                 MessageBox.Show("El rol " + rol.Descripcion + " se ha guardado correctamente", "Modificar rol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-
-            else if (txtRolNombre.Modified)
-            {
-                MessageBox.Show("El rol " + rol.Descripcion  + " se ha guardado correctamente", "Insertar rol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
         }

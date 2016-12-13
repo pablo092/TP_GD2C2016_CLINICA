@@ -49,20 +49,20 @@
             // L_Tipo_Listado
             // 
             this.L_Tipo_Listado.AutoSize = true;
-            this.L_Tipo_Listado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Tipo_Listado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.L_Tipo_Listado.Location = new System.Drawing.Point(12, 23);
             this.L_Tipo_Listado.Name = "L_Tipo_Listado";
-            this.L_Tipo_Listado.Size = new System.Drawing.Size(206, 20);
+            this.L_Tipo_Listado.Size = new System.Drawing.Size(236, 17);
             this.L_Tipo_Listado.TabIndex = 0;
-            this.L_Tipo_Listado.Text = "Selecccionar tipo de listado:";
+            this.L_Tipo_Listado.Text = "Selecccionar tipo de listado (Top 5):";
             // 
             // Tipo_Listado
             // 
-            this.Tipo_Listado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tipo_Listado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Tipo_Listado.FormattingEnabled = true;
             this.Tipo_Listado.Location = new System.Drawing.Point(11, 50);
             this.Tipo_Listado.Name = "Tipo_Listado";
-            this.Tipo_Listado.Size = new System.Drawing.Size(319, 28);
+            this.Tipo_Listado.Size = new System.Drawing.Size(333, 24);
             this.Tipo_Listado.TabIndex = 1;
             this.Tipo_Listado.Text = "Seleccione listado";
             this.Tipo_Listado.SelectedIndexChanged += new System.EventHandler(this.Tipo_Listado_SelectedIndexChanged);
@@ -70,16 +70,16 @@
             // L_Anio
             // 
             this.L_Anio.AutoSize = true;
-            this.L_Anio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Anio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.L_Anio.Location = new System.Drawing.Point(386, 24);
             this.L_Anio.Name = "L_Anio";
-            this.L_Anio.Size = new System.Drawing.Size(42, 20);
+            this.L_Anio.Size = new System.Drawing.Size(37, 17);
             this.L_Anio.TabIndex = 2;
             this.L_Anio.Text = "Año:";
             // 
             // NUDAnio
             // 
-            this.NUDAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NUDAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.NUDAnio.Location = new System.Drawing.Point(472, 21);
             this.NUDAnio.Maximum = new decimal(new int[] {
             2050,
@@ -92,7 +92,7 @@
             0,
             0});
             this.NUDAnio.Name = "NUDAnio";
-            this.NUDAnio.Size = new System.Drawing.Size(120, 26);
+            this.NUDAnio.Size = new System.Drawing.Size(120, 23);
             this.NUDAnio.TabIndex = 3;
             this.NUDAnio.Value = new decimal(new int[] {
             2015,
@@ -103,23 +103,23 @@
             // L_Semestre
             // 
             this.L_Semestre.AutoSize = true;
-            this.L_Semestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Semestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.L_Semestre.Location = new System.Drawing.Point(385, 61);
             this.L_Semestre.Name = "L_Semestre";
-            this.L_Semestre.Size = new System.Drawing.Size(82, 20);
+            this.L_Semestre.Size = new System.Drawing.Size(72, 17);
             this.L_Semestre.TabIndex = 4;
             this.L_Semestre.Text = "Semestre:";
             // 
             // CMBSemestre
             // 
-            this.CMBSemestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CMBSemestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CMBSemestre.FormattingEnabled = true;
             this.CMBSemestre.Items.AddRange(new object[] {
             "1er Semestre",
             "2do Semestre"});
             this.CMBSemestre.Location = new System.Drawing.Point(472, 57);
             this.CMBSemestre.Name = "CMBSemestre";
-            this.CMBSemestre.Size = new System.Drawing.Size(179, 28);
+            this.CMBSemestre.Size = new System.Drawing.Size(179, 24);
             this.CMBSemestre.TabIndex = 5;
             this.CMBSemestre.Text = "Seleccione Semestre";
             this.CMBSemestre.SelectedIndexChanged += new System.EventHandler(this.CMBSemestre_SelectedIndexChanged);
@@ -127,16 +127,16 @@
             // L_Mes
             // 
             this.L_Mes.AutoSize = true;
-            this.L_Mes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Mes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.L_Mes.Location = new System.Drawing.Point(386, 101);
             this.L_Mes.Name = "L_Mes";
-            this.L_Mes.Size = new System.Drawing.Size(43, 20);
+            this.L_Mes.Size = new System.Drawing.Size(38, 17);
             this.L_Mes.TabIndex = 6;
             this.L_Mes.Text = "Mes:";
             // 
             // CMBMes
             // 
-            this.CMBMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CMBMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CMBMes.FormattingEnabled = true;
             this.CMBMes.Items.AddRange(new object[] {
             "Semestre",
@@ -154,34 +154,34 @@
             "Diciembre"});
             this.CMBMes.Location = new System.Drawing.Point(471, 97);
             this.CMBMes.Name = "CMBMes";
-            this.CMBMes.Size = new System.Drawing.Size(180, 28);
+            this.CMBMes.Size = new System.Drawing.Size(180, 24);
             this.CMBMes.TabIndex = 7;
             this.CMBMes.Text = "Seleccione mes";
             // 
             // L_Filtro_Extra
             // 
             this.L_Filtro_Extra.AutoSize = true;
-            this.L_Filtro_Extra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Filtro_Extra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.L_Filtro_Extra.Location = new System.Drawing.Point(11, 101);
             this.L_Filtro_Extra.Name = "L_Filtro_Extra";
-            this.L_Filtro_Extra.Size = new System.Drawing.Size(48, 20);
+            this.L_Filtro_Extra.Size = new System.Drawing.Size(43, 17);
             this.L_Filtro_Extra.TabIndex = 8;
             this.L_Filtro_Extra.Text = "Filtro:";
             // 
             // Filtro_Extra
             // 
-            this.Filtro_Extra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Filtro_Extra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Filtro_Extra.FormattingEnabled = true;
             this.Filtro_Extra.Location = new System.Drawing.Point(65, 97);
             this.Filtro_Extra.Name = "Filtro_Extra";
-            this.Filtro_Extra.Size = new System.Drawing.Size(265, 28);
+            this.Filtro_Extra.Size = new System.Drawing.Size(279, 24);
             this.Filtro_Extra.Sorted = true;
             this.Filtro_Extra.TabIndex = 9;
             this.Filtro_Extra.Text = "Seleccion filtro";
             // 
             // Buscar
             // 
-            this.Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Buscar.Location = new System.Drawing.Point(224, 142);
             this.Buscar.Name = "Buscar";
             this.Buscar.Size = new System.Drawing.Size(80, 29);
@@ -192,7 +192,7 @@
             // 
             // Cancelar
             // 
-            this.Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Cancelar.Location = new System.Drawing.Point(374, 142);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(80, 29);

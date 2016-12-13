@@ -72,7 +72,7 @@ namespace ClinicaFrba.Cancelar_Atencion
             {
                 for (Int32 i = 0; i < dt.Rows.Count; i++)
                 {
-                    CMBFamiliar.Items.Add(Convert.ToString(dt.Rows[i][0]) + " - " + Convert.ToString(dt.Rows[i][0]) +
+                    CMBFamiliar.Items.Add(Convert.ToString(dt.Rows[i][0]) + " - " + Convert.ToString(dt.Rows[i][1]) +
                                           "," + Convert.ToString(dt.Rows[i][2]));
                 }
             }
@@ -246,6 +246,7 @@ namespace ClinicaFrba.Cancelar_Atencion
         private void BTNAceptar_Click(object sender, EventArgs e)
         {
             CancelarAtencionDAO cancelacion = new CancelarAtencionDAO();
+            int cantidadTurnos;
 
             if (UsuarioLogueado.usuario.Rol.Descripcion == "PROFESIONAL")
             {
@@ -254,14 +255,23 @@ namespace ClinicaFrba.Cancelar_Atencion
                 Int32 id_profesional = cancelacion.GetIdPorUsuario(UsuarioLogueado.usuario.Id);
                 if (CHBDia.Checked == true)
                 {
-                    cancelacion.RegistrarCancelacionProfesional(inicio, fin, id_profesional, TXTMotivo.Text);
+                    cantidadTurnos = cancelacion.RegistrarCancelacionProfesional(inicio, fin, id_profesional, TXTMotivo.Text);
                 }
                 else
                 {
-                    cancelacion.RegistrarCancelacionProfesional(inicio, fin, id_profesional, TXTMotivo.Text);
+                    cantidadTurnos = cancelacion.RegistrarCancelacionProfesional(inicio, fin, id_profesional, TXTMotivo.Text);
                 }
 
-                MessageBox.Show("Su cancelacion ha sido registrada", "Cancelacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (cantidadTurnos != 0)
+                {
+                    MessageBox.Show("Su cancelacion ha sido registrada.", "Cancelacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                else 
+                {
+                    MessageBox.Show("Su agenda no registra actividad para ese periodo.", "Cancelacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 this.Close();
 
             }

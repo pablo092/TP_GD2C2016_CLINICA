@@ -9,7 +9,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ClinicaFrba.AdministradorDao;
 using ClinicaFrba.ABM_Rol;
 
 namespace ClinicaFrba.ABM_Rol
@@ -64,10 +63,9 @@ namespace ClinicaFrba.ABM_Rol
                 listadoRoles.Columns.Add(editar);
 
                 DataGridViewButtonColumn modificar = new DataGridViewButtonColumn();
-                modificar.Name = "columnaModificar"; 
+                modificar.Name = "columnaModificar";
                 {
-                    modificar.HeaderText = "                Opción";
-                    modificar.AutoSizeMode = modificar.AutoSizeMode;
+                    modificar.HeaderText = "         Opción";
                     modificar.CellTemplate.Style.BackColor = Color.Honeydew;
                     modificar.DisplayIndex = 4;
                     listadoRoles.Columns.Add(modificar); // inserto la columna de botones en la ultima posicion (4)
@@ -91,6 +89,8 @@ namespace ClinicaFrba.ABM_Rol
                     }
                 }
                 msgBusqueda.Text = "";
+                listadoRoles.Columns[4].Width = 100;
+                listadoRoles.Columns["DESCRIPCION"].SortMode = DataGridViewColumnSortMode.NotSortable; // evita que esta columna sea ordenable 
             }
             else
             {
@@ -115,8 +115,6 @@ namespace ClinicaFrba.ABM_Rol
                 rol.Descripcion = (String)listadoRoles.Rows[e.RowIndex].Cells["DESCRIPCION"].Value;
                 rol.EstaHabilitado = (bool)listadoRoles.Rows[e.RowIndex].Cells["ACTIVO"].Value;
 
-                System.Console.WriteLine("ID_ROL: " + rol.Id +" DESCRIPCION: " + rol.Descripcion + " ACTIVO: " + rol.EstaHabilitado);
-
                 if (e.ColumnIndex == 4)
                 {
                     if (rol.Id.Equals(UsuarioLogueado.usuario.Rol.Id))
@@ -126,8 +124,8 @@ namespace ClinicaFrba.ABM_Rol
                     }
                     else
                     {
-                        AdministradorRol admRol = new AdministradorRol();
-                        admRol.modificarRol(rol);
+                        RolDAO rolDAO = new RolDAO();
+                        rolDAO.modificarEstadoRol(rol);
                         listadoRoles.UpdateCellValue(e.ColumnIndex, e.RowIndex);
                         limpiarListadoRoles();
                         buscarRol();

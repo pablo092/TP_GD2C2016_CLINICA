@@ -36,6 +36,7 @@
             this.btnMenuAfiliado = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuAfiliadoBusqueda = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuAfiliadoAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuProfesional = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuProfesionalAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuEspecialidadesMedicas = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,9 @@
             this.btnMenuListadoEstadistico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModifPlanes = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCambiarPassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.mnPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,14 +100,14 @@
             // btnMenuRolBusqueda
             // 
             this.btnMenuRolBusqueda.Name = "btnMenuRolBusqueda";
-            this.btnMenuRolBusqueda.Size = new System.Drawing.Size(168, 22);
+            this.btnMenuRolBusqueda.Size = new System.Drawing.Size(167, 22);
             this.btnMenuRolBusqueda.Text = "BUSCAR / EDITAR";
             this.btnMenuRolBusqueda.Click += new System.EventHandler(this.btnMenuRolBusqueda_Click);
             // 
             // btnMenuRolAlta
             // 
             this.btnMenuRolAlta.Name = "btnMenuRolAlta";
-            this.btnMenuRolAlta.Size = new System.Drawing.Size(168, 22);
+            this.btnMenuRolAlta.Size = new System.Drawing.Size(167, 22);
             this.btnMenuRolAlta.Text = "INGRESAR";
             this.btnMenuRolAlta.Click += new System.EventHandler(this.btnMenuRolAlta_Click);
             // 
@@ -132,6 +135,13 @@
             this.btnMenuAfiliadoAlta.Text = "INGRESAR AFILIADO";
             this.btnMenuAfiliadoAlta.Click += new System.EventHandler(this.btnMenuAfiliadoAlta_Click);
             // 
+            // aSOCIARAFILIADOSEXISTENTESToolStripMenuItem
+            // 
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Name = "aSOCIARAFILIADOSEXISTENTESToolStripMenuItem";
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Text = "ASOCIAR AFILIADOS EXISTENTES";
+            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Click += new System.EventHandler(this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem_Click);
+            // 
             // btnMenuProfesional
             // 
             this.btnMenuProfesional.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -158,7 +168,7 @@
             // btnMenuEspecialidadesMedicasBusqueda
             // 
             this.btnMenuEspecialidadesMedicasBusqueda.Name = "btnMenuEspecialidadesMedicasBusqueda";
-            this.btnMenuEspecialidadesMedicasBusqueda.Size = new System.Drawing.Size(283, 22);
+            this.btnMenuEspecialidadesMedicasBusqueda.Size = new System.Drawing.Size(282, 22);
             this.btnMenuEspecialidadesMedicasBusqueda.Text = "LISTADO DE ESPECIALIDADES MÉDICAS";
             this.btnMenuEspecialidadesMedicasBusqueda.Click += new System.EventHandler(this.btnMenuEspecialidadesMedicasBusqueda_Click);
             // 
@@ -173,7 +183,7 @@
             // btnMenuPlanBusqueda
             // 
             this.btnMenuPlanBusqueda.Name = "btnMenuPlanBusqueda";
-            this.btnMenuPlanBusqueda.Size = new System.Drawing.Size(237, 22);
+            this.btnMenuPlanBusqueda.Size = new System.Drawing.Size(236, 22);
             this.btnMenuPlanBusqueda.Text = "LISTADO DE PLANES MÉDICOS";
             this.btnMenuPlanBusqueda.Click += new System.EventHandler(this.btnMenuPlanBusqueda_Click);
             // 
@@ -190,21 +200,21 @@
             // btnMenuRegistrarAgenda
             // 
             this.btnMenuRegistrarAgenda.Name = "btnMenuRegistrarAgenda";
-            this.btnMenuRegistrarAgenda.Size = new System.Drawing.Size(265, 22);
+            this.btnMenuRegistrarAgenda.Size = new System.Drawing.Size(262, 22);
             this.btnMenuRegistrarAgenda.Text = "AGENDA";
             this.btnMenuRegistrarAgenda.Click += new System.EventHandler(this.btnMenuRegistrarAgenda_Click);
             // 
             // btnMenuRegistrarLlegadaAM
             // 
             this.btnMenuRegistrarLlegadaAM.Name = "btnMenuRegistrarLlegadaAM";
-            this.btnMenuRegistrarLlegadaAM.Size = new System.Drawing.Size(265, 22);
+            this.btnMenuRegistrarLlegadaAM.Size = new System.Drawing.Size(262, 22);
             this.btnMenuRegistrarLlegadaAM.Text = "LLEGADA A ATENCIÓN MÉDICA";
             this.btnMenuRegistrarLlegadaAM.Click += new System.EventHandler(this.btnMenuRegistrarLlegadaAM_Click);
             // 
             // btnMenuRegistrarResultadoAM
             // 
             this.btnMenuRegistrarResultadoAM.Name = "btnMenuRegistrarResultadoAM";
-            this.btnMenuRegistrarResultadoAM.Size = new System.Drawing.Size(265, 22);
+            this.btnMenuRegistrarResultadoAM.Size = new System.Drawing.Size(262, 22);
             this.btnMenuRegistrarResultadoAM.Text = "RESULTADO DE ATENCIÓN MÉDICA";
             this.btnMenuRegistrarResultadoAM.Click += new System.EventHandler(this.btnMenuRegistrarResultadoAM_Click);
             // 
@@ -232,43 +242,80 @@
             // btnMenuListadoEstadistico
             // 
             this.btnMenuListadoEstadistico.Name = "btnMenuListadoEstadistico";
-            this.btnMenuListadoEstadistico.Size = new System.Drawing.Size(140, 20);
+            this.btnMenuListadoEstadistico.Size = new System.Drawing.Size(138, 20);
             this.btnMenuListadoEstadistico.Text = "LISTADO ESTADISTICO";
             this.btnMenuListadoEstadistico.Click += new System.EventHandler(this.btnMenuListadoEstadistico_Click);
             // 
             // btnModifPlanes
             // 
             this.btnModifPlanes.Name = "btnModifPlanes";
-            this.btnModifPlanes.Size = new System.Drawing.Size(176, 20);
+            this.btnModifPlanes.Size = new System.Drawing.Size(175, 20);
             this.btnModifPlanes.Text = "HISTORIAL PLANES AFILIADO";
             this.btnModifPlanes.Click += new System.EventHandler(this.btnModifPlanes_Click);
             // 
             // btnCambiarPassword
             // 
             this.btnCambiarPassword.Name = "btnCambiarPassword";
-            this.btnCambiarPassword.Size = new System.Drawing.Size(136, 20);
+            this.btnCambiarPassword.Size = new System.Drawing.Size(135, 20);
             this.btnCambiarPassword.Text = "CAMBIAR PASSWORD";
             this.btnCambiarPassword.Click += new System.EventHandler(this.btnCambiarPassword_Click);
             // 
-            // aSOCIARAFILIADOSEXISTENTESToolStripMenuItem
+            // label1
             // 
-            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Name = "aSOCIARAFILIADOSEXISTENTESToolStripMenuItem";
-            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Text = "ASOCIAR AFILIADOS EXISTENTES";
-            this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem.Click += new System.EventHandler(this.aSOCIARAFILIADOSEXISTENTESToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(30, 65);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(149, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Bienvenido/a";
+            // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(30, 96);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(0, 25);
+            this.lblNombreUsuario.TabIndex = 2;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.White;
+            this.btnLogOut.ForeColor = System.Drawing.Color.Transparent;
+            this.btnLogOut.Image = global::ClinicaFrba.Properties.Resources.logout1;
+            this.btnLogOut.Location = new System.Drawing.Point(12, 556);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(52, 58);
+            this.btnLogOut.TabIndex = 3;
+            this.btnLogOut.TabStop = false;
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(944, 346);
+            this.BackgroundImage = global::ClinicaFrba.Properties.Resources.simboloClinicaFRBA;
+            this.ClientSize = new System.Drawing.Size(944, 467);
+            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.lblNombreUsuario);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.mnPrincipal);
             this.MainMenuStrip = this.mnPrincipal;
             this.Name = "FrmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.mnPrincipal.ResumeLayout(false);
             this.mnPrincipal.PerformLayout();
             this.ResumeLayout(false);
@@ -310,5 +357,8 @@
         private System.Windows.Forms.ToolStripMenuItem btnMenuCancelarAtencion;
         private System.Windows.Forms.ToolStripMenuItem btnModifPlanes;
         private System.Windows.Forms.ToolStripMenuItem aSOCIARAFILIADOSEXISTENTESToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNombreUsuario;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

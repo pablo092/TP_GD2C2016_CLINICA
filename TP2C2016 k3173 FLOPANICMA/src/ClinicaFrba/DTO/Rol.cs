@@ -38,12 +38,12 @@ namespace ClinicaFrba.DTO
         }
         public Rol(DataRow unRol)
         {
-            this.id =(int) unRol[0];
-            this.descripcion =(string) unRol[1];
+            this.id = (int)unRol[0];
+            this.descripcion = (string)unRol[1];
             this.estaHabilitado = (bool)unRol[2];
         }
 
-        public Rol( int id, string descripcion, bool habilitado)
+        public Rol(int id, string descripcion, bool habilitado)
         {
             this.id = id;
             this.descripcion = descripcion;
@@ -52,32 +52,7 @@ namespace ClinicaFrba.DTO
 
         public Rol()
         {
-            
-        }
-
-
-        // override object.Equals
-        public override bool Equals(object obj)
-        {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-            return this.Id.Equals(((Rol)obj).Id);
-        }
-
-        public override int GetHashCode()
-    {
-        int hash = 13;
-        hash = (hash * 7) + this.Descripcion.GetHashCode();
-        hash = (hash * 7) + this.EstaHabilitado.GetHashCode();
-        hash = (hash * 7) + this.Funcionalidad.GetHashCode();
-
-        return hash;
 
         }
-        
-
-        
     }
 }

@@ -34,7 +34,7 @@ namespace ClinicaFrba.DAO
         /// <param name="rol"></param>
         /// <param name="tran"></param>
         /// <returns></returns>
-        public Respuesta insertaRol(Rol rol, SqlTransaction tran = null )
+        public Respuesta insertarRol(Rol rol)
         {
             if (conexion.State == ConnectionState.Closed)
             {
@@ -46,14 +46,8 @@ namespace ClinicaFrba.DAO
             try
             {
                 SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_ALTA", conexion);
-                if (tran != null)
-                {
-                    comando.Transaction = tran;
-                }
                 comando.CommandType = CommandType.StoredProcedure;
-
                 comando.Parameters.Clear();
-
                 comando.Parameters.AddWithValue("@DESC_ROL", rol.Descripcion);
 
                 SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
@@ -73,11 +67,15 @@ namespace ClinicaFrba.DAO
 
                 return resultadoSP;
             }
+
             catch (Exception ex)
             {
-                resultadoSP.CodigoError = 99;
-                resultadoSP.DescripcionError = "Error Fatal: " + ex.Message;
-                return resultadoSP;
+                throw ex;
+            }
+
+            finally
+            {
+                conexion.Close();
             }
         }
 
@@ -134,59 +132,6 @@ namespace ClinicaFrba.DAO
                 resultadoSP.DescripcionError = "Error Fatal: " + ex.Message;
                 return resultadoSP;
             }
-        }
-
-        /// <summary>
-        /// Desasocia tods las funcionalidades de un rol. 
-        /// invoca a FLOPANICMA.SP_ABM_ROL_QUITAR_FUNCIONALIDAD
-        /// </summary>
-        /// <param name="rol"></param>
-        /// <param name="tran"></param>
-        /// <returns></returns>
-        public Respuesta limpiarFuncionalidad(Rol rol, SqlTransaction tran = null)
-        {
-            if (conexion.State == ConnectionState.Closed)
-            {
-                conexion.Open();
-            }
-
-            Respuesta resultadoSP = new Respuesta();
-
-            try
-            {
-                SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_QUITAR_FUNCIONALIDAD", conexion);
-                comando.Transaction = tran;
-                comando.CommandType = CommandType.StoredProcedure;
-
-                comando.Parameters.Clear();
-
-                comando.Parameters.AddWithValue("@DESC_ROL", rol.Descripcion);
-                comando.Parameters.AddWithValue("@DESC_FUNCIOANLIDAD", rol.Funcionalidad.Descripcion);
-
-                SqlParameter valorRetorno1 = new SqlParameter("@FLAG_ERROR", SqlDbType.Int);
-                valorRetorno1.Size = sizeof(int);
-                valorRetorno1.Direction = ParameterDirection.Output;
-                comando.Parameters.Add(valorRetorno1);
-
-                SqlParameter valorRetorno2 = new SqlParameter("@MENSAJE", SqlDbType.VarChar);
-                valorRetorno2.Size = 255 * sizeof(char);
-                valorRetorno2.Direction = ParameterDirection.Output;
-                comando.Parameters.Add(valorRetorno2);
-
-                comando.ExecuteNonQuery();  // Ejecuta el sp
-
-                resultadoSP.CodigoError = (int)valorRetorno1.Value;
-                resultadoSP.DescripcionError = valorRetorno2.Value.ToString();
-
-                return resultadoSP;
-            }
-            catch (Exception ex)
-            {
-                resultadoSP.CodigoError = 99;
-                resultadoSP.DescripcionError = "Error Fatal: " + ex.Message;
-                return resultadoSP;
-            }
-
         }
 
         /// <summary>
@@ -262,7 +207,7 @@ namespace ClinicaFrba.DAO
         /// <param name="funcionalidad"></param>
         /// <param name="tran"></param>
         /// <returns></returns>
-        public Respuesta insertaRolFuncionalidad(Rol rol, Funcionalidad funcionalidad, SqlTransaction tran = null)
+        public Respuesta insertaFuncionalidadEnRol(Rol rol, Funcionalidad funcionalidad)
         {
             if (conexion.State == ConnectionState.Closed)
             {
@@ -270,15 +215,12 @@ namespace ClinicaFrba.DAO
             }
 
             Respuesta respuesta = new Respuesta();
-            
+
             try
             {
                 SqlCommand comando = new SqlCommand("FLOPANICMA.SP_ABM_ROL_AGREGAR_FUNCIONALIDAD", conexion);
-                comando.Transaction = tran;
                 comando.CommandType = CommandType.StoredProcedure;
-
                 comando.Parameters.Clear();
-
                 comando.Parameters.AddWithValue("@DESC_ROL", rol.Descripcion);
                 comando.Parameters.AddWithValue("@DESC_FUNCIONALIDAD", funcionalidad.Descripcion);
 
@@ -295,17 +237,19 @@ namespace ClinicaFrba.DAO
                 comando.ExecuteNonQuery();
 
                 respuesta.CodigoError = (int)valorRetorno1.Value;
-
                 respuesta.DescripcionError = valorRetorno2.Value.ToString();
-
                 return respuesta;
 
             }
+
             catch (Exception ex)
             {
-                respuesta.CodigoError = 99;
-                respuesta.DescripcionError = "Error Fatal!:" + ex.Message;
-                return respuesta;
+                throw ex;
+            }
+
+            finally
+            {
+                conexion.Close();
             }
         }
 
@@ -460,6 +404,34 @@ namespace ClinicaFrba.DAO
                 resultadoSP.CodigoError = 99;
                 resultadoSP.DescripcionError = "Error Fatal: " + ex.Message;
                 return resultadoSP;
+            }
+        }
+
+        internal void limpiarFuncionalidades(int idRol)
+        {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
+            try
+            {
+                SqlCommand comando = new SqlCommand("DELETE FROM FLOPANICMA.ROL_FUNCIONALIDAD " +
+                                                    "WHERE ID_ROL = @ID_ROL",conexion);
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID_ROL",idRol);
+                comando.ExecuteNonQuery();
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally 
+            {
+                conexion.Close();
             }
         }
     }

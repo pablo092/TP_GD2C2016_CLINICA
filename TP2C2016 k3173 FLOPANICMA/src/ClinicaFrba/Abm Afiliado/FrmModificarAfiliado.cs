@@ -59,9 +59,6 @@ namespace ClinicaFrba.Abm_Afiliado
         }
 
         /*** EVENTOS ***/
-
-        //txtNombre
-
         private void txtNombre_Enter(object sender, EventArgs e)
         {
             txtNombre.SelectAll();
@@ -79,6 +76,11 @@ namespace ClinicaFrba.Abm_Afiliado
             if (caracter == Convert.ToChar(Keys.Enter))
             {
                 txtApellido.Focus();
+            }
+
+            if (!(caracter >= 65 && caracter <= 90) && !(caracter >= 97 && caracter <= 122) && (!char.IsSeparator(caracter)) && (caracter != 8))
+            {
+                e.Handled = true;
             }
         }
 
@@ -116,6 +118,11 @@ namespace ClinicaFrba.Abm_Afiliado
             if (caracter == Convert.ToChar(Keys.Enter))
             {
                 txtDNI.Focus();
+            }
+
+            if (!(caracter >= 65 && caracter <= 90) && !(caracter >= 97 && caracter <= 122) && (!char.IsSeparator(caracter)) && (caracter != 8))
+            {
+                e.Handled = true;
             }
         }
 
@@ -415,6 +422,7 @@ namespace ClinicaFrba.Abm_Afiliado
                             }
 
                             txtNroAfil.Text = Convert.ToString(nro_afiliado);
+                            int id_afiliado= new AfiliadoDAO().GetIdPorNroAfiliado(Convert.ToDecimal(txtNroAfil.Text));
 
                             if (chbAsociar.Checked == true)
                             {
@@ -424,8 +432,9 @@ namespace ClinicaFrba.Abm_Afiliado
                                     cantFamiliaresARegistrar+= Convert.ToInt32(nudCantFam.Value);
                                 }
 
-                                MessageBox.Show("El afiliado ha sido registrado proceda a registrar a los familiares","Registro afiliado",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
+                                MessageBox.Show("Su nombre de usuario es: afil" + Convert.ToString(id_afiliado) + "\nSu contraseña inicial es: w23e", "Nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);    
+                                MessageBox.Show("El afiliado ha sido registrado, proceda a registrar a los familiares","Registro afiliado",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                 
                                 for(int i=0;i<cantFamiliaresARegistrar;i++)
                                 {
                                     FrmModificarAfiliado frmModificarAfiliado = new FrmModificarAfiliado(nro_afiliado);
@@ -438,7 +447,8 @@ namespace ClinicaFrba.Abm_Afiliado
                                 {
                                     cantFamiliaresARegistrar = Convert.ToInt32(nudCantFam.Value);
 
-                                    MessageBox.Show("El afiliado ha sido registrado proceda a registrar a los familiares","Registro afiliado",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    MessageBox.Show("Su nombre de usuario es: afil" + Convert.ToString(id_afiliado) + "\nSu contraseña inicial es: w23e", "Nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("El afiliado ha sido registrado, proceda a registrar a los familiares","Registro afiliado",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                                     for (int i = 0; i<cantFamiliaresARegistrar;i++)
                                     {
@@ -448,6 +458,7 @@ namespace ClinicaFrba.Abm_Afiliado
                                 }
                                 else
                                 {
+                                    MessageBox.Show("Su nombre de usuario es: afil" + Convert.ToString(id_afiliado) + "\nSu contraseña inicial es: w23e", "Nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                      MessageBox.Show("El afiliado ha sido registrado", "Registro Afiliado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                      if(raiz==false)
                                      {

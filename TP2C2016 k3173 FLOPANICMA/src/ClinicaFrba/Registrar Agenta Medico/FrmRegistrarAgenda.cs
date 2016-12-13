@@ -39,80 +39,129 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
         {
             Respuesta resp = new Respuesta();
 
-            if ((CMBEspecialidad.SelectedIndex != -1)  && (CMBEspecialidad.SelectedIndex != -1))
+            if (limiteHoras())
             {
-                AgendaDAO agdao = new AgendaDAO();
-                Agenda ag = new Agenda();
-                String profesional = (string)CMBProfesionales.Text;
-                int finCadena = profesional.IndexOf("-");
-                profesional = profesional.Substring(0, finCadena);
-                
-                ag.IdProf = agdao.GetIdProfesional(profesional);
-                ag.IdEsp = agdao.GetIdEspecialidad(CMBEspecialidad.Text);
-                ag.PeriodoInicio = DTPInicio.Value;
-                ag.PeriodoFin = DTPFin.Value;
+                MessageBox.Show("La cantidad de horas seleccionadas supera el limite permitido por semana", "Registrar agenda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if ((CMBEspecialidad.SelectedIndex != -1) && (CMBEspecialidad.SelectedIndex != -1))
+                {
+                    AgendaDAO agdao = new AgendaDAO();
+                    Agenda ag = new Agenda();
+                    String profesional = (string)CMBProfesionales.Text;
+                    int finCadena = profesional.IndexOf("-");
+                    profesional = profesional.Substring(0, finCadena);
 
-                if (CHBLunes.Checked == true)
-                {
-                    ag.Dia = "Lunes";
-                    ag.HoraInicio = (int)NUDInicioLunes.Value;
-                    ag.HoraFin = (int)NUDFinLunes.Value;
-                    resp = agdao.insertarAgenda(ag);
-                }
-                if (CHBMartes.Checked == true)
-                {
-                    ag.Dia = "Martes";
-                    ag.HoraInicio = (int)NUDInicioMartes.Value;
-                    ag.HoraFin = (int)NUDFinMartes.Value;
-                    resp = agdao.insertarAgenda(ag);
-                }
+                    ag.IdProf = agdao.GetIdProfesional(profesional);
+                    ag.IdEsp = agdao.GetIdEspecialidad(CMBEspecialidad.Text);
+                    ag.PeriodoInicio = DTPInicio.Value;
+                    ag.PeriodoFin = DTPFin.Value;
 
-                if (CHBMiercoles.Checked == true)
-                {
-                    ag.Dia = "Miércoles";
-                    ag.HoraInicio = (int)NUDInicioMiercoles.Value;
-                    ag.HoraFin = (int)NUDFinMiercoles.Value;
-                    resp = agdao.insertarAgenda(ag);
-                }
+                    if (CHBLunes.Checked == true)
+                    {
+                        ag.Dia = "Lunes";
+                        ag.HoraInicio = (int)NUDInicioLunes.Value;
+                        ag.HoraFin = (int)NUDFinLunes.Value;
+                        resp = agdao.insertarAgenda(ag);
+                    }
+                    if (CHBMartes.Checked == true)
+                    {
+                        ag.Dia = "Martes";
+                        ag.HoraInicio = (int)NUDInicioMartes.Value;
+                        ag.HoraFin = (int)NUDFinMartes.Value;
+                        resp = agdao.insertarAgenda(ag);
 
-                if (CHBJueves.Checked == true)
-                {
-                    ag.Dia = "Jueves";
-                    ag.HoraInicio = (int)NUDInicioJueves.Value;
-                    ag.HoraFin = (int)NUDFinJueves.Value;
-                    resp = agdao.insertarAgenda(ag);
-                }
+                    }
 
-                if (CHBViernes.Checked == true)
-                {
-                    ag.Dia = "Viernes";
-                    ag.HoraInicio = (int)NUDInicioViernes.Value;
-                    ag.HoraFin = (int)NUDFinViernes.Value;
-                    resp = agdao.insertarAgenda(ag);
-                }
+                    if (CHBMiercoles.Checked == true)
+                    {
+                        ag.Dia = "Miércoles";
+                        ag.HoraInicio = (int)NUDInicioMiercoles.Value;
+                        ag.HoraFin = (int)NUDFinMiercoles.Value;
+                        resp = agdao.insertarAgenda(ag);
+                    }
 
-                if (CHBSabado.Checked == true)
-                {
-                    ag.Dia = "Sábado";
-                    ag.HoraInicio = (int)NUDInicioSabado.Value;
-                    ag.HoraFin = (int)NUDFinSabado.Value;
-                    resp = agdao.insertarAgenda(ag);
-                }
+                    if (CHBJueves.Checked == true)
+                    {
+                        ag.Dia = "Jueves";
+                        ag.HoraInicio = (int)NUDInicioJueves.Value;
+                        ag.HoraFin = (int)NUDFinJueves.Value;
+                        resp = agdao.insertarAgenda(ag);
+                    }
 
-                if ((CHBLunes.Checked == false) && (CHBMartes.Checked == false) && (CHBMiercoles.Checked == false) && (CHBJueves.Checked == false) &&
-                    (CHBViernes.Checked == false) && (CHBSabado.Checked == false))
-                {
-                    MessageBox.Show("Debe seleccionar dia/s laborables", "Agenda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                else
-                {
-                    MessageBox.Show(resp.DescripcionError, "Agenda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (CHBViernes.Checked == true)
+                    {
+                        ag.Dia = "Viernes";
+                        ag.HoraInicio = (int)NUDInicioViernes.Value;
+                        ag.HoraFin = (int)NUDFinViernes.Value;
+                        resp = agdao.insertarAgenda(ag);
+                    }
+
+                    if (CHBSabado.Checked == true)
+                    {
+                        ag.Dia = "Sábado";
+                        ag.HoraInicio = (int)NUDInicioSabado.Value;
+                        ag.HoraFin = (int)NUDFinSabado.Value;
+                        resp = agdao.insertarAgenda(ag);
+                    }
+
+                    if ((CHBLunes.Checked == false) && (CHBMartes.Checked == false) && (CHBMiercoles.Checked == false) && (CHBJueves.Checked == false) &&
+                        (CHBViernes.Checked == false) && (CHBSabado.Checked == false))
+                    {
+                        MessageBox.Show("Debe seleccionar dia/s laborables", "Agenda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        MessageBox.Show(resp.DescripcionError, "Agenda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
             }
-            
-                
-            
-            
+        }
+
+        private bool limiteHoras()
+        {
+            decimal acum = 0;
+
+            if (CHBLunes.Checked == true)
+            {
+                acum += (NUDFinLunes.Value - NUDInicioLunes.Value);
+            }
+
+            if (CHBMartes.Checked == true)
+            {
+                acum += (NUDFinMartes.Value - NUDInicioMartes.Value);
+            }
+
+            if (CHBMiercoles.Checked == true)
+            {
+                acum += (NUDFinMiercoles.Value - NUDInicioMiercoles.Value);
+            }
+
+            if (CHBJueves.Checked == true)
+            {
+                acum += (NUDFinJueves.Value - NUDInicioJueves.Value);
+            }
+
+            if (CHBViernes.Checked == true)
+            {
+                acum += (NUDFinViernes.Value - NUDInicioViernes.Value);
+            }
+
+            if (CHBSabado.Checked == true)
+            {
+                acum += (NUDFinSabado.Value - NUDInicioSabado.Value);
+            }
+
+            if (acum > 48)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         

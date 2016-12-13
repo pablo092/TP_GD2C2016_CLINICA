@@ -39,7 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbRoles = new System.Windows.Forms.ComboBox();
-            this.btnSeleccionRol = new System.Windows.Forms.Button();
+            this.btnIniciarSesionPorRol = new System.Windows.Forms.Button();
             this.lbFechaActual = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -139,22 +139,22 @@
             // cmbRoles
             // 
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(123, 431);
+            this.cmbRoles.Location = new System.Drawing.Point(123, 375);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(181, 21);
             this.cmbRoles.TabIndex = 6;
             this.cmbRoles.Visible = false;
             // 
-            // btnSeleccionRol
+            // btnIniciarSesionPorRol
             // 
-            this.btnSeleccionRol.Location = new System.Drawing.Point(329, 422);
-            this.btnSeleccionRol.Name = "btnSeleccionRol";
-            this.btnSeleccionRol.Size = new System.Drawing.Size(157, 37);
-            this.btnSeleccionRol.TabIndex = 7;
-            this.btnSeleccionRol.Text = "SELECCIONAR ROL";
-            this.btnSeleccionRol.UseVisualStyleBackColor = true;
-            this.btnSeleccionRol.Visible = false;
-            this.btnSeleccionRol.Click += new System.EventHandler(this.btnSeleccionRol_Click);
+            this.btnIniciarSesionPorRol.Location = new System.Drawing.Point(123, 419);
+            this.btnIniciarSesionPorRol.Name = "btnIniciarSesionPorRol";
+            this.btnIniciarSesionPorRol.Size = new System.Drawing.Size(157, 37);
+            this.btnIniciarSesionPorRol.TabIndex = 7;
+            this.btnIniciarSesionPorRol.Text = "INICIAR SESION";
+            this.btnIniciarSesionPorRol.UseVisualStyleBackColor = true;
+            this.btnIniciarSesionPorRol.Visible = false;
+            this.btnIniciarSesionPorRol.Click += new System.EventHandler(this.btnSeleccionRol_Click);
             // 
             // lbFechaActual
             // 
@@ -173,7 +173,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(498, 523);
             this.Controls.Add(this.lbFechaActual);
-            this.Controls.Add(this.btnSeleccionRol);
+            this.Controls.Add(this.btnIniciarSesionPorRol);
             this.Controls.Add(this.cmbRoles);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.btnCerrar);
@@ -206,7 +206,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbRoles;
-        private System.Windows.Forms.Button btnSeleccionRol;
+        private System.Windows.Forms.Button btnIniciarSesionPorRol;
         private System.Windows.Forms.Label lbFechaActual;
     }
 }

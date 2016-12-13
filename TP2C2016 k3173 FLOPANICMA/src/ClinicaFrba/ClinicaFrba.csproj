@@ -101,7 +101,6 @@
     </Compile>
     <Compile Include="Administrador\AdministradorAfiliado.cs" />
     <Compile Include="Administrador\AdministradorAgenda.cs" />
-    <Compile Include="Administrador\AdministradorRol.cs" />
     <Compile Include="Cancelar Atencion\FrmCancelarAtencion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +264,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registrar Agenta Medico\FrmRegistrarAgenda.resx">
       <DependentUpon>FrmRegistrarAgenda.cs</DependentUpon>
@@ -288,7 +288,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\simboloClinicaFRBA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

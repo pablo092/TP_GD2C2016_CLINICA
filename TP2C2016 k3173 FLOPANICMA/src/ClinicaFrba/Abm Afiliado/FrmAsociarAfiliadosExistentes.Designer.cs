@@ -73,6 +73,7 @@
             this.txtPricipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPricipal.Location = new System.Drawing.Point(212, 45);
             this.txtPricipal.Name = "txtPricipal";
+            this.txtPricipal.ShortcutsEnabled = false;
             this.txtPricipal.Size = new System.Drawing.Size(147, 26);
             this.txtPricipal.TabIndex = 3;
             this.txtPricipal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPricipal_KeyPress);
@@ -82,6 +83,7 @@
             this.txtVinculado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVinculado.Location = new System.Drawing.Point(212, 109);
             this.txtVinculado.Name = "txtVinculado";
+            this.txtVinculado.ShortcutsEnabled = false;
             this.txtVinculado.Size = new System.Drawing.Size(147, 26);
             this.txtVinculado.TabIndex = 4;
             this.txtVinculado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPricipal_KeyPress);
@@ -93,6 +95,7 @@
             this.txtNroAfiliado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNroAfiliado.Location = new System.Drawing.Point(212, 171);
             this.txtNroAfiliado.Name = "txtNroAfiliado";
+            this.txtNroAfiliado.ShortcutsEnabled = false;
             this.txtNroAfiliado.Size = new System.Drawing.Size(147, 26);
             this.txtNroAfiliado.TabIndex = 5;
             this.txtNroAfiliado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPricipal_KeyPress);

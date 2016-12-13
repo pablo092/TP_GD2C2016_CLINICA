@@ -103,7 +103,6 @@ namespace ClinicaFrba
             }
             if (UsuarioLogueado.funcionalidades.Contains("ABM DE AFILIADO"))
             {
-                btnModifPlanes.Visible = true;
                 btnMenuAfiliado.Visible = true;
             }
             if (UsuarioLogueado.funcionalidades.Contains("ABM DE PLANES MEDICOS"))
@@ -135,7 +134,7 @@ namespace ClinicaFrba
                 btnMenuRegistrar.Visible = true;
                 btnMenuRegistrarLlegadaAM.Visible = true;
             }
-            if (UsuarioLogueado.funcionalidades.Contains("LISTADO"))
+            if (UsuarioLogueado.funcionalidades.Contains("LISTADOS ESTADISTICOS"))
             {
                 btnMenuListadoEstadistico.Visible = true;
             }
@@ -147,6 +146,10 @@ namespace ClinicaFrba
             if (UsuarioLogueado.funcionalidades.Contains("CANCELAR ATENCION"))
             {
                 btnMenuCancelarAtencion.Visible = true;
+            }
+            if (UsuarioLogueado.funcionalidades.Contains("HISTORIAL CAMBIOS PLANES MEDICOS"))
+            {
+                btnModifPlanes.Visible = true;
             }
         }
 
@@ -274,6 +277,17 @@ namespace ClinicaFrba
             frmAsociarAfiliadosExistentes.ShowDialog();
         }
 
-        
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            lblNombreUsuario.Text = new UsuarioDAO().GetNombrePorIdUsuario(UsuarioLogueado.usuario.Id);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmlogin = new FrmLogin();
+            frmlogin.ShowDialog();
+            this.Close();
+        }        
     }
 }

@@ -82,8 +82,9 @@ namespace ClinicaFrba
 
                     if (roles.Rows.Count > 1)
                     {
+                        btnIngresar.Visible = false;
                         cmbRoles.DataSource = roles;
-                        btnSeleccionRol.Visible = true;
+                        btnIniciarSesionPorRol.Visible = true;
                         cmbRoles.DisplayMember = "DESCRIPCION";
                         cmbRoles.ValueMember = "ID_ROL";
                         cmbRoles.Visible = true;
@@ -151,14 +152,13 @@ namespace ClinicaFrba
 
         /*** BOTONES ***/
 
-        // Se toma el rol seleccionado, y se le pregunta al usuario si quiere que ese pase a ser su único rol. 
-        // En caso de que acepte, se eliminan los otros rol asociados.
+        // Se toma el rol seleccionado, y se le pregunta al usuario si quiere que ese pase a ser su único rol.
         private void btnSeleccionRol_Click(object sender, EventArgs e)
         {
             Rol unRol = new Rol();
             unRol.Descripcion = cmbRoles.Text;
             unRol.Id = (int)cmbRoles.SelectedValue;
-
+/*
             DialogResult dialogResult = MessageBox.Show("Ha seleccionado el perfil " + cmbRoles.Text + " si continua ese perfil sera el que use desde ahora como unico perfil.", "Perfil permanente", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -179,7 +179,8 @@ namespace ClinicaFrba
             {
                 return;
             }
-
+*/
+            login.Rol = unRol;
             this.abrirFormularioMenu(login);
         }
 

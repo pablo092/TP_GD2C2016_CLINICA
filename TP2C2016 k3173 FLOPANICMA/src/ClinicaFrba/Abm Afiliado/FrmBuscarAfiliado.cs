@@ -74,6 +74,7 @@ namespace ClinicaFrba.Abm_Afiliado
                     cmbPlanMedico.Text = persona.PlanMedico;
                     nudFamiliares.Value = persona.Cantidad_Hijos;
                     HabilitarControles(true);
+                    txtDetalle.Enabled = false;
                 }
                 else
                 {
@@ -228,7 +229,14 @@ namespace ClinicaFrba.Abm_Afiliado
 
         private void cmbPlanMedico_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtDetalle.Enabled = true;
+            if (cmbPlanMedico.Text != persona.PlanMedico)
+            {
+                txtDetalle.Enabled = true;
+            }
+            else
+            {
+                txtDetalle.Enabled = false;
+            }
         }
 
         private void txtDetalle_Enter(object sender, EventArgs e)
@@ -244,41 +252,32 @@ namespace ClinicaFrba.Abm_Afiliado
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if ((txtDireccion.Text != "") && (txtTelefono.Text != "") && (txtMail.Text != ""))
+            if ((txtDetalle.Enabled == true) && (String.IsNullOrWhiteSpace(txtDetalle.Text)))
             {
-                if ((!txtMail.Text.Contains("@")) || (!txtMail.Text.Contains(".com")))
+                MessageBox.Show("Debe ingresar el motivo del cambio del plan medico", "Modificacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else 
+            {
+                if ((txtDireccion.Text != "") && (txtTelefono.Text != "") && (txtMail.Text != ""))
                 {
-                    MessageBox.Show("El E-mail ingresado no es correcto", "Modificacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    int cantFamiliaresARegistrar = 0;
-                    
-                    if ((chbAsociar.Checked == true))
+                    if ((!txtMail.Text.Contains("@")) || (!txtMail.Text.Contains(".com")))
                     {
-                        cantFamiliaresARegistrar = 1;
-
-                        if (chbAsociarFamiliar.Checked == true)
-                        {
-                            if (nudFamiliares.Value > persona.Cantidad_Hijos)
-                            {
-                                cantFamiliaresARegistrar += (Convert.ToInt32(nudFamiliares.Value) - persona.Cantidad_Hijos);
-                            }
-                        }
-
-                        for (int i = 0; i < cantFamiliaresARegistrar; i++)
-                        {
-                            FrmModificarAfiliado frmAgregarFamiliar = new FrmModificarAfiliado(Convert.ToInt32(txtNroAfiliado.Text));
-                            frmAgregarFamiliar.ShowDialog();
-                        }
+                        MessageBox.Show("El E-mail ingresado no es correcto", "Modificacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        if (chbAsociarFamiliar.Checked == true)
+                        int cantFamiliaresARegistrar = 0;
+
+                        if ((chbAsociar.Checked == true))
                         {
-                            if (nudFamiliares.Value > persona.Cantidad_Hijos)
+                            cantFamiliaresARegistrar = 1;
+
+                            if (chbAsociarFamiliar.Checked == true)
                             {
-                                cantFamiliaresARegistrar = (Convert.ToInt32(nudFamiliares.Value) - persona.Cantidad_Hijos);
+                                if (nudFamiliares.Value > persona.Cantidad_Hijos)
+                                {
+                                    cantFamiliaresARegistrar += (Convert.ToInt32(nudFamiliares.Value) - persona.Cantidad_Hijos);
+                                }
                             }
 
                             for (int i = 0; i < cantFamiliaresARegistrar; i++)
@@ -287,50 +286,53 @@ namespace ClinicaFrba.Abm_Afiliado
                                 frmAgregarFamiliar.ShowDialog();
                             }
                         }
-                    }
+                        else
+                        {
+                            if (chbAsociarFamiliar.Checked == true)
+                            {
+                                if (nudFamiliares.Value > persona.Cantidad_Hijos)
+                                {
+                                    cantFamiliaresARegistrar = (Convert.ToInt32(nudFamiliares.Value) - persona.Cantidad_Hijos);
+                                }
 
-                    String detalle;
+                                for (int i = 0; i < cantFamiliaresARegistrar; i++)
+                                {
+                                    FrmModificarAfiliado frmAgregarFamiliar = new FrmModificarAfiliado(Convert.ToInt32(txtNroAfiliado.Text));
+                                    frmAgregarFamiliar.ShowDialog();
+                                }
+                            }
+                        }
 
-                    Afiliado afiliado = new Afiliado();
+                        String detalle;
 
-                    afiliado.PlanMedico = cmbPlanMedico.Text;
-                    afiliado.Direccion = txtDireccion.Text;
-                    afiliado.Telefono = txtTelefono.Text;
-                    afiliado.Email = txtMail.Text;
-                    afiliado.Estado_Civil = cmbEstado.Text;
-                    afiliado.Cantidad_Hijos =Convert.ToInt32(nudFamiliares.Value);
-                    afiliado.NroAfiliado = Convert.ToInt32(txtNroAfiliado.Text);
+                        Afiliado afiliado = new Afiliado();
 
-                    if (String.IsNullOrWhiteSpace(txtDetalle.Text))
-                    {
-                        detalle = "No especifica";
-                    }
-                    else
-                    {
+                        afiliado.PlanMedico = cmbPlanMedico.Text;
+                        afiliado.Direccion = txtDireccion.Text;
+                        afiliado.Telefono = txtTelefono.Text;
+                        afiliado.Email = txtMail.Text;
+                        afiliado.Estado_Civil = cmbEstado.Text;
+                        afiliado.Cantidad_Hijos = Convert.ToInt32(nudFamiliares.Value);
+                        afiliado.NroAfiliado = Convert.ToInt32(txtNroAfiliado.Text);
                         detalle = txtDetalle.Text;
+
+                        new AfiliadoDAO().ActualizarAfiliado(afiliado, detalle);
+
+                        MessageBox.Show("Los datos del afiliado han sido actualizados", "Actualizacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarCampos();
+                        HabilitarControles(false);
                     }
-
-                    new AfiliadoDAO().ActualizarAfiliado(afiliado, detalle);
-
-                    MessageBox.Show("Los datos del afiliado han sido actualizados", "Actualizacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    HabilitarControles(false);
-                    LimpiarCampos();
                 }
-
+                else
+                {
+                    MessageBox.Show("Todos los campos deben ser cargados", "Modificar afiliado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
-            {
-                MessageBox.Show("Todos los campos deben ser cargados", "Modificar afiliado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        
-
     }
 }

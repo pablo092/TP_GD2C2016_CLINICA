@@ -97,7 +97,7 @@ namespace ClinicaFrba.DAO
                 conexion.Open();
             }
 
-            Int32 nro_afiliado =Convert.ToInt32(p.Substring(0,p.IndexOf("-")-1));
+            Int32 nro_afiliado =Convert.ToInt32(p.Substring(0,p.IndexOf("-")));
 
             try
             {
@@ -179,7 +179,7 @@ namespace ClinicaFrba.DAO
 
         }
 
-        internal void RegistrarCancelacionProfesional(DateTime Inicio, DateTime fin, Int32 id_profesional, String detalle)
+        internal int RegistrarCancelacionProfesional(DateTime Inicio, DateTime fin, Int32 id_profesional, String detalle)
         {
             if(conexion.State==ConnectionState.Closed)
             {
@@ -194,7 +194,7 @@ namespace ClinicaFrba.DAO
                 comando.Parameters.AddWithValue("@FIN", fin);
                 comando.Parameters.AddWithValue("ID_PROFESIONAL", id_profesional);
                 comando.Parameters.AddWithValue("@DETALLE", detalle);
-                comando.ExecuteNonQuery();
+                return comando.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

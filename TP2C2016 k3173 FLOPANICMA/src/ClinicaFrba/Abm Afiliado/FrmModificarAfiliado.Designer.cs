@@ -212,7 +212,7 @@
             this.txtDNI.Enabled = false;
             this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDNI.Location = new System.Drawing.Point(207, 158);
-            this.txtDNI.MaxLength = 255;
+            this.txtDNI.MaxLength = 8;
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.ShortcutsEnabled = false;
             this.txtDNI.Size = new System.Drawing.Size(237, 26);
@@ -244,7 +244,7 @@
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.Location = new System.Drawing.Point(207, 253);
-            this.txtTelefono.MaxLength = 255;
+            this.txtTelefono.MaxLength = 25;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ShortcutsEnabled = false;
             this.txtTelefono.Size = new System.Drawing.Size(237, 26);
